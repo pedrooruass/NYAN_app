@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nyan_app/app/core/pages/my_home_page/my_home_page.dart';
+import 'package:nyan_app/app/pages/my_home_page/my_home_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({ Key? key }) : super(key: key);
