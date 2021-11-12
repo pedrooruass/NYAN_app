@@ -9,18 +9,20 @@ class MyAppBarWidget extends PreferredSize {
             height,
           ),
           child: SafeArea(
-            child: ListTile(
-              tileColor: Colors.transparent,
-              leading: Image.asset(
-                "assets/Source Logo.png",
-                fit: BoxFit.contain,
-                height: 300,
-              ),
-              title: Text(
-                'My App Bar',
-                style: Theme.of(context).textTheme.headline6,
+            child: Padding(
+              padding: const EdgeInsets.only(top: 15),
+              child: ListTile(
+                tileColor: Colors.transparent,
+                leading: Image.asset(
+                  "assets/Source Logo.png",
+                ),
+                trailing: GestureDetector(
+                  child: Image.asset(
+                    "assets/robot.png",
+                  ),
+                ),
               ),
             ),
           ),
-          );
+        );
 }

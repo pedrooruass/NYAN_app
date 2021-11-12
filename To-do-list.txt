@@ -1,3 +1,6 @@
 1- Organization of files - DONE
 2- Organize main and first screen - DONE
 3- Search the font for the app
+4- Fix app bar - DONE
+5- see how to do the drawer with the robot image
+6- Sinc screens and bottomNavigationBar - ARRUMAR ISSO LOGO FDP
