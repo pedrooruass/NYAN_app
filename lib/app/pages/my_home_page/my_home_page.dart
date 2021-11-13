@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:nyan_app/app/core/theme/app_colors.dart';
 import 'package:nyan_app/app/pages/my_home_page/widgets/my_app_bar_widget.dart';
@@ -16,7 +14,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int selectedIndex = 0;
-  final PageController pageController = PageController(initialPage: 1);
+  final PageController pageController = PageController(initialPage: 0);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,7 +66,13 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       bottomNavigationBar: MyBottomNavigationBarWidget(
-        pageController: pageController,
+        selectedIndex: selectedIndex,
+        onChanged: (index) {
+        setState(() {
+          selectedIndex = index;
+          pageController.jumpToPage(selectedIndex);
+        });
+      },
       ),
     );
   }

@@ -5,9 +5,9 @@ import 'package:sliding_clipped_nav_bar/sliding_clipped_nav_bar.dart';
 
 class MyBottomNavigationBarWidget extends StatefulWidget {
   final int selectedIndex;
-  final PageController pageController;
+  final void Function(int) onChanged;
   const MyBottomNavigationBarWidget(
-      {Key? key, required this.pageController, required this.selectedIndex})
+      {Key? key, required this.selectedIndex, required this.onChanged})
       : super(key: key);
 
   @override
@@ -21,12 +21,7 @@ class _MyBottomNavigationBarWidgetState
   Widget build(BuildContext context) {
     return SlidingClippedNavBar.colorful(
       backgroundColor: Colors.white,
-      onButtonPressed: (index) {
-        setState(() {
-          widget.selectedIndex = index;
-          widget.pageController.jumpToPage(widget.selectedIndex);
-        });
-      },
+      onButtonPressed: widget.onChanged,
       iconSize: 30,
       selectedIndex: widget.selectedIndex,
       barItems: [

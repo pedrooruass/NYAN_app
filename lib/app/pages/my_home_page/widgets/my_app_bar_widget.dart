@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:nyan_app/app/core/theme/app_colors.dart';
 
 class MyAppBarWidget extends PreferredSize {
   MyAppBarWidget(
@@ -16,10 +18,9 @@ class MyAppBarWidget extends PreferredSize {
                 leading: Image.asset(
                   "assets/Source Logo.png",
                 ),
-                trailing: GestureDetector(
-                  child: Image.asset(
-                    "assets/robot.png",
-                  ),
+                trailing: IconButton(
+                  icon:  Icon(FontAwesomeIcons.bars, color: AppColors.secondary,),
+                  onPressed: () {},
                 ),
               ),
             ),
