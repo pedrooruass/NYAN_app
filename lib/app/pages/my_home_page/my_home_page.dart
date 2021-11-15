@@ -13,8 +13,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int selectedIndex = 0;
-  final PageController pageController = PageController(initialPage: 0);
+  int selectedIndex = 1;
+  final PageController pageController = PageController(initialPage: 1);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
