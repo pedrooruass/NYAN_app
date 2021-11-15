@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
       title: "NYAN Robotics Team",
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        fontFamily: 'Kanit',
       ),
       home: const MyHomePage(),
     );

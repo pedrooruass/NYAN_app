@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:nyan_app/app/core/theme/app_colors.dart';
-import 'package:nyan_app/app/pages/score_app/widgets/autonomous.dart';
 
 class Game extends StatelessWidget {
   const Game({Key? key}) : super(key: key);
@@ -14,9 +13,17 @@ class Game extends StatelessWidget {
       child: Column(
         // mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const SizedBox(height: 30),
-          Image.asset("assets/robot.png"),
-          const SizedBox(height: 50,),
+          // const SizedBox(height: 50,),
+          // Image.asset("assets/Source Logo.png"),
+          const SizedBox(height: 100,),
+          const Text(
+                      "10091",
+                      style: TextStyle(
+                        fontSize: 55,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+          const SizedBox(height: 35,),
           GestureDetector(
             onTap: () {},
             child: Container(
@@ -36,13 +43,17 @@ class Game extends StatelessWidget {
                 'Start',
                 style: TextStyle(
                   fontSize: 20,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w300,
                   color: Colors.white,
                 ),
                 textAlign: TextAlign.center,
               ),
             ),
           ),
+          // Image.asset("assets/ghost.gif")
+          Image.asset("assets/boxer.gif"),
+          const SizedBox(height: 15,),
+
         ],
       ),
     );
