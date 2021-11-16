@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:nyan_app/app/core/theme/app_colors.dart';
 import 'package:nyan_app/app/pages/my_home_page/widgets/my_app_bar_widget.dart';
 import 'package:nyan_app/app/pages/my_home_page/widgets/my_bottom_navigation_bar_widget.dart';
-import 'package:nyan_app/app/pages/rules_app/rules_page.dart';
-import 'package:nyan_app/app/pages/score_app/score_page.dart';
+import 'package:nyan_app/app/pages/rules_page/rules_page.dart';
+import 'package:nyan_app/app/pages/score_page/score_page.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -68,11 +68,11 @@ class _MyHomePageState extends State<MyHomePage> {
       bottomNavigationBar: MyBottomNavigationBarWidget(
         selectedIndex: selectedIndex,
         onChanged: (index) {
-        setState(() {
-          selectedIndex = index;
-          pageController.jumpToPage(selectedIndex);
-        });
-      },
+          setState(() {
+            selectedIndex = index;
+            pageController.jumpToPage(selectedIndex);
+          });
+        },
       ),
     );
   }
