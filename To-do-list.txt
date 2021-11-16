@@ -1,6 +1,11 @@
-1- Organization of files - DONE
-2- Organize main and first screen - DONE
-3- Search the font for the app
-4- Fix app bar - DONE
-5- see how to do the drawer with the robot image
-6- Sinc screens and bottomNavigationBar - ARRUMAR ISSO LOGO FDP
+1- Organization of files, - DONE
+2- Organize main and first screen, - DONE
+3- Search the font for the app, - DONE 'Kanit'
+4- Fix app bar, - DONE
+5- see how to do the drawer with the robot image, - NOT ANYMORE
+6- Sinc screens and bottomNavigationBar, - ARRUMAR ISSO LOGO FDP - DONE
+7- fix big padding when use LisView, before the text("Autonomou"),
+8- Change the logo to white,
+9- FINALIZAR A POHA DA DOCUMENTACAO ATE O FINAL DA AULA DE HOJE FDPPPPPPP,
+10- Linkar o botao com o mudar de tela,
+11- Assim que fizer o 10 nao esquecer de colocar o NeverScrollableScrollPhysics(),

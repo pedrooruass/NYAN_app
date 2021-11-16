@@ -5,7 +5,7 @@ class RulesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ListView(
       children: [
         /* ------------------------------- Autonomous ------------------------------- */
         const Text(
@@ -18,10 +18,10 @@ class RulesPage extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
         const SizedBox(
-          height: 10,
+          height: 5,
         ),
         const Text(
-          'The Autonomous period is the period of time which the robot is in control of it. During this period, the robot is just allowed to move autonomously without any human intervention. It is the most important part, it is the part that shows if your team is good at coding or not.',
+          "Robots may Deliver Pre-loaded Boxes to a randomly selected level of the Alliance Shipping Hub. Teams may opt to use the Duck placed on the field, or may use their Team Shipping Element, which provides more points when used to determine where Freight is delivered to the correct level of the Alliance Shipping Hub. Alliances also earn points by Navigating to the Storage Unit or Warehouse, Scoring Freight in the Storage Unit or Alliance Shipping Hub, and Delivering Ducks onto the Playing Field Floor via the Carousel.",
           style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
           textAlign: TextAlign.center,
         ),
@@ -40,10 +40,10 @@ class RulesPage extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
         const SizedBox(
-          height: 10,
+          height: 5,
         ),
         const Text(
-          'The Driver Controlled period is the period of time in which 2 drivers are allowed to grab the controllers and be in control of all the robot. In this part, the communication and teamwork are so important.',
+          'Alliances earn points by collecting Freight from the Warehouse and Scoring the Freight in the Storage Unit, their Aliance Shippping Hub, or the Shared Shipping Hub',
           style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
           textAlign: TextAlign.center,
         ),
@@ -62,10 +62,10 @@ class RulesPage extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
         const SizedBox(
-          height: 10,
+          height: 5,
         ),
         const Text(
-          'The End Game period is the last period of the match. The last 30 seconds that points count the most. During this period, It is important to have a great ability to work with your teammate and your alliance to get the most points possible.',
+          'Alliances may Deliver Ducks onto the Playing Field via the Carousels. If the Team Shipping Element was not introduced during pre-Match setup, Alliances may also Deliver their Team Shipping Element. The Team Shipping Element may be used to Cap their Alliance Shipping Hub to earn points. An Alliance will earn Balance points for the Alliance Shipping Hub being Balanced. If an Alliance’s section of the Shared Shipping Hub is contacting the tile floor, the Alliance will earn points.',
           style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
           textAlign: TextAlign.center,
         ),

@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               height: MediaQuery.of(context).size.height * 0.85,
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
                 child: PageView(
                   controller: pageController,
                   physics: const NeverScrollableScrollPhysics(),

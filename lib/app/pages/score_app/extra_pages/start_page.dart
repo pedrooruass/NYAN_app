@@ -1,31 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:nyan_app/app/core/theme/app_colors.dart';
 
-class Game extends StatelessWidget {
-  const Game({Key? key}) : super(key: key);
-
-  // NOT STARTED YET, probably a lot to fix and do here!!!
+class StartPage extends StatelessWidget {
+  const StartPage({ Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Column(
-        // mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // const SizedBox(height: 50,),
-          // Image.asset("assets/Source Logo.png"),
-          const SizedBox(height: 100,),
+          const SizedBox(
+            height: 100,
+          ),
           const Text(
-                      "10091",
-                      style: TextStyle(
-                        fontSize: 55,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-          const SizedBox(height: 35,),
+            "10091",
+            style: TextStyle(
+              fontSize: 55,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          const SizedBox(
+            height: 35,
+          ),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+            },
             child: Container(
               alignment: Alignment.center,
               decoration: BoxDecoration(
@@ -50,10 +50,10 @@ class Game extends StatelessWidget {
               ),
             ),
           ),
-          // Image.asset("assets/ghost.gif")
           Image.asset("assets/boxer.gif"),
-          const SizedBox(height: 15,),
-
+          const SizedBox(
+            height: 15,
+          ),
         ],
       ),
     );
