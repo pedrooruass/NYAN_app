@@ -25,7 +25,7 @@ class MyAppBarWidget extends PreferredSize {
                     //   ),
                     // ),
                     Image.asset(
-                  "assets/Source Logo.png",
+                  "assets/BRANCO.png",
                 ),
                 trailing: IconButton(
                   icon: Icon(
