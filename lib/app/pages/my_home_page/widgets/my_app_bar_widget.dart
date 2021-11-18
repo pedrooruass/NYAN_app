@@ -12,7 +12,7 @@ class MyAppBarWidget extends PreferredSize {
           ),
           child: SafeArea(
             child: Padding(
-              padding: const EdgeInsets.only(top: 14.5),
+              padding: const EdgeInsets.only(top: 9.5), 
               child: ListTile(
                 tileColor: Colors.transparent,
                 leading:
