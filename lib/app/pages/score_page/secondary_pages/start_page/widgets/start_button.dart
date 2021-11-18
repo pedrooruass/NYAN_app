@@ -1,3 +1,4 @@
+import 'package:bouncing_widget/bouncing_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:nyan_app/app/core/theme/app_colors.dart';
 
@@ -13,8 +14,10 @@ class StartButton extends StatefulWidget {
 class _StartButtonState extends State<StartButton> {
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {},
+    return BouncingWidget(
+      duration: const Duration(milliseconds: 100),
+      scaleFactor: 1.5,
+      onPressed: () {},
       child: Container(
         alignment: Alignment.center,
         decoration: BoxDecoration(
