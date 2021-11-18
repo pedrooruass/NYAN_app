@@ -14,22 +14,21 @@ class LiquidSwipeView extends StatefulWidget {
 }
 
 class _LiquidSwipeViewState extends State<LiquidSwipeView> {
-
   @override
   Widget build(BuildContext context) {
     return LiquidSwipe(
       pages: const [
-         Autonomous1(),
-         Autonomous2(),
+        Autonomous1(),
+        Autonomous2(),
       ],
       enableLoop: true,
       fullTransitionValue: 880,
       slideIconWidget: const Icon(
         Icons.arrow_back_ios,
-        color: Colors.black,
+        color: Colors.white
       ),
       waveType: WaveType.circularReveal,
-      positionSlideIcon: 0.1,
+      positionSlideIcon: 0.75,
     );
   }
 }
