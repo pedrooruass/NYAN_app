@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:nyan_app/app/pages/score_page/secondary_pages/autonomous_page/autonomous_1.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/liquid_swipe_view_page/liquid_swipe_view.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/start_page/start_page.dart';
+import 'package:nyan_app/app/pages/score_page/secondary_pages/team_names_page/team_names.dart';
 
 class ScorePage extends StatefulWidget {
   const ScorePage({
@@ -21,6 +21,7 @@ class _ScorePageState extends State<ScorePage> {
       controller: pageController,
       children: const [
         StartPage(),
+        // TeamNames(),
         LiquidSwipeView(),
       ],
     );

@@ -2,7 +2,7 @@
 
 10- Linkar o botao com o mudar de tela,
 11- Assim que fizer o 10 nao esquecer de colocar o NeverScrollableScrollPhysics(),
-12- Colocar o LiquidSwipe como troca de Alliance, vai ficar FDAA -> Colocar 2 icons no inicio pra simbolizar kda Alliance
+13 - Perguntar os nomes dos dois times no inicio e colocar em kda tela o nome, EX: Autonomous - NYAN pra saber em qual que voce esta.
 # ---------------------------------------------------------------------------- #
 # ----------------------------------- DONE ----------------------------------- #
     1- Organization of files, - DONE
@@ -14,5 +14,6 @@
     9- FINALIZAR A POHA DA DOCUMENTACAO ATE O FINAL DA AULA DE HOJE FDPPPPPPP, - DONE
     7- fix big padding when use LisView, before the text("Autonomous"), - DONE
     8- Change the logo to white, - DONE GORDAO
+    12- Colocar o LiquidSwipe como troca de Alliance, vai ficar FDAA -> Colocar 2 icons no inicio pra simbolizar kda Alliance - DONE
 
 # ---------------------------------------------------------------------------- #

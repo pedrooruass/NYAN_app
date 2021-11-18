@@ -14,8 +14,9 @@ class StartPage extends StatelessWidget {
       child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const SizedBox(height: 100),
+              const SizedBox(height: 50),
               const Text(
                 "10091",
                 style: TextStyle(

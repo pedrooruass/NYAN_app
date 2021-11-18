@@ -28,7 +28,7 @@ class _LiquidSwipeViewState extends State<LiquidSwipeView> {
         color: Colors.white
       ),
       waveType: WaveType.circularReveal,
-      positionSlideIcon: 0.75,
+      positionSlideIcon: 0.87,
     );
   }
 }

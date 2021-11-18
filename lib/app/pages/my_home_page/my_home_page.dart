@@ -20,7 +20,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: AppColors.primary,
       extendBodyBehindAppBar: true,
-      extendBody: true,
+      extendBody: false,
       appBar: MyAppBarWidget(
         context: context,
         height: MediaQuery.of(context).size.height * 0.55,
@@ -44,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               ),
-              height: MediaQuery.of(context).size.height * 0.85,
+              height: MediaQuery.of(context).size.height * 0.73,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
                 child: PageView(
