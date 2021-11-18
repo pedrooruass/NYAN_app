@@ -1,7 +1,8 @@
 # ----------------------------------- TODO ----------------------------------- #
-8- Change the logo to white,
+
 10- Linkar o botao com o mudar de tela,
 11- Assim que fizer o 10 nao esquecer de colocar o NeverScrollableScrollPhysics(),
+12- Colocar o LiquidSwipe como troca de Alliance, vai ficar FDAA -> Colocar 2 icons no inicio pra simbolizar kda Alliance
 # ---------------------------------------------------------------------------- #
 # ----------------------------------- DONE ----------------------------------- #
     1- Organization of files, - DONE
@@ -12,5 +13,6 @@
     6- Sinc screens and bottomNavigationBar, - ARRUMAR ISSO LOGO FDP - DONE
     9- FINALIZAR A POHA DA DOCUMENTACAO ATE O FINAL DA AULA DE HOJE FDPPPPPPP, - DONE
     7- fix big padding when use LisView, before the text("Autonomous"), - DONE
+    8- Change the logo to white, - DONE GORDAO
 
 # ---------------------------------------------------------------------------- #

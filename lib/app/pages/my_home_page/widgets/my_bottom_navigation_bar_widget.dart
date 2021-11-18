@@ -20,7 +20,7 @@ class _MyBottomNavigationBarWidgetState
   @override
   Widget build(BuildContext context) {
     return SlidingClippedNavBar.colorful(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.white,
       onButtonPressed: widget.onChanged,
       iconSize: 30,
       selectedIndex: widget.selectedIndex,

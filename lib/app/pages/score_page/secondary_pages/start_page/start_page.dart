@@ -8,24 +8,27 @@ class StartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Column(
-        children: [
-          const SizedBox(height: 100),
-          const Text(
-            "10091",
-            style: TextStyle(
-              fontSize: 55,
-              fontWeight: FontWeight.w500,
-            ),
+    return Container(
+      width: double.infinity,
+      color: Colors.white,
+      child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          child: Column(
+            children: [
+              const SizedBox(height: 100),
+              const Text(
+                "10091",
+                style: TextStyle(
+                  fontSize: 55,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              const SizedBox(height: 35),
+              const StartButton(),
+              Image.asset("assets/boxer.gif"),
+            ],
           ),
-          const SizedBox(height: 35),
-          const StartButton(),
-          Image.asset("assets/boxer.gif"),
-          const SizedBox(height: 15),
-        ],
-      ),
+        ),
     );
   }
 }
