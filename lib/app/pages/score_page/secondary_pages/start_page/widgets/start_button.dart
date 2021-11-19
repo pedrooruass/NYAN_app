@@ -28,7 +28,7 @@ class _StartButtonState extends State<StartButton> {
                 color: AppColors.secondary, spreadRadius: 5, blurRadius: 10)
           ],
         ),
-        height: 50,
+        height: 64,
         width: 200,
         child:  Text(
           'Start',
