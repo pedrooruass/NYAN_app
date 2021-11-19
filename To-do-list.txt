@@ -2,12 +2,13 @@
 
 10- Linkar o botao com o mudar de tela,
 11- Assim que fizer o 10 nao esquecer de colocar o NeverScrollableScrollPhysics(),
-13 - Perguntar os nomes dos dois times no inicio e colocar em kda tela o nome, EX: Autonomous - NYAN pra saber em qual que voce esta.
+13- Perguntar os nomes dos dois times no inicio e colocar em kda tela o nome, EX: Autonomous - NYAN pra saber em qual que voce esta.
+
 # ---------------------------------------------------------------------------- #
 # ----------------------------------- DONE ----------------------------------- #
     1- Organization of files, - DONE
     2- Organize main and first screen, - DONE
-    3- Search the font for the app, - DONE 'Kanit'
+    3- Search the font for0000 the app, - DONE 'Kanit'
     4- Fix app bar, - DONE
     5- see how to do the drawer with the robot image, - NOT ANYMORE
     6- Sinc screens and bottomNavigationBar, - ARRUMAR ISSO LOGO FDP - DONE
@@ -15,5 +16,6 @@
     7- fix big padding when use LisView, before the text("Autonomous"), - DONE
     8- Change the logo to white, - DONE GORDAO
     12- Colocar o LiquidSwipe como troca de Alliance, vai ficar FDAA -> Colocar 2 icons no inicio pra simbolizar kda Alliance - DONE
+    14- Pegar todas as "Colors.something" usadas, colocar no theme AppColors, e so usar o AppColors!!! - DONE
 
 # ---------------------------------------------------------------------------- #

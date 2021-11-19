@@ -30,12 +30,12 @@ class _StartButtonState extends State<StartButton> {
         ),
         height: 50,
         width: 200,
-        child: const Text(
+        child:  Text(
           'Start',
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w300,
-            color: Colors.white,
+            color: AppColors.white,
           ),
           textAlign: TextAlign.center,
         ),

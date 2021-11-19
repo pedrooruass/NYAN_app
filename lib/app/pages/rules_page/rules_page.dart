@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nyan_app/app/core/theme/app_colors.dart';
 
 class RulesPage extends StatelessWidget {
   const RulesPage({Key? key}) : super(key: key);
@@ -9,12 +10,12 @@ class RulesPage extends StatelessWidget {
       child: Column(
         children: [
           /* ------------------------------- Autonomous ------------------------------- */
-          const Text(
+           Text(
             'Autonomous',
             style: TextStyle(
               fontWeight: FontWeight.w500,
               fontSize: 25,
-              color: Colors.green,
+              color: AppColors.green,
             ),
             textAlign: TextAlign.center,
           ),
@@ -26,17 +27,17 @@ class RulesPage extends StatelessWidget {
             style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
             textAlign: TextAlign.center,
           ),
-          const Divider(
+           Divider(
             thickness: 2,
-            color: Colors.grey,
+            color: AppColors.grey,
           ),
           /* --------------------------- Driver Crontrolled --------------------------- */
-          const Text(
+           Text(
             'Driver Controlled',
             style: TextStyle(
               fontWeight: FontWeight.w500,
               fontSize: 25,
-              color: Colors.orange,
+              color: AppColors.orange,
             ),
             textAlign: TextAlign.center,
           ),
@@ -48,17 +49,17 @@ class RulesPage extends StatelessWidget {
             style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
             textAlign: TextAlign.center,
           ),
-          const Divider(
+           Divider(
             thickness: 2,
-            color: Colors.grey,
+            color: AppColors.grey,
           ),
           /* -------------------------------- End Game -------------------------------- */
-          const Text(
+           Text(
             'End Game',
             style: TextStyle(
               fontWeight: FontWeight.w500,
               fontSize: 25,
-              color: Colors.red,
+              color: AppColors.red,
             ),
             textAlign: TextAlign.center,
           ),
@@ -77,7 +78,7 @@ class RulesPage extends StatelessWidget {
             "assets/ftc.png",
             height: 45,
           ),
-          Container(color: Colors.white, height: 150,),
+          Container(color: AppColors.white, height: 150,),
         ],
       ),
     );

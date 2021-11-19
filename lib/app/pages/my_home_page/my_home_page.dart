@@ -25,20 +25,20 @@ class _MyHomePageState extends State<MyHomePage> {
         context: context,
         height: MediaQuery.of(context).size.height * 0.55,
       ),
-      body: Stack(
+      body: Stack( 
         children: [
           Align(
             alignment: Alignment.bottomRight,
             child: Container(
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
+              decoration: BoxDecoration(
+                color: AppColors.white,
+                borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(25),
                   topRight: Radius.circular(25),
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.grey,
+                    color: AppColors.grey,
                     blurRadius: 3,
                     spreadRadius: 1,
                   ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nyan_app/app/core/theme/app_colors.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/start_page/widgets/start_button.dart';
 
 class StartPage extends StatelessWidget {
@@ -10,7 +11,7 @@ class StartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      color: Colors.white,
+      color: AppColors.white,
       child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Column(
