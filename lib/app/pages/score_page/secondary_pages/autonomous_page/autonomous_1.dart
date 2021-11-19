@@ -13,25 +13,25 @@ class _Autonomous1State extends State<Autonomous1> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      decoration:BoxDecoration(
-        color: AppColors.secondary,
+      decoration: BoxDecoration(
+        color: AppColors.primary,
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(20),
           topRight: Radius.circular(20),
         ),
       ),
       child: Column(
-          children: [
-             Text(
-              'Autonomous1',
-              style: TextStyle(
-                fontWeight: FontWeight.w500,
-                fontSize: 35,
-                color: AppColors.primary,
-              ),
-              textAlign: TextAlign.center,
+        children: [
+          Text(
+            'Autonomous - 1',
+            style: TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: 35,
+              color: AppColors.green,
             ),
-          ],
+            textAlign: TextAlign.center,
+          ),
+        ],
       ),
     );
   }

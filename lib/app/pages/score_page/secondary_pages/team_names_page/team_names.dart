@@ -1,3 +1,4 @@
+import 'package:animated_button/animated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:nyan_app/app/core/theme/app_colors.dart';
 
@@ -10,31 +11,73 @@ class TeamNames extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         const Text(
-          'Team Names',
+          'Alliances colors',
           style: TextStyle(
-            fontSize: 30,
+            fontSize: 33,
+            // color: AppColors.orange,
             fontWeight: FontWeight.w500,
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        Column(
           children: [
-            Text(
-              'Team 1',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w500,
-                color: AppColors.primary,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(
+                  'Alliance 1',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.primary,
+                  ),
+                ),
+                Text(
+                  'Alliance 2',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.secondary,
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(
+                  'If you are in the blue side,\nplese use Alliance number 1',
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.primary,
+                  ),
+                ),
+                Text(
+                  'If you are in the red side,\nplese use Alliance number 2',
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.secondary,
+                  ),
+                ),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: AnimatedButton(
+                color: AppColors.orange,
+                onPressed: () {},
+                child: const Text(
+                  'Lets Play',
+                  style: TextStyle(
+                    fontSize: 22,
+                    // color: AppColors.white,
+                    fontWeight: FontWeight.w300,
+                  ),
+                ),
               ),
             ),
-            Text(
-              'Team 2',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w500,
-                color: AppColors.secondary,
-              ),
-            ),
+            Image.asset("assets/duck.gif"),
           ],
         ),
 

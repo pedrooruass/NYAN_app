@@ -21,7 +21,7 @@ class _ScorePageState extends State<ScorePage> {
       controller: pageController,
       children: const [
         StartPage(),
-        // TeamNames(),
+        TeamNames(),
         LiquidSwipeView(),
       ],
     );
