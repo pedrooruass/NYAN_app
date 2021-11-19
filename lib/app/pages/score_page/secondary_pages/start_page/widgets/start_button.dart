@@ -33,7 +33,7 @@ class _StartButtonState extends State<StartButton> {
         child:  Text(
           'Start',
           style: TextStyle(
-            fontSize: 20,
+            fontSize: 22,
             fontWeight: FontWeight.w300,
             color: AppColors.white,
           ),
