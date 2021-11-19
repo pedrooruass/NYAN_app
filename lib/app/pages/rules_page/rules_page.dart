@@ -78,7 +78,7 @@ class RulesPage extends StatelessWidget {
             "assets/ftc.png",
             height: 45,
           ),
-          Container(color: AppColors.white, height: 150,),
+          Container(color: Colors.transparent, height: 105,),
         ],
       ),
     );
