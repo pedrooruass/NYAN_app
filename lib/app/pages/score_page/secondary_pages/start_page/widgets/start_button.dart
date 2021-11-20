@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:nyan_app/app/core/theme/app_colors.dart';
 
 class StartButton extends StatefulWidget {
+  final void Function() onPressed;
   const StartButton({
     Key? key,
+    required this.onPressed,
   }) : super(key: key);
 
   @override
@@ -17,7 +19,7 @@ class _StartButtonState extends State<StartButton> {
     return BouncingWidget(
       duration: const Duration(milliseconds: 100),
       scaleFactor: 1.5,
-      onPressed: () {},
+      onPressed: widget.onPressed,
       child: Container(
         alignment: Alignment.center,
         decoration: BoxDecoration(

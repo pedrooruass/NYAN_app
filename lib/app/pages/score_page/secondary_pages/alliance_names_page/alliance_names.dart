@@ -2,8 +2,9 @@ import 'package:animated_button/animated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:nyan_app/app/core/theme/app_colors.dart';
 
-class TeamNames extends StatelessWidget {
-  const TeamNames({Key? key}) : super(key: key);
+class AllianceNames extends StatelessWidget {
+  final void Function() onPressed;
+  const AllianceNames({Key? key, required this.onPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +67,7 @@ class TeamNames extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 20),
               child: AnimatedButton(
                 color: AppColors.orange,
-                onPressed: () {},
+                onPressed: onPressed,
                 child: const Text(
                   'Lets Play',
                   style: TextStyle(
