@@ -3,16 +3,20 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nyan_app/app/core/theme/app_colors.dart';
 
 class MyAppBarWidget extends PreferredSize {
-  MyAppBarWidget(
-      {Key? key, required BuildContext context, required double height})
-      : super(
+  final void Function() onPressed;
+  MyAppBarWidget({
+    Key? key,
+    required BuildContext context,
+    required double height,
+    required this.onPressed,
+  }) : super(
           key: key,
           preferredSize: Size.fromHeight(
             height,
           ),
           child: SafeArea(
             child: Padding(
-              padding: const EdgeInsets.only(top: 9.5), 
+              padding: const EdgeInsets.only(top: 9.5),
               child: ListTile(
                 tileColor: Colors.transparent,
                 leading:
@@ -29,10 +33,10 @@ class MyAppBarWidget extends PreferredSize {
                 ),
                 trailing: IconButton(
                   icon: Icon(
-                    FontAwesomeIcons.bars,
-                    color: AppColors.secondary,
+                    FontAwesomeIcons.home,
+                    color: AppColors.white,
                   ),
-                  onPressed: () {},
+                  onPressed: onPressed,
                 ),
               ),
             ),

@@ -4,8 +4,12 @@ import 'package:nyan_app/app/pages/score_page/secondary_pages/liquid_swipe_view_
 import 'package:nyan_app/app/pages/score_page/secondary_pages/start_page/start_page.dart';
 
 class ScorePage extends StatefulWidget {
+  final void Function(int) onPageChanged;
+  final int index;
   const ScorePage({
     Key? key,
+    required this.onPageChanged,
+    required this.index,
   }) : super(key: key);
 
   @override
@@ -24,14 +28,16 @@ class _ScorePageState extends State<ScorePage> {
       StartPage(
         onPressed: () {
           setState(() {
-            index++;
+            widget.onPageChanged(1);
+            index = 1;
           });
         },
       ),
       AllianceNames(
         onPressed: () {
           setState(() {
-            index++;
+            widget.onPageChanged(2);
+            index = 2;
           });
         },
       ),
@@ -41,12 +47,25 @@ class _ScorePageState extends State<ScorePage> {
 
   @override
   Widget build(BuildContext context) {
+
+    index = widget.index;
+
     return PageView(
       controller: pageController,
       physics: const NeverScrollableScrollPhysics(),
       children: [
         AnimatedSwitcher(
           duration: const Duration(seconds: 1),
+          transitionBuilder: (Widget child, Animation<double> animation) {
+            return SlideTransition(
+              position: Tween<Offset>(
+                // Diagonal, but try vertical
+                begin: const Offset(2, 1),
+                end: Offset.zero,
+              ).animate(animation),
+              child: child,
+            );
+          },
           child: pages[index],
         ),
       ],

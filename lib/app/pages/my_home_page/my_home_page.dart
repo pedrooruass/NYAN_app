@@ -14,6 +14,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int selectedIndex = 1;
+  int scoreIndex = 0;
   final PageController pageController = PageController(initialPage: 1);
   @override
   Widget build(BuildContext context) {
@@ -24,8 +25,13 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: MyAppBarWidget(
         context: context,
         height: MediaQuery.of(context).size.height * 0.55,
+        onPressed: () {
+          setState(() {
+            scoreIndex = 0;
+          });
+        },
       ),
-      body: Stack( 
+      body: Stack(
         children: [
           Align(
             alignment: Alignment.bottomRight,
@@ -55,9 +61,16 @@ class _MyHomePageState extends State<MyHomePage> {
                       selectedIndex = index;
                     });
                   },
-                  children: const [
-                    RulesPage(),
-                    ScorePage(),
+                  children: [
+                    const RulesPage(),
+                    ScorePage(
+                      onPageChanged: (index) {
+                        setState(() {
+                          scoreIndex = index;
+                        });
+                      },
+                      index: scoreIndex,
+                    ),
                   ],
                 ),
               ),
