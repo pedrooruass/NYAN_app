@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nyan_app/app/core/theme/app_colors.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/start_page/widgets/start_button.dart';
 
@@ -19,7 +20,6 @@ class StartPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(height: 50),
             const Text(
               "10091",
               style: TextStyle(
@@ -27,11 +27,36 @@ class StartPage extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
             ),
-            const SizedBox(height: 35),
             StartButton(
               onPressed: onPressed,
             ),
-            Image.asset("assets/boxer.gif"),
+            const SizedBox(height: 25),
+            const Icon(
+              FontAwesomeIcons.chevronUp,
+              size: 35,
+            ),
+            const SizedBox(height: 15),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  "Press the robot to ",
+                  style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                Text(
+                  "START!",
+                  style: TextStyle(
+                    fontSize: 25,
+                    color: AppColors.secondary,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ],
+            ),
+            // Image.asset("assets/boxer.gif"),
           ],
         ),
       ),
