@@ -3,6 +3,9 @@
 
 15- Fazer calculo e botoes pra Autonomous 1,
 16- arrumar o view do landscape || se nao der bloquear ele,
+17- Arrumar botao trueOrFalse
+18- colocar o backend, calculo nos botoes
+19- duplicar tudo para Driver Controlled && EndGame
 
 # ---------------------------------------------------------------------------- #
 # ----------------------------------- DONE ----------------------------------- #

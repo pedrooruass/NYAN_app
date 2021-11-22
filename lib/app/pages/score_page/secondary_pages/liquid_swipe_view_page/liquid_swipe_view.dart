@@ -26,10 +26,11 @@ class _LiquidSwipeViewState extends State<LiquidSwipeView> {
       fullTransitionValue: 880,
       slideIconWidget: Icon(
         Icons.arrow_back_ios,
-        color: AppColors.white
+        color: AppColors.white,
+        size: 15,
       ),
       waveType: WaveType.circularReveal,
-      positionSlideIcon: 0.87,
+      positionSlideIcon: 0.8,
     );
   }
 }
