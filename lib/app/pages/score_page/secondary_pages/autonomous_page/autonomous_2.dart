@@ -82,70 +82,74 @@ class _Autonomous2State extends State<Autonomous2> {
               mainColor: AppColors.white,
               secondaryColor: AppColors.black,
             ),
-            const SizedBox(height: 35),
-            Align(
-              alignment: Alignment.centerLeft,
+            const Spacer(),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 5),
+              child: Column(
+                children: [
+                   Align(
+              alignment: Alignment.bottomCenter,
               child: Text(
                 "Swipe to the left to change alliance",
                 style: TextStyle(
                   color: AppColors.primary,
                   fontSize: 20,
+                  fontWeight: FontWeight.w500,
                 ),
                 textAlign: TextAlign.start,
               ),
             ),
-            const Spacer(),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 5),
-              child: Row(
-                children: [
-                  Text(
-                    "Total:",
-                    style: TextStyle(
-                      fontSize: 35,
-                      color: AppColors.white,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    "30",
-                    style: TextStyle(
-                      fontSize: 35,
-                      color: AppColors.black,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
-                  const Spacer(),
-                  BouncingWidget(
-                    duration: const Duration(milliseconds: 100),
-                    scaleFactor: 1.5,
-                    onPressed: () {},
-                    child: Container(
-                      alignment: Alignment.center,
-                      width: 100,
-                      height: 50,
-                      decoration: BoxDecoration(
-                        color: AppColors.orange,
-                        borderRadius: const BorderRadius.all(
-                          Radius.circular(10),
-                        ),
-                      ),
-                      child: Text(
-                        "Next",
+                  Row(
+                    children: [
+                      Text(
+                        "Total:",
                         style: TextStyle(
                           fontSize: 35,
                           color: AppColors.white,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                    ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        "30",
+                        style: TextStyle(
+                          fontSize: 35,
+                          color: AppColors.black,
+                          fontWeight: FontWeight.w300,
+                        ),
+                      ),
+                      const Spacer(),
+                      BouncingWidget(
+                        duration: const Duration(milliseconds: 100),
+                        scaleFactor: 1.5,
+                        onPressed: () {},
+                        child: Container(
+                          alignment: Alignment.center,
+                          width: 100,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            color: AppColors.orange,
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(10),
+                            ),
+                          ),
+                          child: Text(
+                            "Next",
+                            style: TextStyle(
+                              fontSize: 35,
+                              color: AppColors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
