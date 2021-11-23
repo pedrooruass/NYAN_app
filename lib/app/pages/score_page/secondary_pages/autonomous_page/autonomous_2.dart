@@ -27,7 +27,7 @@ class _Autonomous2State extends State<Autonomous2> {
         child: Column(
           children: [
             Text(
-              'Autonomous - 2',
+              'Autonomous',
               style: TextStyle(
                 fontWeight: FontWeight.w500,
                 fontSize: 35,
@@ -82,14 +82,16 @@ class _Autonomous2State extends State<Autonomous2> {
               mainColor: AppColors.white,
               secondaryColor: AppColors.black,
             ),
-            Container(
-              height: 105,
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(
-                      "assets/FIRSTTech_IconVert_OneColor_Reverse.webp"),
+            const SizedBox(height: 35),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                "Swipe to the left to change alliance",
+                style: TextStyle(
+                  color: AppColors.primary,
+                  fontSize: 20,
                 ),
+                textAlign: TextAlign.start,
               ),
             ),
             const Spacer(),

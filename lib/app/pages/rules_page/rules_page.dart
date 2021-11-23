@@ -71,14 +71,7 @@ class RulesPage extends StatelessWidget {
             style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
             textAlign: TextAlign.center,
           ),
-          const SizedBox(
-            height: 25,
-          ),
-          Image.asset(
-            "assets/ftc.png",
-            height: 45,
-          ),
-          Container(color: Colors.transparent, height: 105,),
+          Container(color: Colors.transparent, height: 55,),
         ],
       ),
     );

@@ -30,11 +30,6 @@ class StartPage extends StatelessWidget {
             StartButton(
               onPressed: onPressed,
             ),
-            const SizedBox(height: 25),
-            const Icon(
-              FontAwesomeIcons.chevronUp,
-              size: 35,
-            ),
             const SizedBox(height: 15),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

@@ -26,12 +26,12 @@ class _Autonomous1State extends State<Autonomous1> {
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Column(
           children: [
-            Text(
-              'Autonomous - 1',
+           Text(
+              'Autonomous',
               style: TextStyle(
                 fontWeight: FontWeight.w500,
                 fontSize: 35,
-                color: AppColors.green,
+                color: AppColors.green
               ),
               textAlign: TextAlign.center,
             ),
@@ -82,14 +82,17 @@ class _Autonomous1State extends State<Autonomous1> {
               mainColor: AppColors.green,
               secondaryColor: AppColors.white,
             ),
-            const SizedBox(height: 15),
-            Container(
-              height: 55,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image:
-                      AssetImage("assets/FIRSTTech_iconHorz_RGB_reverse.png"),
+            const SizedBox(height: 35 ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                "Swipe to the left to change alliance",
+                style: TextStyle(
+                  color: AppColors.secondary,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500,
                 ),
+                textAlign: TextAlign.start,
               ),
             ),
             const Spacer(),
