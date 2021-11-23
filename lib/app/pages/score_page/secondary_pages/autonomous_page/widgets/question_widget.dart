@@ -9,6 +9,7 @@ class QuestionWidget extends StatelessWidget {
   final bool isBonus;
   final Color mainColor;
   final Color secondaryColor;
+  final void Function() onPressed;
   const QuestionWidget(
       {Key? key,
       required this.question,
@@ -16,7 +17,7 @@ class QuestionWidget extends StatelessWidget {
       this.useDivider = true,
       this.isBonus = false,
       required this.mainColor,
-      required this.secondaryColor})
+      required this.secondaryColor, required this.onPressed})
       : super(key: key);
 
   @override
@@ -38,7 +39,7 @@ class QuestionWidget extends StatelessWidget {
                 ? BouncingWidget(
                         duration: const Duration(milliseconds: 100),
                         scaleFactor: 1.5,
-                        onPressed: () {},
+                        onPressed: onPressed,
                         child: Container(
                           width: 155,
                           height: 25,
@@ -61,7 +62,7 @@ class QuestionWidget extends StatelessWidget {
                     ? BouncingWidget(
                         duration: const Duration(milliseconds: 100),
                         scaleFactor: 1.5,
-                        onPressed: () {},
+                        onPressed: onPressed,
                         child: Container(
                           width: 100,
                           height: 25,
@@ -85,7 +86,7 @@ class QuestionWidget extends StatelessWidget {
                           BouncingWidget(
                             duration: const Duration(milliseconds: 100),
                             scaleFactor: 1.5,
-                            onPressed: () {},
+                            onPressed: onPressed,
                             child: Container(
                               alignment: Alignment.center,
                               width: 50,
@@ -119,7 +120,7 @@ class QuestionWidget extends StatelessWidget {
                           BouncingWidget(
                             duration: const Duration(milliseconds: 100),
                             scaleFactor: 1.5,
-                            onPressed: () {},
+                            onPressed: onPressed,
                             child: Container(
                               alignment: Alignment.center,
                               width: 50,

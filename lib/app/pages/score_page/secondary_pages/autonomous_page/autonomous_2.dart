@@ -36,17 +36,20 @@ class _Autonomous2State extends State<Autonomous2> {
               textAlign: TextAlign.center,
             ),
             QuestionWidget(
+              onPressed: (){},
               question: "Duck Delivered?",
               isTrueOrFalse: true,
               mainColor: AppColors.white,
               secondaryColor: AppColors.black,
             ),
             QuestionWidget(
+              onPressed: (){},
               question: "Freight in Storage?",
               mainColor: AppColors.white,
               secondaryColor: AppColors.black,
             ),
             QuestionWidget(
+              onPressed: (){},
               question: "Freight in Hub?",
               mainColor: AppColors.white,
               secondaryColor: AppColors.black,
@@ -64,12 +67,14 @@ class _Autonomous2State extends State<Autonomous2> {
                   ),
                 ),
                 QuestionWidget(
+                  onPressed: (){},
                   question: "Storage Unit?",
                   useDivider: false,
                   mainColor: AppColors.white,
                   secondaryColor: AppColors.black,
                 ),
                 QuestionWidget(
+                  onPressed: (){},
                   question: "Warehouse?",
                   mainColor: AppColors.white,
                   secondaryColor: AppColors.black,
@@ -77,6 +82,7 @@ class _Autonomous2State extends State<Autonomous2> {
               ],
             ),
             QuestionWidget(
+              onPressed: (){},
               question: "Freight Bonus?",
               isBonus: true,
               mainColor: AppColors.white,
