@@ -8,6 +8,8 @@
 20- Arrumar a variacao do botao ao passar de 2 digitos
 21- ver porque nao esta salvando quando mudar de tela
 22- arrumar no/yes
+21- ver se pode ter o logo do insta, se puder direcionar para o insta do NYAN
+22- Arrumar o metodo resetPoints
 
 
 # ---------------------------------------------------------------------------- #

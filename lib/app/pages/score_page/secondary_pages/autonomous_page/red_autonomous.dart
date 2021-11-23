@@ -1,5 +1,6 @@
 import 'package:bouncing_widget/bouncing_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nyan_app/app/core/theme/app_colors.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/widgets/bottom_line.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/widgets/question_widget.dart';
@@ -27,14 +28,31 @@ class _RedAutonomousState extends State<RedAutonomous> {
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Column(
           children: [
-            Text(
-              'Autonomous',
-              style: TextStyle(
-                fontWeight: FontWeight.w500,
-                fontSize: 35,
-                color: AppColors.white,
-              ),
-              textAlign: TextAlign.center,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Autonomous',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 35,
+                      color: AppColors.white),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(width: 15),
+                BouncingWidget(
+                  child: Icon(
+                    FontAwesomeIcons.redo,
+                    color: AppColors.black,
+                    size: 18,
+                  ),
+                  onPressed: (){
+                    setState(() {
+                      // QuestionWidget.resetPoints();
+                    });
+                  },
+                ),
+              ],
             ),
             QuestionWidget(
               question: "Duck Delivered?",

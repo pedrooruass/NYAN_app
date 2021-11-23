@@ -24,10 +24,15 @@ class _MyHomePageState extends State<MyHomePage> {
       extendBody: false,
       appBar: MyAppBarWidget(
         context: context,
-        height: MediaQuery.of(context).size.height * 0.55,
-        onPressed: () {
+        height: MediaQuery.of(context).size.height * 0.10,
+        onPressed1: () {
           setState(() {
             scoreIndex = 0;
+          });
+        },
+        onPressed2: () {
+          setState(() {
+            // points = 0;
           });
         },
       ),

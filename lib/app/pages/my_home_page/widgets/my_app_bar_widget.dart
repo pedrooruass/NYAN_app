@@ -1,14 +1,17 @@
+import 'package:bouncing_widget/bouncing_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nyan_app/app/core/theme/app_colors.dart';
 
 class MyAppBarWidget extends PreferredSize {
-  final void Function() onPressed;
+  final void Function() onPressed1;
+  final void Function() onPressed2;
   MyAppBarWidget({
     Key? key,
     required BuildContext context,
     required double height,
-    required this.onPressed,
+    required this.onPressed1,
+    required this.onPressed2,
   }) : super(
           key: key,
           preferredSize: Size.fromHeight(
@@ -19,24 +22,16 @@ class MyAppBarWidget extends PreferredSize {
               padding: const EdgeInsets.only(top: 9.5),
               child: ListTile(
                 tileColor: Colors.transparent,
-                leading:
-                    // const Text(
-                    //   "10091",
-                    //   style: TextStyle(
-                    //     color: Colors.white,
-                    //     fontSize: 35,
-                    //     fontWeight: FontWeight.bold,
-                    //   ),
-                    // ),
-                    Image.asset(
-                  "assets/BRANCO.png",
-                ),
-                trailing: IconButton(
-                  icon: Icon(
-                    FontAwesomeIcons.home,
-                    color: AppColors.white,
+                leading: BouncingWidget(
+                  onPressed: onPressed1,
+                  child: Image.asset(
+                    "assets/BRANCO.png",
                   ),
-                  onPressed: onPressed,
+                ),
+                trailing: Icon(
+                  FontAwesomeIcons.instagram,
+                  size: 25,
+                  color: AppColors.white,
                 ),
               ),
             ),

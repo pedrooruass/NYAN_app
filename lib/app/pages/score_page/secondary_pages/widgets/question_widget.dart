@@ -18,12 +18,16 @@ class QuestionWidget extends StatefulWidget {
     required this.secondaryColor,
   }) : super(key: key);
 
+//  static void resetPoints() {
+//    set
+//  };
   @override
   State<QuestionWidget> createState() => _QuestionWidgetState();
 }
 
 class _QuestionWidgetState extends State<QuestionWidget> {
   int points = 0;
+
   @override
   Widget build(BuildContext context) {
     return Column(
