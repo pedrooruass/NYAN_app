@@ -101,6 +101,18 @@ class _BlueAutonomousState extends State<BlueAutonomous> {
               mainColor: AppColors.green,
               secondaryColor: AppColors.white,
             ),
+            Align(
+            alignment: Alignment.bottomCenter,
+            child: Text(
+              "Swipe to the left to change alliance",
+              style: TextStyle(
+                color: AppColors.secondary,
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+              ),
+              textAlign: TextAlign.start,
+            ),
+          ),
             const Spacer(),
             BottomLine(
               mainColor: AppColors.green,

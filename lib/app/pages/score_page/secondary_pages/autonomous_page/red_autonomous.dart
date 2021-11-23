@@ -101,6 +101,18 @@ class _RedAutonomousState extends State<RedAutonomous> {
               mainColor: AppColors.white,
               secondaryColor: AppColors.black,
             ),
+            Align(
+            alignment: Alignment.bottomCenter,
+            child: Text(
+              "Swipe to the left to change alliance",
+              style: TextStyle(
+                color: AppColors.primary,
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+              ),
+              textAlign: TextAlign.start,
+            ),
+          ),
             const Spacer(),
             BottomLine(
               mainColor: AppColors.white,
