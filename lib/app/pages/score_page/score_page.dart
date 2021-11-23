@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/alliance_names_page/alliance_names.dart';
-import 'package:nyan_app/app/pages/score_page/secondary_pages/liquid_swipe_view_page/liquid_swipe_view.dart';
+import 'package:nyan_app/app/pages/score_page/secondary_pages/autonomous_page/widgets/liquid_swipe_autonomous_view.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/start_page/start_page.dart';
 
 class ScorePage extends StatefulWidget {
@@ -41,7 +41,7 @@ class _ScorePageState extends State<ScorePage> {
           });
         },
       ),
-      const LiquidSwipeView(),
+      const LiquidSwipeAutonomousView(),
     ];
   }
 

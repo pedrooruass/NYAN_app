@@ -1,25 +1,29 @@
 import 'package:bouncing_widget/bouncing_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:nyan_app/app/core/theme/app_colors.dart';
 
-class QuestionWidget extends StatelessWidget {
+class QuestionWidget extends StatefulWidget {
   final String question;
   final bool isTrueOrFalse;
   final bool useDivider;
   final bool isBonus;
   final Color mainColor;
   final Color secondaryColor;
-  final void Function() onPressed;
-  const QuestionWidget(
-      {Key? key,
-      required this.question,
-      this.isTrueOrFalse = false,
-      this.useDivider = true,
-      this.isBonus = false,
-      required this.mainColor,
-      required this.secondaryColor, required this.onPressed})
-      : super(key: key);
+  const QuestionWidget({
+    Key? key,
+    required this.question,
+    this.isTrueOrFalse = false,
+    this.useDivider = true,
+    this.isBonus = false,
+    required this.mainColor,
+    required this.secondaryColor,
+  }) : super(key: key);
 
+  @override
+  State<QuestionWidget> createState() => _QuestionWidgetState();
+}
+
+class _QuestionWidgetState extends State<QuestionWidget> {
+  int points = 0;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -27,54 +31,54 @@ class QuestionWidget extends StatelessWidget {
         Row(
           children: [
             Text(
-              question,
+              widget.question,
               style: TextStyle(
                 fontSize: 25,
-                color: mainColor,
+                color: widget.mainColor,
                 fontWeight: FontWeight.w300,
               ),
             ),
             const Spacer(),
-            isBonus
+            widget.isBonus
                 ? BouncingWidget(
-                        duration: const Duration(milliseconds: 100),
-                        scaleFactor: 1.5,
-                        onPressed: onPressed,
-                        child: Container(
-                          width: 155,
-                          height: 25,
-                          decoration: BoxDecoration(
-                            color: mainColor,
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(5)),
-                          ),
-                          child: Text(
-                            "None/Duck/Team",
-                            style: TextStyle(
-                                color: secondaryColor,
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                      )
-                : isTrueOrFalse
+                    duration: const Duration(milliseconds: 100),
+                    scaleFactor: 1.5,
+                    onPressed: () {},
+                    child: Container(
+                      width: 155,
+                      height: 25,
+                      decoration: BoxDecoration(
+                        color: widget.mainColor,
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(5)),
+                      ),
+                      child: Text(
+                        "None/Duck/Team",
+                        style: TextStyle(
+                            color: widget.secondaryColor,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  )
+                : widget.isTrueOrFalse
                     ? BouncingWidget(
                         duration: const Duration(milliseconds: 100),
                         scaleFactor: 1.5,
-                        onPressed: onPressed,
+                        onPressed: () {},
                         child: Container(
                           width: 100,
                           height: 25,
                           decoration: BoxDecoration(
-                            color: mainColor,
+                            color: widget.mainColor,
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(5)),
                           ),
                           child: Text(
                             "No/Yes",
                             style: TextStyle(
-                                color: secondaryColor,
+                                color: widget.secondaryColor,
                                 fontSize: 15,
                                 fontWeight: FontWeight.bold),
                             textAlign: TextAlign.center,
@@ -86,20 +90,26 @@ class QuestionWidget extends StatelessWidget {
                           BouncingWidget(
                             duration: const Duration(milliseconds: 100),
                             scaleFactor: 1.5,
-                            onPressed: onPressed,
+                            onPressed: () {
+                              setState(() {
+                                if (points > 0) {
+                                  points--;
+                                }
+                              });
+                            },
                             child: Container(
                               alignment: Alignment.center,
                               width: 50,
                               height: 25,
                               decoration: BoxDecoration(
-                                color: mainColor,
+                                color: widget.mainColor,
                                 borderRadius:
                                     const BorderRadius.all(Radius.circular(5)),
                               ),
                               child: Text(
                                 "-",
                                 style: TextStyle(
-                                  color: secondaryColor,
+                                  color: widget.secondaryColor,
                                   fontSize: 15,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -107,33 +117,40 @@ class QuestionWidget extends StatelessWidget {
                               ),
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 7),
-                            child: Text(
-                              "0",
-                              style: TextStyle(
-                                  color: secondaryColor,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold),
-                            ),
+                          const SizedBox(
+                            width: 7,
+                          ),
+                          Text(
+                            "$points",
+                            style: TextStyle(
+                                color: widget.secondaryColor,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          const SizedBox(
+                            width: 7,
                           ),
                           BouncingWidget(
                             duration: const Duration(milliseconds: 100),
                             scaleFactor: 1.5,
-                            onPressed: onPressed,
+                            onPressed: () {
+                              setState(() {
+                                points++;
+                              });
+                            },
                             child: Container(
                               alignment: Alignment.center,
                               width: 50,
                               height: 25,
                               decoration: BoxDecoration(
-                                color: mainColor,
+                                color: widget.mainColor,
                                 borderRadius:
                                     const BorderRadius.all(Radius.circular(5)),
                               ),
                               child: Text(
                                 "+",
                                 style: TextStyle(
-                                    color: secondaryColor,
+                                    color: widget.secondaryColor,
                                     fontSize: 15,
                                     fontWeight: FontWeight.bold),
                                 textAlign: TextAlign.center,
@@ -144,9 +161,9 @@ class QuestionWidget extends StatelessWidget {
                       ),
           ],
         ),
-        if (useDivider)
+        if (widget.useDivider)
           Divider(
-            color: secondaryColor,
+            color: widget.secondaryColor,
             thickness: 2,
           ),
       ],

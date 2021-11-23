@@ -2,25 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:liquid_swipe/Helpers/Helpers.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:nyan_app/app/core/theme/app_colors.dart';
-import 'package:nyan_app/app/pages/score_page/secondary_pages/autonomous_page/autonomous_1.dart';
-import 'package:nyan_app/app/pages/score_page/secondary_pages/autonomous_page/autonomous_2.dart';
+import 'package:nyan_app/app/pages/score_page/secondary_pages/driver_controlled_page/blue_driver_controlled.dart';
+import 'package:nyan_app/app/pages/score_page/secondary_pages/driver_controlled_page/red_driver_controlled.dart';
 
-class LiquidSwipeView extends StatefulWidget {
-  const LiquidSwipeView({
+class LiquidSwipeDriverControlledView extends StatefulWidget {
+  const LiquidSwipeDriverControlledView({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<LiquidSwipeView> createState() => _LiquidSwipeViewState();
+  State<LiquidSwipeDriverControlledView> createState() => _LiquidSwipeDriverControlledViewState();
 }
 
-class _LiquidSwipeViewState extends State<LiquidSwipeView> {
+class _LiquidSwipeDriverControlledViewState extends State<LiquidSwipeDriverControlledView> {
   @override
   Widget build(BuildContext context) {
     return LiquidSwipe(
       pages: const [
-        Autonomous1(),
-        Autonomous2(),
+        BlueDriverControlled(),
+        RedDriverControlled(),
       ],
       enableLoop: true,
       fullTransitionValue: 880,

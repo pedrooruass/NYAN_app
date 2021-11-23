@@ -1,11 +1,14 @@
 # ----------------------------------- TODO ----------------------------------- #
 
 
-15- Fazer calculo e botoes pra Autonomous 1,
+
 16- arrumar o view do landscape || se nao der bloquear ele,
 17- Arrumar botao trueOrFalse
-18- colocar o backend, calculo nos botoes
 19- duplicar tudo para Driver Controlled && EndGame
+20- Arrumar a variacao do botao ao passar de 2 digitos
+21- ver porque nao esta salvando quando mudar de tela
+22- arrumar no/yes
+
 
 # ---------------------------------------------------------------------------- #
 # ----------------------------------- DONE ----------------------------------- #
@@ -22,6 +25,8 @@
     14- Pegar todas as "Colors.something" usadas, colocar no theme AppColors, e so usar o AppColors!!! - DONE
     13- Perguntar os nomes dos dois times no inicio e colocar em kda tela o nome, EX: Autonomous - NYAN pra saber em qual que voce esta. - NOT ANYMORE, SOLUTION ALREADY DONE
     10- Linkar o botao com o mudar de tela, - DONE
- 11- Assim que fizer o 10 nao esquecer de colocar o NeverScrollableScrollPhysics(), -DONE
+    11- Assim que fizer o 10 nao esquecer de colocar o NeverScrollableScrollPhysics(), -DONE
+    15- Fazer calculo e botoes pra Autonomous 1, - DONE
+    18- colocar o backend, calculo nos botoes - DONE
 
 # ---------------------------------------------------------------------------- #
