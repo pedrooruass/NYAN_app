@@ -117,7 +117,6 @@ class _BlueAutonomousState extends State<BlueAutonomous> {
             BottomLine(
               mainColor: AppColors.green,
               secondaryColor: AppColors.white,
-              allianceColor: AppColors.secondary,
             )
           ],
         ),

@@ -117,7 +117,6 @@ class _RedAutonomousState extends State<RedAutonomous> {
             BottomLine(
               mainColor: AppColors.white,
               secondaryColor: AppColors.black,
-              allianceColor: AppColors.primary,
             ),
           ],
         ),

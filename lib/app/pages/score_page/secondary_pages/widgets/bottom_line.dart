@@ -5,12 +5,10 @@ import 'package:nyan_app/app/core/theme/app_colors.dart';
 class BottomLine extends StatelessWidget {
   final Color mainColor;
   final Color secondaryColor;
-  final Color allianceColor;
   const BottomLine(
       {Key? key,
       required this.mainColor,
-      required this.secondaryColor,
-      required this.allianceColor})
+      required this.secondaryColor})
       : super(key: key);
 
   @override
@@ -19,18 +17,6 @@ class BottomLine extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 5),
       child: Column(
         children: [
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Text(
-              "Swipe to the left to change alliance",
-              style: TextStyle(
-                color: allianceColor,
-                fontSize: 20,
-                fontWeight: FontWeight.w500,
-              ),
-              textAlign: TextAlign.start,
-            ),
-          ),
           Row(
             children: [
               Text(
