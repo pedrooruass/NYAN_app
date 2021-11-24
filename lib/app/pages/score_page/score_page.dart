@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/alliance_names_page/alliance_names.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/autonomous_page/widgets/liquid_swipe_autonomous_view.dart';
+import 'package:nyan_app/app/pages/score_page/secondary_pages/driver_controlled_page/widget/liquid_swipe_driver_controlled.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/start_page/start_page.dart';
 
 class ScorePage extends StatefulWidget {
@@ -41,7 +42,22 @@ class _ScorePageState extends State<ScorePage> {
           });
         },
       ),
-      const LiquidSwipeAutonomousView(),
+      LiquidSwipeAutonomousView(
+        onPressed: (){
+          setState(() {
+            widget.onPageChanged(3);
+            index = 3;
+          });
+        },
+      ),
+       LiquidSwipeDriverControlledView(
+         onPressed: (){
+          setState(() {
+            widget.onPageChanged(4);
+            index = 4;
+          });
+        },
+       ),
     ];
   }
 

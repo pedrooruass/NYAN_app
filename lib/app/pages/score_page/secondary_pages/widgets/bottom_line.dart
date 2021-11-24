@@ -5,10 +5,13 @@ import 'package:nyan_app/app/core/theme/app_colors.dart';
 class BottomLine extends StatelessWidget {
   final Color mainColor;
   final Color secondaryColor;
+  final Color nextColor;
+  final void Function() onPressed;
   const BottomLine(
       {Key? key,
       required this.mainColor,
-      required this.secondaryColor})
+      required this.secondaryColor,
+      required this.onPressed, required this.nextColor})
       : super(key: key);
 
   @override
@@ -42,13 +45,13 @@ class BottomLine extends StatelessWidget {
               BouncingWidget(
                 duration: const Duration(milliseconds: 100),
                 scaleFactor: 1.5,
-                onPressed: () {},
+                onPressed: onPressed,
                 child: Container(
                   alignment: Alignment.center,
                   width: 100,
                   height: 50,
                   decoration: BoxDecoration(
-                    color: AppColors.orange,
+                    color: nextColor,
                     borderRadius: const BorderRadius.all(
                       Radius.circular(10),
                     ),

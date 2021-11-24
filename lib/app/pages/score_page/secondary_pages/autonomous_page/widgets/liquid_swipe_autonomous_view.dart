@@ -6,8 +6,10 @@ import 'package:nyan_app/app/models/autonomous_model.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/autonomous_page/autonomous.dart';
 
 class LiquidSwipeAutonomousView extends StatefulWidget {
+  final void Function() onPressed;
   const LiquidSwipeAutonomousView({
     Key? key,
+    required this.onPressed,
   }) : super(key: key);
 
   @override
@@ -31,6 +33,7 @@ class _LiquidSwipeAutonomousViewState extends State<LiquidSwipeAutonomousView> {
           allianceColor: AppColors.primary,
           secondaryAllianceColor: AppColors.secondary,
           autonomousModel: blueAutonomousModel,
+          onPressed: widget.onPressed,
         ),
         Autonomous(
           key: const Key('AutonomousRed'),
@@ -39,6 +42,7 @@ class _LiquidSwipeAutonomousViewState extends State<LiquidSwipeAutonomousView> {
           allianceColor: AppColors.secondary,
           secondaryAllianceColor: AppColors.primary,
           autonomousModel: redAutonomousModel,
+          onPressed: widget.onPressed,
         ),
       ],
       enableLoop: true,

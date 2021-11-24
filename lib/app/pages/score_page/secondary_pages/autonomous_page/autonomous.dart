@@ -1,6 +1,7 @@
 import 'package:bouncing_widget/bouncing_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:nyan_app/app/core/theme/app_colors.dart';
 import 'package:nyan_app/app/models/autonomous_model.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/widgets/bottom_line.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/widgets/question_widget.dart';
@@ -11,13 +12,15 @@ class Autonomous extends StatefulWidget {
   final Color allianceColor;
   final Color secondaryAllianceColor;
   final AutonomousModel autonomousModel;
+  final void Function() onPressed;
   const Autonomous(
       {Key? key,
       required this.mainColor,
       required this.secondaryColor,
       required this.allianceColor,
       required this.secondaryAllianceColor,
-      required this.autonomousModel})
+      required this.autonomousModel,
+      required this.onPressed})
       : super(key: key);
 
   @override
@@ -72,7 +75,9 @@ class _AutonomousState extends State<Autonomous> {
                 ),
               ],
             ),
-            const SizedBox(height: 10,),
+            const SizedBox(
+              height: 10,
+            ),
             QuestionWidget(
               question: "Duck Delivered?",
               isTrueOrFalse: true,
@@ -196,6 +201,8 @@ class _AutonomousState extends State<Autonomous> {
             BottomLine(
               mainColor: widget.mainColor,
               secondaryColor: widget.secondaryColor,
+              nextColor: AppColors.orange,
+              onPressed: widget.onPressed,
             )
           ],
         ),

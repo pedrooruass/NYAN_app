@@ -12,6 +12,7 @@
 27- reformatar tudo q for possivel
 28- comecar o driver Controlled do jeito certo
 29- arrumar instagram
+30- put back option after Autonomous && put just back after Driver Controlled
 
 # ---------------------------------------------------------------------------- #
 # ----------------------------------- DONE ----------------------------------- #
