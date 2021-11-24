@@ -31,8 +31,13 @@ class _MyHomePageState extends State<MyHomePage> {
             scoreIndex = 0;
           });
         },
-        onPressed2: () {
-            launch("https://instagram.com/nyanrobotics", universalLinksOnly: true, forceSafariVC: true);
+        onPressed2: () async {
+          const url = "https://instagram.com/nyanrobotics";
+          if(await canLaunch(url)) {
+            launch(url, universalLinksOnly: true, forceSafariVC: true);
+            } else {
+              print("Could not launch $url");
+            }
         },
       ),
       body: Stack(
