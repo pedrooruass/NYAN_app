@@ -32,7 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
           });
         },
         onPressed2: () {
-            launch("https://instagram.com/nyanrobotics", universalLinksOnly: true);
+            launch("https://instagram.com/nyanrobotics", universalLinksOnly: true, forceSafariVC: true);
         },
       ),
       body: Stack(
