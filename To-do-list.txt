@@ -16,6 +16,7 @@
 26- Arrumar todos os metodos e o total
 27- reformatar tudo q for possivel
 28- comecar o driver Controlled do jeito certo
+29- arrumar instagram
 
 # ---------------------------------------------------------------------------- #
 # ----------------------------------- DONE ----------------------------------- #

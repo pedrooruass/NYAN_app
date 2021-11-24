@@ -32,7 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
           });
         },
         onPressed2: () {
-            launch("https://instagram.com/nyanrobotics?utm_medium=copy_link", forceWebView: true);
+            launch("https://instagram.com/nyanrobotics", universalLinksOnly: true);
         },
       ),
       body: Stack(
