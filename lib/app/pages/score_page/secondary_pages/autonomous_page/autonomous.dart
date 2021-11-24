@@ -16,7 +16,8 @@ class Autonomous extends StatefulWidget {
       required this.mainColor,
       required this.secondaryColor,
       required this.allianceColor,
-      required this.secondaryAllianceColor, required this.autonomousModel})
+      required this.secondaryAllianceColor,
+      required this.autonomousModel})
       : super(key: key);
 
   @override
@@ -24,8 +25,6 @@ class Autonomous extends StatefulWidget {
 }
 
 class _AutonomousState extends State<Autonomous> {
-
-
   @override
   void initState() {
     super.initState();
@@ -73,6 +72,7 @@ class _AutonomousState extends State<Autonomous> {
                 ),
               ],
             ),
+            const SizedBox(height: 10,),
             QuestionWidget(
               question: "Duck Delivered?",
               isTrueOrFalse: true,
@@ -88,7 +88,7 @@ class _AutonomousState extends State<Autonomous> {
               points: widget.autonomousModel.fstorage,
               onPressedPlusLess: (value) {
                 setState(() {
-                widget.autonomousModel.fstorage = value;
+                  widget.autonomousModel.fstorage = value;
                 });
               },
             ),
@@ -96,10 +96,10 @@ class _AutonomousState extends State<Autonomous> {
               question: "Freight in Hub?",
               mainColor: widget.mainColor,
               secondaryColor: widget.secondaryColor,
-              points: widget.autonomousModel.fstorage,
-               onPressedPlusLess: (value) {
-               setState(() {
-                widget.autonomousModel.fstorage = value;
+              points: widget.autonomousModel.fhub,
+              onPressedPlusLess: (value) {
+                setState(() {
+                  widget.autonomousModel.fhub = value;
                 });
               },
             ),
@@ -120,23 +120,51 @@ class _AutonomousState extends State<Autonomous> {
                   useDivider: false,
                   mainColor: widget.mainColor,
                   secondaryColor: widget.secondaryColor,
-                  points: widget.autonomousModel.fstorage,
+                  points: widget.autonomousModel.psu,
                   onPressedPlusLess: (value) {
-               setState(() {
-                widget.autonomousModel.fstorage = value;
-                });
-              },
+                    setState(() {
+                      widget.autonomousModel.psu = value;
+                    });
+                  },
+                ),
+                QuestionWidget(
+                  question: "Completely?",
+                  useDivider: false,
+                  mainColor: widget.mainColor,
+                  secondaryColor: widget.secondaryColor,
+                  isTrueOrFalse: true,
+                  points: widget.autonomousModel.psu,
+                  sizeQuestionText: 20,
+                  onPressedPlusLess: (value) {
+                    setState(() {
+                      widget.autonomousModel.psu = value;
+                    });
+                  },
                 ),
                 QuestionWidget(
                   question: "Warehouse?",
                   mainColor: widget.mainColor,
                   secondaryColor: widget.secondaryColor,
-                  points:widget.autonomousModel.fstorage,
+                  points: widget.autonomousModel.pw,
+                  useDivider: false,
                   onPressedPlusLess: (value) {
-               setState(() {
-                widget.autonomousModel.fstorage = value;
-                });
-              },
+                    setState(() {
+                      widget.autonomousModel.pw = value;
+                    });
+                  },
+                ),
+                QuestionWidget(
+                  question: "Completely?",
+                  mainColor: widget.mainColor,
+                  secondaryColor: widget.secondaryColor,
+                  isTrueOrFalse: true,
+                  points: widget.autonomousModel.psu,
+                  sizeQuestionText: 20,
+                  onPressedPlusLess: (value) {
+                    setState(() {
+                      widget.autonomousModel.psu = value;
+                    });
+                  },
                 ),
               ],
             ),
@@ -147,8 +175,8 @@ class _AutonomousState extends State<Autonomous> {
               secondaryColor: widget.secondaryColor,
               points: widget.autonomousModel.fstorage,
               onPressedPlusLess: (value) {
-               setState(() {
-                widget.autonomousModel.fstorage = value;
+                setState(() {
+                  widget.autonomousModel.fstorage = value;
                 });
               },
             ),

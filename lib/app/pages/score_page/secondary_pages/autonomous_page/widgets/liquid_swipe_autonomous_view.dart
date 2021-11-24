@@ -46,10 +46,10 @@ class _LiquidSwipeAutonomousViewState extends State<LiquidSwipeAutonomousView> {
       slideIconWidget: Icon(
         Icons.arrow_back_ios,
         color: AppColors.white,
-        size: 15,
+        size: 13,
       ),
       waveType: WaveType.circularReveal,
-      positionSlideIcon: 0.8,
+      positionSlideIcon: 0.05,
     );
   }
 }

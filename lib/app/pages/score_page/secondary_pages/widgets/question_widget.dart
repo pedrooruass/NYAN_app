@@ -1,5 +1,6 @@
 import 'package:bouncing_widget/bouncing_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:nyan_app/app/pages/score_page/secondary_pages/widgets/row_navigator_button_widget.dart';
 
 class QuestionWidget extends StatefulWidget {
   final String question;
@@ -9,13 +10,15 @@ class QuestionWidget extends StatefulWidget {
   final Color mainColor;
   final Color secondaryColor;
   final void Function(int) onPressedPlusLess;
-   final int points;
+  final int points;
+  final double sizeQuestionText;
   const QuestionWidget({
     Key? key,
     required this.question,
     this.isTrueOrFalse = false,
     this.useDivider = true,
     this.isBonus = false,
+    this.sizeQuestionText = 25.0,
     required this.mainColor,
     required this.secondaryColor,
     required this.onPressedPlusLess,
@@ -30,7 +33,7 @@ class QuestionWidget extends StatefulWidget {
 }
 
 class _QuestionWidgetState extends State<QuestionWidget> {
-
+  int index = 0;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -40,104 +43,60 @@ class _QuestionWidgetState extends State<QuestionWidget> {
             Text(
               widget.question,
               style: TextStyle(
-                fontSize: 25,
+                fontSize: widget.sizeQuestionText,
                 color: widget.mainColor,
                 fontWeight: FontWeight.w300,
               ),
             ),
             const Spacer(),
             widget.isBonus
-                ? BouncingWidget(
-                    duration: const Duration(milliseconds: 100),
-                    scaleFactor: 1.5,
-                    onPressed: () => widget.onPressedPlusLess(widget.points),
-                    child: Container(
-                      width: 155,
-                      height: 25,
-                      decoration: BoxDecoration(
-                        color: widget.mainColor,
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(5)),
-                      ),
-                      child: Text(
-                        "None/Duck/Team",
-                        style: TextStyle(
-                            color: widget.secondaryColor,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
+                ? RowNavigatorWidget(
+                    indexSelected: index,
+                    name1: "None",
+                    name2: "Duck",
+                    name3: "Team",
+                    mainColor: widget.mainColor,
+                    secondaryColor: widget.secondaryColor,
+                    onTap: (touchValue) {
+                      setState(() {
+                        index = touchValue;
+                      });
+                    },
                   )
                 : widget.isTrueOrFalse
-                    ? Row(
-                      children: [
-                        BouncingWidget(
-                            duration: const Duration(milliseconds: 100),
-                            scaleFactor: 1.5,
-                            onPressed: () => widget.onPressedPlusLess(widget.points),
-                            child: Container(
-                              width: 50,
-                              height: 25,
-                              decoration: BoxDecoration(
-                                color: widget.mainColor,
-                                borderRadius:
-                                    const BorderRadius.only(topLeft: Radius.circular(5), bottomLeft: Radius.circular(5)),
-                              ),
-                              child: Text(
-                                "No",
-                                style: TextStyle(
-                                    color: widget.secondaryColor,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                          ),
-                        BouncingWidget(
-                            duration: const Duration(milliseconds: 100),
-                            scaleFactor: 1.5,
-                            onPressed: () => widget.onPressedPlusLess(widget.points),
-                            child: Container(
-                              width: 50,
-                              height: 25,
-                              decoration: BoxDecoration(
-                                color: widget.mainColor,
-                                borderRadius:
-                                    const BorderRadius.only(topRight: Radius.circular(5), bottomRight: Radius.circular(5)),
-                              ),
-                              child: Text(
-                                "Yes",
-                                style: TextStyle(
-                                    color: widget.secondaryColor,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                          ),
-                      ],
-                    )
+                    ? RowNavigatorWidget(
+                        indexSelected: index,
+                        name1: "No",
+                        name2: "Yes",
+                        mainColor: widget.mainColor,
+                        secondaryColor: widget.secondaryColor,
+                        onTap: (touchValue) {
+                          setState(() {
+                            index = touchValue;
+                          });
+                        },
+                      )
                     : SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.32,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        width: MediaQuery.of(context).size.width * 0.32,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             BouncingWidget(
                               duration: const Duration(milliseconds: 100),
                               scaleFactor: 1.5,
                               onPressed: () {
-                                if(widget.points > 0){
-                                widget.onPressedPlusLess(widget.points - 1);}
-                                },
+                                if (widget.points > 0) {
+                                  widget.onPressedPlusLess(widget.points - 1);
+                                }
+                              },
                               child: Container(
                                 alignment: Alignment.center,
                                 width: 50,
                                 height: 25,
                                 decoration: BoxDecoration(
                                   color: widget.mainColor,
-                                  borderRadius:
-                                      const BorderRadius.all(Radius.circular(5)),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(5)),
                                 ),
                                 child: Text(
                                   "-",
@@ -160,17 +119,17 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                             BouncingWidget(
                               duration: const Duration(milliseconds: 100),
                               scaleFactor: 1.5,
-                              onPressed: () { 
+                              onPressed: () {
                                 widget.onPressedPlusLess(widget.points + 1);
-                                },
+                              },
                               child: Container(
                                 alignment: Alignment.center,
                                 width: 50,
                                 height: 25,
                                 decoration: BoxDecoration(
                                   color: widget.mainColor,
-                                  borderRadius:
-                                      const BorderRadius.all(Radius.circular(5)),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(5)),
                                 ),
                                 child: Text(
                                   "+",
@@ -184,7 +143,7 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                             ),
                           ],
                         ),
-                    ),
+                      ),
           ],
         ),
         if (widget.useDivider)

@@ -3,14 +3,9 @@
 
 
 16- arrumar o view do landscape || se nao der bloquear ele,
-17- Arrumar botao trueOrFalse
 19- duplicar tudo para Driver Controlled && EndGame
-20- Arrumar a variacao do botao ao passar de 2 digitos
-21- ver porque nao esta salvando quando mudar de tela
-22- arrumar no/yes
 21- ver se pode ter o logo do insta, se puder direcionar para o insta do NYAN
 22- Arrumar o metodo resetPoints
-23- Arrumar q nem o Autonomous Driver Controlled
 24- Adaptar todos os trueOrFalse
 25- Terminar o Autonomous Model
 26- Arrumar todos os metodos e o total
@@ -36,5 +31,11 @@
     11- Assim que fizer o 10 nao esquecer de colocar o NeverScrollableScrollPhysics(), -DONE
     15- Fazer calculo e botoes pra Autonomous 1, - DONE
     18- colocar o backend, calculo nos botoes - DONE
+    20- Arrumar a variacao do botao ao passar de 2 digitos - DONE
+    21- ver porque nao esta salvando quando mudar de tela - DONE
+    23- Arrumar q nem o Autonomous Driver Controlled - DONE
+    17- Arrumar botao trueOrFalse - DONE
+    22- arrumar no/yes - DONE
+    30- Arrumar a questao de componente fixos no rowNavigatorButton - DONE
 
 # ---------------------------------------------------------------------------- #
