@@ -28,10 +28,13 @@ class MyAppBarWidget extends PreferredSize {
                     "assets/BRANCO.png",
                   ),
                 ),
-                trailing: Icon(
-                  FontAwesomeIcons.instagram,
-                  size: 25,
-                  color: AppColors.white,
+                trailing: BouncingWidget(
+                  onPressed: onPressed2,
+                  child: Icon(
+                    FontAwesomeIcons.instagram,
+                    size: 25,
+                    color: AppColors.white,
+                  ),
                 ),
               ),
             ),

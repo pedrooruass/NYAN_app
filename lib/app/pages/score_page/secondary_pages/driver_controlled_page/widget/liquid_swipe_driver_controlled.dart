@@ -3,7 +3,6 @@ import 'package:liquid_swipe/Helpers/Helpers.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:nyan_app/app/core/theme/app_colors.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/driver_controlled_page/blue_driver_controlled.dart';
-import 'package:nyan_app/app/pages/score_page/secondary_pages/driver_controlled_page/red_driver_controlled.dart';
 
 class LiquidSwipeDriverControlledView extends StatefulWidget {
   const LiquidSwipeDriverControlledView({
@@ -20,7 +19,7 @@ class _LiquidSwipeDriverControlledViewState extends State<LiquidSwipeDriverContr
     return LiquidSwipe(
       pages: const [
         BlueDriverControlled(),
-        RedDriverControlled(),
+        BlueDriverControlled(),
       ],
       enableLoop: true,
       fullTransitionValue: 880,

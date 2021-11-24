@@ -10,7 +10,12 @@
 22- arrumar no/yes
 21- ver se pode ter o logo do insta, se puder direcionar para o insta do NYAN
 22- Arrumar o metodo resetPoints
-
+23- Arrumar q nem o Autonomous Driver Controlled
+24- Adaptar todos os trueOrFalse
+25- Terminar o Autonomous Model
+26- Arrumar todos os metodos e o total
+27- reformatar tudo q for possivel
+28- comecar o driver Controlled do jeito certo
 
 # ---------------------------------------------------------------------------- #
 # ----------------------------------- DONE ----------------------------------- #

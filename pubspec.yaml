@@ -39,6 +39,7 @@ dependencies:
   liquid_swipe: ^2.1.1
   bouncing_widget: ^2.0.0
   animated_button: ^0.2.0
+  url_launcher: ^6.0.15
 
 dev_dependencies:
   flutter_test:

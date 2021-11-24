@@ -4,6 +4,7 @@ import 'package:nyan_app/app/pages/my_home_page/widgets/my_app_bar_widget.dart';
 import 'package:nyan_app/app/pages/my_home_page/widgets/my_bottom_navigation_bar_widget.dart';
 import 'package:nyan_app/app/pages/rules_page/rules_page.dart';
 import 'package:nyan_app/app/pages/score_page/score_page.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -31,9 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
           });
         },
         onPressed2: () {
-          setState(() {
-            // points = 0;
-          });
+            launch("https://instagram.com/nyanrobotics?utm_medium=copy_link", forceWebView: true);
         },
       ),
       body: Stack(
