@@ -33,11 +33,11 @@ class _MyHomePageState extends State<MyHomePage> {
         },
         onPressed2: () async {
           const url = "https://instagram.com/nyanrobotics";
-          if(await canLaunch(url)) {
-            launch(url, universalLinksOnly: true, forceSafariVC: true);
-            } else {
-              print("Could not launch $url");
-            }
+          if (await canLaunch(url)) {
+            await launch(url, forceSafariVC: true, forceWebView: true);
+          } else {
+            throw 'Could not launch $url';
+          }
         },
       ),
       body: Stack(
