@@ -49,19 +49,112 @@ class _QuestionWidgetState extends State<QuestionWidget> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-            widget.text != null?
-        Row(
-          children: [
-            Text(
-              widget.text!,
-              style: TextStyle(
-                fontSize: widget.sizeQuestionText,
-                color: widget.textColor ?? widget.mainColor,
-                fontWeight: FontWeight.w300,
-              ),
-            ),
-            const Spacer(), 
-            widget.isPlussOrLess
+        widget.text != null
+            ? Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    widget.text!,
+                    style: TextStyle(
+                      fontSize: widget.sizeQuestionText,
+                      color: widget.textColor ?? widget.mainColor,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                  widget.isPlussOrLess
+                      ? SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.32,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              BouncingWidget(
+                                duration: const Duration(milliseconds: 100),
+                                scaleFactor: 1.5,
+                                onPressed: () {
+                                  if (widget.onPressedPlusLess != null) {
+                                    if (widget.points > 0) {
+                                      widget.onPressedPlusLess!(
+                                          widget.points - 1);
+                                    }
+                                  }
+                                },
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  width: 50,
+                                  height: 25,
+                                  decoration: BoxDecoration(
+                                    color: widget.mainColor,
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(5)),
+                                  ),
+                                  child: Text(
+                                    "-",
+                                    style: TextStyle(
+                                      color: widget.secondaryColor,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
+                              ),
+                              Text(
+                                "${widget.points}",
+                                style: TextStyle(
+                                    color: widget.secondaryColor,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              BouncingWidget(
+                                duration: const Duration(milliseconds: 100),
+                                scaleFactor: 1.5,
+                                onPressed: () {
+                                  if (widget.onPressedPlusLess != null) {
+                                    widget
+                                        .onPressedPlusLess!(widget.points + 1);
+                                  }
+                                },
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  width: 50,
+                                  height: 25,
+                                  decoration: BoxDecoration(
+                                    color: widget.mainColor,
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(5)),
+                                  ),
+                                  child: Text(
+                                    "+",
+                                    style: TextStyle(
+                                        color: widget.secondaryColor,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                      : RowNavigatorWidget(
+                          indexSelected: widget.index,
+                          width: widget.width,
+                          name1: widget.name1,
+                          name2: widget.name2,
+                          name3: widget.name3 ?? widget.name3,
+                          mainColor: widget.mainColor,
+                          secondaryColor: widget.secondaryColor,
+                          onTap: (touchValue) {
+                            setState(() {
+                              if (widget.onPressedIndex != null) {
+                                widget.onPressedIndex!(touchValue);
+                              }
+                            });
+                          },
+                        ),
+                ],
+              )
+            : widget.isPlussOrLess
                 ? SizedBox(
                     width: MediaQuery.of(context).size.width * 0.32,
                     child: Row(
@@ -139,7 +232,7 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                     width: widget.width,
                     name1: widget.name1,
                     name2: widget.name2,
-                    name3: widget.name3?? widget.name3,
+                    name3: widget.name3 ?? widget.name3,
                     mainColor: widget.mainColor,
                     secondaryColor: widget.secondaryColor,
                     onTap: (touchValue) {
@@ -150,96 +243,6 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                       });
                     },
                   ),
-          ],
-        ): widget.isPlussOrLess
-            ? SizedBox(
-                width: MediaQuery.of(context).size.width * 0.32,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    BouncingWidget(
-                      duration: const Duration(milliseconds: 100),
-                      scaleFactor: 1.5,
-                      onPressed: () {
-                        if (widget.onPressedPlusLess != null) {
-                          if (widget.points > 0) {
-                            widget.onPressedPlusLess!(widget.points - 1);
-                          }
-                        }
-                      },
-                      child: Container(
-                        alignment: Alignment.center,
-                        width: 50,
-                        height: 25,
-                        decoration: BoxDecoration(
-                          color: widget.mainColor,
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(5)),
-                        ),
-                        child: Text(
-                          "-",
-                          style: TextStyle(
-                            color: widget.secondaryColor,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                    Text(
-                      "${widget.points}",
-                      style: TextStyle(
-                          color: widget.secondaryColor,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    BouncingWidget(
-                      duration: const Duration(milliseconds: 100),
-                      scaleFactor: 1.5,
-                      onPressed: () {
-                        if (widget.onPressedPlusLess != null) {
-                          widget.onPressedPlusLess!(widget.points + 1);
-                        }
-                      },
-                      child: Container(
-                        alignment: Alignment.center,
-                        width: 50,
-                        height: 25,
-                        decoration: BoxDecoration(
-                          color: widget.mainColor,
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(5)),
-                        ),
-                        child: Text(
-                          "+",
-                          style: TextStyle(
-                              color: widget.secondaryColor,
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              )
-            : RowNavigatorWidget(
-                indexSelected: widget.index,
-                width: widget.width,
-                name1: widget.name1,
-                name2: widget.name2,
-                name3: widget.name3?? widget.name3,
-                mainColor: widget.mainColor,
-                secondaryColor: widget.secondaryColor,
-                onTap: (touchValue) {
-                  setState(() {
-                    if (widget.onPressedIndex != null) {
-                      widget.onPressedIndex!(touchValue);
-                    }
-                  });
-                },
-              ),
         if (widget.useDivider)
           Divider(
             color: widget.secondaryColor,
