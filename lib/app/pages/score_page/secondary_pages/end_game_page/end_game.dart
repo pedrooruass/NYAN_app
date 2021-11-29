@@ -16,14 +16,16 @@ class EndGame extends StatefulWidget {
   final Color allianceColor;
   final Color secondaryAllianceColor;
   final void Function() onPressedBack;
-  const EndGame(
-      {Key? key,
-      required this.mainColor,
-      required this.secondaryColor,
-      required this.allianceColor,
-      required this.secondaryAllianceColor,
-      required this.onPressedBack})
-      : super(key: key);
+  final void Function() onPressedNext;
+  const EndGame({
+    Key? key,
+    required this.mainColor,
+    required this.secondaryColor,
+    required this.allianceColor,
+    required this.secondaryAllianceColor,
+    required this.onPressedBack,
+    required this.onPressedNext,
+  }) : super(key: key);
 
   @override
   State<EndGame> createState() => _EndGameState();
@@ -238,9 +240,11 @@ class _EndGameState extends State<EndGame> {
             BottomLine(
               mainColor: widget.mainColor,
               secondaryColor: widget.secondaryColor,
-              nextColor: AppColors.red,
+              nextColor: AppColors.black,
               backColor: AppColors.orange,
               onPressedBack: widget.onPressedBack,
+              onPressedNext: widget.onPressedNext,
+              nextText: "Finish",
               totalScore: controller.calcTotalScore(),
             )
           ],

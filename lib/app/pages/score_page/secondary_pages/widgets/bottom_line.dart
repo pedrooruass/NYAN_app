@@ -11,6 +11,7 @@ class BottomLine extends StatelessWidget {
   final void Function()? onPressedBack;
   final bool isAutonomous;
   final int totalScore;
+  final String? nextText;
   const BottomLine({
     Key? key,
     required this.mainColor,
@@ -21,6 +22,7 @@ class BottomLine extends StatelessWidget {
     this.backColor = Colors.blue,
     this.isAutonomous = false,
     this.totalScore = 0,
+    this.nextText,
   }) : super(key: key);
 
   @override
@@ -67,9 +69,9 @@ class BottomLine extends StatelessWidget {
                           ),
                         ),
                         child: Text(
-                          "Next",
+                          nextText?? "Next",
                           style: TextStyle(
-                            fontSize: 35,
+                            fontSize: 27.5,
                             color: AppColors.white,
                             fontWeight: FontWeight.w500,
                           ),
@@ -96,7 +98,7 @@ class BottomLine extends StatelessWidget {
                                 child: Text(
                                   "Back",
                                   style: TextStyle(
-                                    fontSize: 35,
+                                    fontSize: 27.5,
                                     color: AppColors.white,
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -121,9 +123,9 @@ class BottomLine extends StatelessWidget {
                                   ),
                                 ),
                                 child: Text(
-                                  "Next",
+                                  nextText?? "Next",
                                   style: TextStyle(
-                                    fontSize: 35,
+                                    fontSize: 27.5,
                                     color: AppColors.white,
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -149,7 +151,7 @@ class BottomLine extends StatelessWidget {
                             child: Text(
                               "Back",
                               style: TextStyle(
-                                fontSize: 35,
+                                fontSize: 27.5,
                                 color: AppColors.white,
                                 fontWeight: FontWeight.w500,
                               ),

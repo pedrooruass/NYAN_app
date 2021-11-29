@@ -9,6 +9,8 @@
     2- Arrumar Cores,
     3- Fazer Com que o botao de home alem de home faca um restart - DONE DONE
     4- Reformatar tudo
+    5- Implementar a tela Final Score
+    6- Arrumar o score para cada alliance
 
 
 

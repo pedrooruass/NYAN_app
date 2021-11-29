@@ -7,9 +7,11 @@ import 'package:nyan_app/app/pages/score_page/secondary_pages/end_game_page/end_
 
 class LiquidSwipeEndGameView extends StatefulWidget {
   final void Function() onPressedBack;
+  final void Function() onPressedNext;
   const LiquidSwipeEndGameView({
     Key? key,
     required this.onPressedBack,
+    required this.onPressedNext,
   }) : super(key: key);
 
   @override
@@ -31,6 +33,7 @@ class _LiquidSwipeEndGameViewState
           allianceColor: AppColors.primary,
           secondaryAllianceColor: AppColors.secondary,
           onPressedBack: widget.onPressedBack,
+          onPressedNext:widget.onPressedNext,
         ),
         EndGame(
           key: const Key('DriverControlledRed'),
@@ -39,6 +42,7 @@ class _LiquidSwipeEndGameViewState
           allianceColor: AppColors.secondary,
           secondaryAllianceColor: AppColors.primary,
           onPressedBack: widget.onPressedBack,
+          onPressedNext:widget.onPressedNext,
         ),
       ],
       enableLoop: true,
