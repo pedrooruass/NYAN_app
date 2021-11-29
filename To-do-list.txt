@@ -3,16 +3,14 @@
 
 
 16- arrumar o view do landscape || se nao der bloquear ele,
-19- duplicar tudo para Driver Controlled && EndGame
-21- ver se pode ter o logo do insta, se puder direcionar para o insta do NYAN
-22- Arrumar o metodo resetPoints
-24- Adaptar todos os trueOrFalse
-25- Terminar o Autonomous Model
-26- Arrumar todos os metodos e o total
 27- reformatar tudo q for possivel
-28- comecar o driver Controlled do jeito certo
-29- arrumar instagram
-30- put back option after Autonomous && put just back after Driver Controlled
+# ------------------------------ TODO LIST FINAL ----------------------------- #
+    1- Finalizar End Game,
+    2- Arrumar Cores,
+    3- Fazer Com que o botao de home alem de home faca um restart - DONE DONE
+    4- Reformatar tudo
+
+
 
 # ---------------------------------------------------------------------------- #
 # ----------------------------------- DONE ----------------------------------- #
@@ -38,5 +36,15 @@
     17- Arrumar botao trueOrFalse - DONE
     22- arrumar no/yes - DONE
     30- Arrumar a questao de componente fixos no rowNavigatorButton - DONE
+    21- ver se pode ter o logo do insta, se puder direcionar para o insta do NYAN - DONE
+    29- arrumar instagram - DONE
+    30- put back option after Autonomous && put just back after Driver Controlled - DONE
+    31- ver por que nao esta indo pra pagina certa e so vai pra pagina do pato "teams alliance" - DONE
+    19- duplicar tudo para Driver Controlled && EndGame - DONE
+    22- Arrumar o metodo resetPoints - DONE
+    24- Adaptar todos os trueOrFalse - DONE
+    25- Terminar o Autonomous Model - DONE
+    26- Arrumar todos os metodos e o total - DONE
+    28- comecar o driver Controlled do jeito certo - DONE
 
 # ---------------------------------------------------------------------------- #

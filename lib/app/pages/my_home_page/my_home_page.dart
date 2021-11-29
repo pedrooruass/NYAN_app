@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:nyan_app/app/controllers/calc_score_controller.dart';
 import 'package:nyan_app/app/core/theme/app_colors.dart';
 import 'package:nyan_app/app/pages/my_home_page/widgets/my_app_bar_widget.dart';
 import 'package:nyan_app/app/pages/my_home_page/widgets/my_bottom_navigation_bar_widget.dart';
 import 'package:nyan_app/app/pages/rules_page/rules_page.dart';
 import 'package:nyan_app/app/pages/score_page/score_page.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -16,7 +18,15 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int selectedIndex = 1;
   int scoreIndex = 0;
+  late CalcScoreController controller;
   final PageController pageController = PageController(initialPage: 1);
+
+  @override
+  void initState() {
+    controller = Provider.of<CalcScoreController>(context, listen: false);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,12 +39,15 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed1: () {
           setState(() {
             scoreIndex = 0;
+            controller.autonomous.resetPoints();
+            controller.driverControlled.resetPoints();
+            // controller.endGame.resetPoints();
           });
         },
         onPressed2: () async {
           const url = "https://instagram.com/nyanrobotics";
           if (await canLaunch(url)) {
-            await launch(url, forceSafariVC: true, forceWebView: true);
+            await launch(url);
           } else {
             throw 'Could not launch $url';
           }

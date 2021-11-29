@@ -3,31 +3,32 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nyan_app/app/core/theme/app_colors.dart';
-import 'package:nyan_app/app/models/autonomous_model.dart';
 import 'package:nyan_app/app/models/driver_controlled_model.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/widgets/bottom_line.dart';
+import 'package:nyan_app/app/pages/score_page/secondary_pages/widgets/question_widget.dart';
 
-class DriverControlled extends StatefulWidget {
+class EndGame extends StatefulWidget {
   final Color mainColor;
   final Color secondaryColor;
   final Color allianceColor;
   final Color secondaryAllianceColor;
   final DriverControlledModel driverControlledModel;
-  final void Function() onPressed;
-  const DriverControlled(
+  final void Function() onPressedBack;
+  const EndGame(
       {Key? key,
       required this.mainColor,
       required this.secondaryColor,
       required this.allianceColor,
       required this.secondaryAllianceColor,
-      required this.driverControlledModel,required this.onPressed})
+      required this.driverControlledModel,
+      required this.onPressedBack})
       : super(key: key);
 
   @override
-  State<DriverControlled> createState() => _DriverControlledState();
+  State<EndGame> createState() => _EndGameState();
 }
 
-class _DriverControlledState extends State<DriverControlled> {
+class _EndGameState extends State<EndGame> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -47,7 +48,7 @@ class _DriverControlledState extends State<DriverControlled> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Driver Controlled',
+                  'End Game',
                   style: TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 35,
@@ -71,8 +72,15 @@ class _DriverControlledState extends State<DriverControlled> {
                 ),
               ],
             ),
-            const SizedBox(height: 10,),
-            
+            QuestionWidget(
+              text: "Carousel Delivery",
+              mainColor: widget.mainColor,
+              secondaryColor: widget.secondaryColor,
+              onPressedPlusLess: (value) {
+                setState(() {
+                });
+              },
+            ),
             Align(
               alignment: Alignment.bottomCenter,
               child: Text(
@@ -90,7 +98,8 @@ class _DriverControlledState extends State<DriverControlled> {
               mainColor: widget.mainColor,
               secondaryColor: widget.secondaryColor,
               nextColor: AppColors.red,
-              onPressed: widget.onPressed,
+              backColor: AppColors.orange,
+              onPressedBack: widget.onPressedBack,
             )
           ],
         ),

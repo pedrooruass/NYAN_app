@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nyan_app/app/core/theme/app_colors.dart';
 
 class RowNavigatorWidget extends StatelessWidget {
   final void Function(int) onTap;
@@ -11,6 +10,7 @@ class RowNavigatorWidget extends StatelessWidget {
   final String? name5;
   final Color mainColor;
   final Color secondaryColor;
+  final double width;
 
   const RowNavigatorWidget({
     Key? key,
@@ -23,6 +23,7 @@ class RowNavigatorWidget extends StatelessWidget {
     this.name3,
     this.name4,
     this.name5,
+    this.width = 120.0,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,7 @@ class RowNavigatorWidget extends StatelessWidget {
         children: [
           Container(
             padding: const EdgeInsets.all(2),
-            width: 120,
+            width: width,
             height: 25,
             decoration: BoxDecoration(
               color: mainColor,
@@ -76,6 +77,7 @@ class RowNavigatorWidget extends StatelessWidget {
               fontWeight:
                   indexSelected == index ? FontWeight.bold : FontWeight.normal,
             ),
+            textAlign: TextAlign.center,
           ),
         ),
       ),

@@ -3,45 +3,45 @@ import 'package:liquid_swipe/Helpers/Helpers.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:nyan_app/app/core/theme/app_colors.dart';
 import 'package:nyan_app/app/models/driver_controlled_model.dart';
-import 'package:nyan_app/app/pages/score_page/secondary_pages/driver_controlled_page/driver_controlled.dart';
+import 'package:nyan_app/app/pages/score_page/secondary_pages/end_game_page/end_game.dart';
 
-class LiquidSwipeDriverControlledView extends StatefulWidget {
-  final void Function() onPressedNext;
+class LiquidSwipeEndGameView extends StatefulWidget {
   final void Function() onPressedBack;
-  const LiquidSwipeDriverControlledView({
+  const LiquidSwipeEndGameView({
     Key? key,
-    required this.onPressedNext,
     required this.onPressedBack,
   }) : super(key: key);
 
   @override
-  State<LiquidSwipeDriverControlledView> createState() =>
-      _LiquidSwipeDriverControlledViewState();
+  State<LiquidSwipeEndGameView> createState() =>
+      _LiquidSwipeEndGameViewState();
 }
 
-class _LiquidSwipeDriverControlledViewState
-    extends State<LiquidSwipeDriverControlledView> {
+class _LiquidSwipeEndGameViewState
+    extends State<LiquidSwipeEndGameView> {
+  DriverControlledModel blueDriverControlledModel = DriverControlledModel();
+  DriverControlledModel redDriverControlledModel = DriverControlledModel();
 
   @override
   Widget build(BuildContext context) {
     return LiquidSwipe(
       pages: [
-        DriverControlled(
+        EndGame(
           key: const Key('DriverControlledBlue'),
-          mainColor: AppColors.orange,
+          mainColor: AppColors.purple,
           secondaryColor: AppColors.white,
           allianceColor: AppColors.primary,
           secondaryAllianceColor: AppColors.secondary,
-          onPressedNext: widget.onPressedNext,
+          driverControlledModel: blueDriverControlledModel,
           onPressedBack: widget.onPressedBack,
         ),
-        DriverControlled(
+        EndGame(
           key: const Key('DriverControlledRed'),
           mainColor: AppColors.white,
           secondaryColor: AppColors.black,
           allianceColor: AppColors.secondary,
           secondaryAllianceColor: AppColors.primary,
-          onPressedNext: widget.onPressedNext,
+          driverControlledModel: redDriverControlledModel,
           onPressedBack: widget.onPressedBack,
         ),
       ],

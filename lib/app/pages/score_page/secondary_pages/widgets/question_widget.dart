@@ -3,26 +3,38 @@ import 'package:flutter/material.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/widgets/row_navigator_button_widget.dart';
 
 class QuestionWidget extends StatefulWidget {
-  final String question;
-  final bool isTrueOrFalse;
+  final String? text;
   final bool useDivider;
-  final bool isBonus;
+  final bool isPlussOrLess;
   final Color mainColor;
   final Color secondaryColor;
-  final void Function(int) onPressedPlusLess;
+  final void Function(int)? onPressedPlusLess;
+  final void Function(int)? onPressedIndex;
   final int points;
   final double sizeQuestionText;
+  final int index;
+  final String name1;
+  final String name2;
+  final String? name3;
+  final double width;
+  final Color? textColor;
   const QuestionWidget({
     Key? key,
-    required this.question,
-    this.isTrueOrFalse = false,
+    this.text,
+    this.isPlussOrLess = true,
     this.useDivider = true,
-    this.isBonus = false,
     this.sizeQuestionText = 25.0,
     required this.mainColor,
     required this.secondaryColor,
-    required this.onPressedPlusLess,
-    required this.points,
+    this.onPressedPlusLess,
+    this.onPressedIndex,
+    this.points = 0,
+    this.index = 0,
+    this.name1 = "Name1",
+    this.name2 = "Name2",
+    this.name3,
+    this.width = 120,
+    this.textColor,
   }) : super(key: key);
 
 //  static void resetPoints() {
@@ -33,119 +45,201 @@ class QuestionWidget extends StatefulWidget {
 }
 
 class _QuestionWidgetState extends State<QuestionWidget> {
-  int index = 0;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
+            widget.text != null?
         Row(
           children: [
             Text(
-              widget.question,
+              widget.text!,
               style: TextStyle(
                 fontSize: widget.sizeQuestionText,
-                color: widget.mainColor,
+                color: widget.textColor ?? widget.mainColor,
                 fontWeight: FontWeight.w300,
               ),
             ),
-            const Spacer(),
-            widget.isBonus
-                ? RowNavigatorWidget(
-                    indexSelected: index,
-                    name1: "None",
-                    name2: "Duck",
-                    name3: "Team",
-                    mainColor: widget.mainColor,
-                    secondaryColor: widget.secondaryColor,
-                    onTap: (touchValue) {
-                      setState(() {
-                        index = touchValue;
-                      });
-                    },
-                  )
-                : widget.isTrueOrFalse
-                    ? RowNavigatorWidget(
-                        indexSelected: index,
-                        name1: "No",
-                        name2: "Yes",
-                        mainColor: widget.mainColor,
-                        secondaryColor: widget.secondaryColor,
-                        onTap: (touchValue) {
-                          setState(() {
-                            index = touchValue;
-                          });
-                        },
-                      )
-                    : SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.32,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            BouncingWidget(
-                              duration: const Duration(milliseconds: 100),
-                              scaleFactor: 1.5,
-                              onPressed: () {
-                                if (widget.points > 0) {
-                                  widget.onPressedPlusLess(widget.points - 1);
-                                }
-                              },
-                              child: Container(
-                                alignment: Alignment.center,
-                                width: 50,
-                                height: 25,
-                                decoration: BoxDecoration(
-                                  color: widget.mainColor,
-                                  borderRadius: const BorderRadius.all(
-                                      Radius.circular(5)),
-                                ),
-                                child: Text(
-                                  "-",
-                                  style: TextStyle(
-                                    color: widget.secondaryColor,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
+            const Spacer(), 
+            widget.isPlussOrLess
+                ? SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.32,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        BouncingWidget(
+                          duration: const Duration(milliseconds: 100),
+                          scaleFactor: 1.5,
+                          onPressed: () {
+                            if (widget.onPressedPlusLess != null) {
+                              if (widget.points > 0) {
+                                widget.onPressedPlusLess!(widget.points - 1);
+                              }
+                            }
+                          },
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: 50,
+                            height: 25,
+                            decoration: BoxDecoration(
+                              color: widget.mainColor,
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(5)),
                             ),
-                            Text(
-                              "${widget.points}",
+                            child: Text(
+                              "-",
+                              style: TextStyle(
+                                color: widget.secondaryColor,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ),
+                        Text(
+                          "${widget.points}",
+                          style: TextStyle(
+                              color: widget.secondaryColor,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        BouncingWidget(
+                          duration: const Duration(milliseconds: 100),
+                          scaleFactor: 1.5,
+                          onPressed: () {
+                            if (widget.onPressedPlusLess != null) {
+                              widget.onPressedPlusLess!(widget.points + 1);
+                            }
+                          },
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: 50,
+                            height: 25,
+                            decoration: BoxDecoration(
+                              color: widget.mainColor,
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(5)),
+                            ),
+                            child: Text(
+                              "+",
                               style: TextStyle(
                                   color: widget.secondaryColor,
                                   fontSize: 15,
                                   fontWeight: FontWeight.bold),
+                              textAlign: TextAlign.center,
                             ),
-                            BouncingWidget(
-                              duration: const Duration(milliseconds: 100),
-                              scaleFactor: 1.5,
-                              onPressed: () {
-                                widget.onPressedPlusLess(widget.points + 1);
-                              },
-                              child: Container(
-                                alignment: Alignment.center,
-                                width: 50,
-                                height: 25,
-                                decoration: BoxDecoration(
-                                  color: widget.mainColor,
-                                  borderRadius: const BorderRadius.all(
-                                      Radius.circular(5)),
-                                ),
-                                child: Text(
-                                  "+",
-                                  style: TextStyle(
-                                      color: widget.secondaryColor,
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.bold),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
-                            ),
-                          ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                : RowNavigatorWidget(
+                    indexSelected: widget.index,
+                    width: widget.width,
+                    name1: widget.name1,
+                    name2: widget.name2,
+                    name3: widget.name3?? widget.name3,
+                    mainColor: widget.mainColor,
+                    secondaryColor: widget.secondaryColor,
+                    onTap: (touchValue) {
+                      setState(() {
+                        if (widget.onPressedIndex != null) {
+                          widget.onPressedIndex!(touchValue);
+                        }
+                      });
+                    },
+                  ),
+          ],
+        ): widget.isPlussOrLess
+            ? SizedBox(
+                width: MediaQuery.of(context).size.width * 0.32,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    BouncingWidget(
+                      duration: const Duration(milliseconds: 100),
+                      scaleFactor: 1.5,
+                      onPressed: () {
+                        if (widget.onPressedPlusLess != null) {
+                          if (widget.points > 0) {
+                            widget.onPressedPlusLess!(widget.points - 1);
+                          }
+                        }
+                      },
+                      child: Container(
+                        alignment: Alignment.center,
+                        width: 50,
+                        height: 25,
+                        decoration: BoxDecoration(
+                          color: widget.mainColor,
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(5)),
+                        ),
+                        child: Text(
+                          "-",
+                          style: TextStyle(
+                            color: widget.secondaryColor,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          textAlign: TextAlign.center,
                         ),
                       ),
-          ],
-        ),
+                    ),
+                    Text(
+                      "${widget.points}",
+                      style: TextStyle(
+                          color: widget.secondaryColor,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    BouncingWidget(
+                      duration: const Duration(milliseconds: 100),
+                      scaleFactor: 1.5,
+                      onPressed: () {
+                        if (widget.onPressedPlusLess != null) {
+                          widget.onPressedPlusLess!(widget.points + 1);
+                        }
+                      },
+                      child: Container(
+                        alignment: Alignment.center,
+                        width: 50,
+                        height: 25,
+                        decoration: BoxDecoration(
+                          color: widget.mainColor,
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(5)),
+                        ),
+                        child: Text(
+                          "+",
+                          style: TextStyle(
+                              color: widget.secondaryColor,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            : RowNavigatorWidget(
+                indexSelected: widget.index,
+                width: widget.width,
+                name1: widget.name1,
+                name2: widget.name2,
+                name3: widget.name3?? widget.name3,
+                mainColor: widget.mainColor,
+                secondaryColor: widget.secondaryColor,
+                onTap: (touchValue) {
+                  setState(() {
+                    if (widget.onPressedIndex != null) {
+                      widget.onPressedIndex!(touchValue);
+                    }
+                  });
+                },
+              ),
         if (widget.useDivider)
           Divider(
             color: widget.secondaryColor,

@@ -6,13 +6,22 @@ class BottomLine extends StatelessWidget {
   final Color mainColor;
   final Color secondaryColor;
   final Color nextColor;
-  final void Function() onPressed;
-  const BottomLine(
-      {Key? key,
-      required this.mainColor,
-      required this.secondaryColor,
-      required this.onPressed, required this.nextColor})
-      : super(key: key);
+  final Color backColor;
+  final void Function()? onPressedNext;
+  final void Function()? onPressedBack;
+  final bool isAutonomous;
+  final int totalScore;
+  const BottomLine({
+    Key? key,
+    required this.mainColor,
+    required this.secondaryColor,
+    this.onPressedNext,
+    this.onPressedBack,
+    required this.nextColor,
+    this.backColor = Colors.blue,
+    this.isAutonomous = false,
+    this.totalScore = 0,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +43,7 @@ class BottomLine extends StatelessWidget {
                 width: 10,
               ),
               Text(
-                "30",
+                totalScore.toString(),
                 style: TextStyle(
                   fontSize: 35,
                   color: secondaryColor,
@@ -42,30 +51,111 @@ class BottomLine extends StatelessWidget {
                 ),
               ),
               const Spacer(),
-              BouncingWidget(
-                duration: const Duration(milliseconds: 100),
-                scaleFactor: 1.5,
-                onPressed: onPressed,
-                child: Container(
-                  alignment: Alignment.center,
-                  width: 100,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    color: nextColor,
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(10),
-                    ),
-                  ),
-                  child: Text(
-                    "Next",
-                    style: TextStyle(
-                      fontSize: 35,
-                      color: AppColors.white,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-              ),
+              onPressedBack == null
+                  ? BouncingWidget(
+                      duration: const Duration(milliseconds: 100),
+                      scaleFactor: 1.5,
+                      onPressed: onPressedNext ?? () {},
+                      child: Container(
+                        alignment: Alignment.center,
+                        width: 90,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          color: nextColor,
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(10),
+                          ),
+                        ),
+                        child: Text(
+                          "Next",
+                          style: TextStyle(
+                            fontSize: 35,
+                            color: AppColors.white,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    )
+                  : onPressedNext != null
+                      ? Row(
+                          children: [
+                            BouncingWidget(
+                              duration: const Duration(milliseconds: 100),
+                              scaleFactor: 1.5,
+                              onPressed: onPressedBack ?? () {},
+                              child: Container(
+                                alignment: Alignment.center,
+                                width: 90,
+                                height: 50,
+                                decoration: BoxDecoration(
+                                  color: backColor,
+                                  borderRadius: const BorderRadius.all(
+                                    Radius.circular(10),
+                                  ),
+                                ),
+                                child: Text(
+                                  "Back",
+                                  style: TextStyle(
+                                    fontSize: 35,
+                                    color: AppColors.white,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            BouncingWidget(
+                              duration: const Duration(milliseconds: 100),
+                              scaleFactor: 1.5,
+                              onPressed: onPressedNext ?? () {},
+                              child: Container(
+                                alignment: Alignment.center,
+                                width: 90,
+                                height: 50,
+                                decoration: BoxDecoration(
+                                  color: nextColor,
+                                  borderRadius: const BorderRadius.all(
+                                    Radius.circular(10),
+                                  ),
+                                ),
+                                child: Text(
+                                  "Next",
+                                  style: TextStyle(
+                                    fontSize: 35,
+                                    color: AppColors.white,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        )
+                      : BouncingWidget(
+                          duration: const Duration(milliseconds: 100),
+                          scaleFactor: 1.5,
+                          onPressed: onPressedBack ?? () {},
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: 90,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: backColor,
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(10),
+                              ),
+                            ),
+                            child: Text(
+                              "Back",
+                              style: TextStyle(
+                                fontSize: 35,
+                                color: AppColors.white,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                        ),
             ],
           ),
         ],
