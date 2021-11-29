@@ -133,14 +133,13 @@ class _AutonomousState extends State<Autonomous> {
                   child: Column(
                     children: [
                       QuestionWidget(
-                        text: "Robot 1",
+                        text: "R1",
                         textColor: AppColors.white,
                         mainColor: widget.mainColor,
                         isPlussOrLess: false,
                         index: controller.autonomous.isRobot1Parked ? 1 : 0,
                         name1: "No",
                         name2: "Yes",
-                        width: 75,
                         useDivider: false,
                         secondaryColor: widget.secondaryColor,
                         onPressedIndex: (index) {
@@ -197,14 +196,13 @@ class _AutonomousState extends State<Autonomous> {
                   child: Column(
                     children: [
                       QuestionWidget(
-                        text: "Robot 2",
+                        text: "R2",
                         textColor: AppColors.white,
                         mainColor: widget.mainColor,
                         isPlussOrLess: false,
                         index: controller.autonomous.isRobot2Parked ? 1 : 0,
                         name1: "No",
                         name2: "Yes",
-                        width: 75,
                         useDivider: false,
                         secondaryColor: widget.secondaryColor,
                         onPressedIndex: (index) {
