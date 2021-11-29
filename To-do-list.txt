@@ -5,7 +5,7 @@
 16- arrumar o view do landscape || se nao der bloquear ele,
 27- reformatar tudo q for possivel
 # ------------------------------ TODO LIST FINAL ----------------------------- #
-    1- Finalizar End Game,
+    1- Finalizar End Game, - DONE DONE
     2- Arrumar Cores,
     3- Fazer Com que o botao de home alem de home faca um restart - DONE DONE
     4- Reformatar tudo

@@ -33,7 +33,7 @@ class QuestionWidget extends StatefulWidget {
     this.name1 = "Name1",
     this.name2 = "Name2",
     this.name3,
-    this.width = 120,
+    this.width = 122,
     this.textColor,
   }) : super(key: key);
 

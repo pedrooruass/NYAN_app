@@ -41,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
             scoreIndex = 0;
             controller.autonomous.resetPoints();
             controller.driverControlled.resetPoints();
-            // controller.endGame.resetPoints();
+            controller.endGame.resetPoints();
           });
         },
         onPressed2: () async {

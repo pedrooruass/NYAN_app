@@ -2,17 +2,19 @@ import 'package:bouncing_widget/bouncing_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:nyan_app/app/controllers/calc_score_controller.dart';
 import 'package:nyan_app/app/core/theme/app_colors.dart';
 import 'package:nyan_app/app/models/driver_controlled_model.dart';
+import 'package:nyan_app/app/models/end_game_model.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/widgets/bottom_line.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/widgets/question_widget.dart';
+import 'package:provider/provider.dart';
 
 class EndGame extends StatefulWidget {
   final Color mainColor;
   final Color secondaryColor;
   final Color allianceColor;
   final Color secondaryAllianceColor;
-  final DriverControlledModel driverControlledModel;
   final void Function() onPressedBack;
   const EndGame(
       {Key? key,
@@ -20,7 +22,6 @@ class EndGame extends StatefulWidget {
       required this.secondaryColor,
       required this.allianceColor,
       required this.secondaryAllianceColor,
-      required this.driverControlledModel,
       required this.onPressedBack})
       : super(key: key);
 
@@ -29,6 +30,14 @@ class EndGame extends StatefulWidget {
 }
 
 class _EndGameState extends State<EndGame> {
+  late CalcScoreController controller;
+
+  @override
+  void initState() {
+    controller = Provider.of<CalcScoreController>(context, listen: false);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -65,7 +74,7 @@ class _EndGameState extends State<EndGame> {
                     ),
                     onPressed: () {
                       setState(() {
-                        // QuestionWidget.resetPoints();
+                        controller.endGame.resetPoints();
                       });
                     },
                   ),
@@ -76,8 +85,140 @@ class _EndGameState extends State<EndGame> {
               text: "Carousel Delivery",
               mainColor: widget.mainColor,
               secondaryColor: widget.secondaryColor,
+              points: controller.endGame.cD,
               onPressedPlusLess: (value) {
                 setState(() {
+                  // Logica funcional mas nao sei se correta
+                  if (controller.endGame.cD <= 10) {
+                    controller.endGame.cD = value;
+                    if (controller.endGame.cD > 10) {
+                      controller.endGame.cD -= 1;
+                    }
+                  }
+                });
+              },
+            ),
+            QuestionWidget(
+              text: "Shipping Hub?",
+              isPlussOrLess: false,
+              width: 125,
+              mainColor: widget.mainColor,
+              index: controller.endGame.shippingH,
+              name1: "Tripped",
+              name2: "Balanced",
+              secondaryColor: widget.secondaryColor,
+              onPressedIndex: (index) {
+                setState(() {
+                  controller.endGame.shippingH = index;
+                });
+              },
+            ),
+            QuestionWidget(
+              text: "Shared Hub?",
+              width: 125,
+              isPlussOrLess: false,
+              mainColor: widget.mainColor,
+              index: controller.endGame.sharedH,
+              name1: "Balanced",
+              name2: "Tripped",
+              secondaryColor: widget.secondaryColor,
+              onPressedIndex: (index) {
+                setState(() {
+                  controller.endGame.sharedH = index;
+                });
+              },
+            ),
+            Center(
+              child: Text(
+                "Robots Parking?",
+                style: TextStyle(
+                  fontSize: 25,
+                  color: widget.mainColor,
+                  fontWeight: FontWeight.w300,
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: Column(
+                    children: [
+                      Text(
+                        "Parking R1",
+                        style: TextStyle(
+                          fontSize: 25,
+                          color: widget.secondaryColor,
+                          fontWeight: FontWeight.w300,
+                        ),
+                      ),
+                      QuestionWidget(
+                        isPlussOrLess: false,
+                        mainColor: widget.mainColor,
+                        name1: "None",
+                        name2: "Partly",
+                        name3: "Full",
+                        index: controller.endGame.parked1,
+                        useDivider: false,
+                        secondaryColor: widget.secondaryColor,
+                        onPressedIndex: (index) {
+                          setState(() {
+                            controller.endGame.parked1 = index;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Column(
+                    children: [
+                      Text(
+                        "Parking R2",
+                        style: TextStyle(
+                          fontSize: 25,
+                          color: widget.secondaryColor,
+                          fontWeight: FontWeight.w300,
+                        ),
+                      ),
+                      QuestionWidget(
+                        isPlussOrLess: false,
+                        mainColor: widget.mainColor,
+                        name1: "None",
+                        name2: "Partly",
+                        name3: "Full",
+                        index: controller.endGame.parked2,
+                        useDivider: false,
+                        secondaryColor: widget.secondaryColor,
+                        onPressedIndex: (index) {
+                          setState(() {
+                            controller.endGame.parked2 = index;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Divider(
+              color: widget.secondaryColor,
+              thickness: 2,
+            ),
+            QuestionWidget(
+              text: "Capping?",
+              isPlussOrLess: false,
+              mainColor: widget.mainColor,
+              name1: "Zero",
+              name2: "One",
+              name3: "Two",
+              index: controller.endGame.capping,
+              secondaryColor: widget.secondaryColor,
+              onPressedIndex: (index) {
+                setState(() {
+                  controller.endGame.capping = index;
                 });
               },
             ),
@@ -100,6 +241,7 @@ class _EndGameState extends State<EndGame> {
               nextColor: AppColors.red,
               backColor: AppColors.orange,
               onPressedBack: widget.onPressedBack,
+              totalScore: controller.calcTotalScore(),
             )
           ],
         ),

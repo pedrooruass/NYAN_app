@@ -19,8 +19,6 @@ class LiquidSwipeEndGameView extends StatefulWidget {
 
 class _LiquidSwipeEndGameViewState
     extends State<LiquidSwipeEndGameView> {
-  DriverControlledModel blueDriverControlledModel = DriverControlledModel();
-  DriverControlledModel redDriverControlledModel = DriverControlledModel();
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +30,6 @@ class _LiquidSwipeEndGameViewState
           secondaryColor: AppColors.white,
           allianceColor: AppColors.primary,
           secondaryAllianceColor: AppColors.secondary,
-          driverControlledModel: blueDriverControlledModel,
           onPressedBack: widget.onPressedBack,
         ),
         EndGame(
@@ -41,7 +38,6 @@ class _LiquidSwipeEndGameViewState
           secondaryColor: AppColors.black,
           allianceColor: AppColors.secondary,
           secondaryAllianceColor: AppColors.primary,
-          driverControlledModel: redDriverControlledModel,
           onPressedBack: widget.onPressedBack,
         ),
       ],
