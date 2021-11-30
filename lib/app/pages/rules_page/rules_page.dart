@@ -59,7 +59,7 @@ class RulesPage extends StatelessWidget {
             style: TextStyle(
               fontWeight: FontWeight.w500,
               fontSize: 25,
-              color: AppColors.purple,
+              color: AppColors.red,
             ),
             textAlign: TextAlign.center,
           ),

@@ -27,18 +27,16 @@ class _LiquidSwipeEndGameViewState
     return LiquidSwipe(
       pages: [
         EndGame(
-          key: const Key('DriverControlledBlue'),
-          mainColor: AppColors.purple,
-          secondaryColor: AppColors.white,
+          key: const Key('EndGameBlue'),
+          mainColor: AppColors.yellowGenius,
           allianceColor: AppColors.primary,
           secondaryAllianceColor: AppColors.secondary,
           onPressedBack: widget.onPressedBack,
           onPressedNext:widget.onPressedNext,
         ),
         EndGame(
-          key: const Key('DriverControlledRed'),
-          mainColor: AppColors.white,
-          secondaryColor: AppColors.black,
+          key: const Key('EndGameRed'),
+          mainColor: AppColors.orange,
           allianceColor: AppColors.secondary,
           secondaryAllianceColor: AppColors.primary,
           onPressedBack: widget.onPressedBack,

@@ -24,7 +24,7 @@ class EndGameModel {
   }
   int calcSharedH() {
     if (sharedH == 1) {
-      return 30;
+      return 20;
     }
     return 0;
   }

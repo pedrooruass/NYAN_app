@@ -12,7 +12,6 @@ import 'package:provider/provider.dart';
 
 class EndGame extends StatefulWidget {
   final Color mainColor;
-  final Color secondaryColor;
   final Color allianceColor;
   final Color secondaryAllianceColor;
   final void Function() onPressedBack;
@@ -20,7 +19,6 @@ class EndGame extends StatefulWidget {
   const EndGame({
     Key? key,
     required this.mainColor,
-    required this.secondaryColor,
     required this.allianceColor,
     required this.secondaryAllianceColor,
     required this.onPressedBack,
@@ -63,7 +61,7 @@ class _EndGameState extends State<EndGame> {
                   style: TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 35,
-                      color: widget.mainColor),
+                      color: AppColors.white),
                   textAlign: TextAlign.center,
                 ),
                 Padding(
@@ -71,7 +69,7 @@ class _EndGameState extends State<EndGame> {
                   child: BouncingWidget(
                     child: Icon(
                       FontAwesomeIcons.redo,
-                      color: widget.secondaryColor,
+                      color: widget.mainColor,
                       size: 18,
                     ),
                     onPressed: () {
@@ -85,9 +83,8 @@ class _EndGameState extends State<EndGame> {
             ),
             QuestionWidget(
               text: "Carousel Delivery",
-              mainColor: widget.mainColor,
-              secondaryColor: widget.secondaryColor,
               points: controller.endGame.cD,
+              mainColor: widget.mainColor,
               onPressedPlusLess: (value) {
                 setState(() {
                   // Logica funcional mas nao sei se correta
@@ -104,11 +101,10 @@ class _EndGameState extends State<EndGame> {
               text: "Shipping Hub?",
               isPlussOrLess: false,
               width: 125,
-              mainColor: widget.mainColor,
               index: controller.endGame.shippingH,
-              name1: "Tripped",
+              name1: "Tipped",
               name2: "Balanced",
-              secondaryColor: widget.secondaryColor,
+              mainColor: widget.mainColor,
               onPressedIndex: (index) {
                 setState(() {
                   controller.endGame.shippingH = index;
@@ -119,11 +115,10 @@ class _EndGameState extends State<EndGame> {
               text: "Shared Hub?",
               width: 125,
               isPlussOrLess: false,
-              mainColor: widget.mainColor,
               index: controller.endGame.sharedH,
               name1: "Balanced",
-              name2: "Tripped",
-              secondaryColor: widget.secondaryColor,
+              name2: "Tipped",
+              mainColor: widget.mainColor,
               onPressedIndex: (index) {
                 setState(() {
                   controller.endGame.sharedH = index;
@@ -149,19 +144,20 @@ class _EndGameState extends State<EndGame> {
                         "Parking R1",
                         style: TextStyle(
                           fontSize: 25,
-                          color: widget.secondaryColor,
+                          color: AppColors.white,
                           fontWeight: FontWeight.w300,
                         ),
                       ),
+                      const SizedBox(
+                        height: 5,
+                      ),
                       QuestionWidget(
                         isPlussOrLess: false,
-                        mainColor: widget.mainColor,
                         name1: "None",
                         name2: "Partly",
                         name3: "Full",
                         index: controller.endGame.parked1,
                         useDivider: false,
-                        secondaryColor: widget.secondaryColor,
                         onPressedIndex: (index) {
                           setState(() {
                             controller.endGame.parked1 = index;
@@ -178,19 +174,20 @@ class _EndGameState extends State<EndGame> {
                         "Parking R2",
                         style: TextStyle(
                           fontSize: 25,
-                          color: widget.secondaryColor,
+                          color: AppColors.white,
                           fontWeight: FontWeight.w300,
                         ),
                       ),
+                      const SizedBox(
+                        height: 5,
+                      ),
                       QuestionWidget(
                         isPlussOrLess: false,
-                        mainColor: widget.mainColor,
                         name1: "None",
                         name2: "Partly",
                         name3: "Full",
                         index: controller.endGame.parked2,
                         useDivider: false,
-                        secondaryColor: widget.secondaryColor,
                         onPressedIndex: (index) {
                           setState(() {
                             controller.endGame.parked2 = index;
@@ -203,21 +200,20 @@ class _EndGameState extends State<EndGame> {
               ],
             ),
             const SizedBox(
-              height: 10,
+              height: 5,
             ),
             Divider(
-              color: widget.secondaryColor,
+              color: widget.mainColor,
               thickness: 2,
             ),
             QuestionWidget(
               text: "Capping?",
               isPlussOrLess: false,
-              mainColor: widget.mainColor,
               name1: "Zero",
               name2: "One",
               name3: "Two",
               index: controller.endGame.capping,
-              secondaryColor: widget.secondaryColor,
+              mainColor: widget.mainColor,
               onPressedIndex: (index) {
                 setState(() {
                   controller.endGame.capping = index;
@@ -239,7 +235,6 @@ class _EndGameState extends State<EndGame> {
             const Spacer(),
             BottomLine(
               mainColor: widget.mainColor,
-              secondaryColor: widget.secondaryColor,
               nextColor: AppColors.black,
               backColor: AppColors.orange,
               onPressedBack: widget.onPressedBack,

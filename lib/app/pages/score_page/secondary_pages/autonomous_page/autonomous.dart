@@ -9,14 +9,12 @@ import 'package:provider/provider.dart';
 
 class Autonomous extends StatefulWidget {
   final Color mainColor;
-  final Color secondaryColor;
   final Color allianceColor;
   final Color secondaryAllianceColor;
   final void Function() onPressed;
   const Autonomous(
       {Key? key,
       required this.mainColor,
-      required this.secondaryColor,
       required this.allianceColor,
       required this.secondaryAllianceColor,
       required this.onPressed})
@@ -59,14 +57,14 @@ class _AutonomousState extends State<Autonomous> {
                   style: TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 35,
-                      color: widget.mainColor),
+                      color: AppColors.white),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(width: 15),
                 BouncingWidget(
                   child: Icon(
                     FontAwesomeIcons.redo,
-                    color: widget.secondaryColor,
+                    color: widget.mainColor,
                     size: 18,
                   ),
                   onPressed: () {
@@ -87,7 +85,6 @@ class _AutonomousState extends State<Autonomous> {
               mainColor: widget.mainColor,
               name1: "No",
               name2: "Yes",
-              secondaryColor: widget.secondaryColor,
               onPressedIndex: (index) {
                 setState(() {
                   controller.autonomous.isDuckDelivered = index != 0;
@@ -96,9 +93,8 @@ class _AutonomousState extends State<Autonomous> {
             ),
             QuestionWidget(
               text: "Freight in Storage?",
-              mainColor: widget.mainColor,
-              secondaryColor: widget.secondaryColor,
               points: controller.autonomous.fstorage,
+              mainColor: widget.mainColor,
               onPressedPlusLess: (value) {
                 setState(() {
                   controller.autonomous.fstorage = value;
@@ -107,9 +103,8 @@ class _AutonomousState extends State<Autonomous> {
             ),
             QuestionWidget(
               text: "Freight in Hub?",
-              mainColor: widget.mainColor,
-              secondaryColor: widget.secondaryColor,
               points: controller.autonomous.fhub,
+              mainColor: widget.mainColor,
               onPressedPlusLess: (value) {
                 setState(() {
                   controller.autonomous.fhub = value;
@@ -134,14 +129,11 @@ class _AutonomousState extends State<Autonomous> {
                     children: [
                       QuestionWidget(
                         text: "R1",
-                        textColor: AppColors.white,
-                        mainColor: widget.mainColor,
                         isPlussOrLess: false,
                         index: controller.autonomous.isRobot1Parked ? 1 : 0,
                         name1: "No",
                         name2: "Yes",
                         useDivider: false,
-                        secondaryColor: widget.secondaryColor,
                         onPressedIndex: (index) {
                           setState(() {
                             controller.autonomous.isRobot1Parked = index != 0;
@@ -155,14 +147,12 @@ class _AutonomousState extends State<Autonomous> {
                                   padding: const EdgeInsets.only(
                                       top: 7.5, bottom: 10),
                                   child: QuestionWidget(
-                                    mainColor: widget.mainColor,
                                     isPlussOrLess: false,
                                     name1: "Storage",
                                     name2: "Warehouse",
                                     width: 160.5,
                                     index: controller.autonomous.isR1PInStorageUnit ? 0 : 1,
                                     useDivider: false,
-                                    secondaryColor: widget.secondaryColor,
                                     onPressedIndex: (index) {
                                       setState(() {
                                         controller.autonomous.isR1PInStorageUnit = index != 1;
@@ -171,14 +161,12 @@ class _AutonomousState extends State<Autonomous> {
                                   ),
                                 ),
                                 QuestionWidget(
-                                  mainColor: widget.mainColor,
                                   isPlussOrLess: false,
                                   name1: "Partialy",
                                   name2: "Completely",
                                   width: 160.5,
                                   index: controller.autonomous.isR1PCompletely ? 1 : 0,
                                   useDivider: false,
-                                  secondaryColor: widget.secondaryColor,
                                   onPressedIndex: (index) {
                                     setState(() {
                                       controller.autonomous.isR1PCompletely = index != 0;
@@ -197,14 +185,11 @@ class _AutonomousState extends State<Autonomous> {
                     children: [
                       QuestionWidget(
                         text: "R2",
-                        textColor: AppColors.white,
-                        mainColor: widget.mainColor,
                         isPlussOrLess: false,
                         index: controller.autonomous.isRobot2Parked ? 1 : 0,
                         name1: "No",
                         name2: "Yes",
                         useDivider: false,
-                        secondaryColor: widget.secondaryColor,
                         onPressedIndex: (index) {
                           setState(() {
                             controller.autonomous.isRobot2Parked = index != 0;
@@ -218,14 +203,12 @@ class _AutonomousState extends State<Autonomous> {
                                   padding: const EdgeInsets.only(
                                       top: 7.5, bottom: 10),
                                   child: QuestionWidget(
-                                    mainColor: widget.mainColor,
                                     isPlussOrLess: false,
                                     name1: "Storage",
                                     name2: "Warehouse",
                                     width: 160.5,
                                     index: controller.autonomous.isR2PInStorageUnit ? 0 : 1,
                                     useDivider: false,
-                                    secondaryColor: widget.secondaryColor,
                                     onPressedIndex: (index) {
                                       setState(() {
                                         controller.autonomous.isR2PInStorageUnit = index != 1;
@@ -234,14 +217,12 @@ class _AutonomousState extends State<Autonomous> {
                                   ),
                                 ),
                                 QuestionWidget(
-                                  mainColor: widget.mainColor,
                                   isPlussOrLess: false,
                                   name1: "Partialy",
                                   name2: "Completely",
                                   width: 160.5,
                                   index: controller.autonomous.isR2PCompletely ? 1 : 0,
                                   useDivider: false,
-                                  secondaryColor: widget.secondaryColor,
                                   onPressedIndex: (index) {
                                     setState(() {
                                       controller.autonomous.isR2PCompletely = index != 0;
@@ -257,7 +238,7 @@ class _AutonomousState extends State<Autonomous> {
               ],
             ),
             Divider(
-              color: widget.secondaryColor,
+              color: widget.mainColor,
               thickness: 2,
             ),
             QuestionWidget(
@@ -268,7 +249,6 @@ class _AutonomousState extends State<Autonomous> {
               isPlussOrLess: false,
               index: controller.autonomous.fBonus,
               mainColor: widget.mainColor,
-              secondaryColor: widget.secondaryColor,
               onPressedIndex: (index) {
                 setState(() {
                   controller.autonomous.fBonus = index;
@@ -290,8 +270,7 @@ class _AutonomousState extends State<Autonomous> {
             const Spacer(),
             BottomLine(
               mainColor: widget.mainColor,
-              secondaryColor: widget.secondaryColor,
-              nextColor: AppColors.orange,
+              nextColor: AppColors.yellowGenius,
               isAutonomous: true,
               onPressedNext: widget.onPressed,
               totalScore: controller.calcTotalScore(),

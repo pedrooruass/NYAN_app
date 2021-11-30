@@ -4,7 +4,6 @@ import 'package:nyan_app/app/core/theme/app_colors.dart';
 
 class BottomLine extends StatelessWidget {
   final Color mainColor;
-  final Color secondaryColor;
   final Color nextColor;
   final Color backColor;
   final void Function()? onPressedNext;
@@ -15,7 +14,6 @@ class BottomLine extends StatelessWidget {
   const BottomLine({
     Key? key,
     required this.mainColor,
-    required this.secondaryColor,
     this.onPressedNext,
     this.onPressedBack,
     required this.nextColor,
@@ -48,7 +46,7 @@ class BottomLine extends StatelessWidget {
                 totalScore.toString(),
                 style: TextStyle(
                   fontSize: 35,
-                  color: secondaryColor,
+                  color: AppColors.white,
                   fontWeight: FontWeight.w300,
                 ),
               ),

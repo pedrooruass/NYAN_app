@@ -66,7 +66,7 @@ class AllianceNames extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20),
               child: AnimatedButton(
-                color: AppColors.orange,
+                color: AppColors.yellowGenius,
                 onPressed: onPressed,
                 child: const Text(
                   'Lets Play',

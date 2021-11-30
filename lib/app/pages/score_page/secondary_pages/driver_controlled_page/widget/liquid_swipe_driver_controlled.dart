@@ -28,8 +28,7 @@ class _LiquidSwipeDriverControlledViewState
       pages: [
         DriverControlled(
           key: const Key('DriverControlledBlue'),
-          mainColor: AppColors.orange,
-          secondaryColor: AppColors.white,
+          mainColor: AppColors.yellowGenius,
           allianceColor: AppColors.primary,
           secondaryAllianceColor: AppColors.secondary,
           onPressedNext: widget.onPressedNext,
@@ -37,8 +36,7 @@ class _LiquidSwipeDriverControlledViewState
         ),
         DriverControlled(
           key: const Key('DriverControlledRed'),
-          mainColor: AppColors.white,
-          secondaryColor: AppColors.black,
+          mainColor: AppColors.orange,
           allianceColor: AppColors.secondary,
           secondaryAllianceColor: AppColors.primary,
           onPressedNext: widget.onPressedNext,

@@ -23,16 +23,14 @@ class _LiquidSwipeAutonomousViewState extends State<LiquidSwipeAutonomousView> {
       pages: [
         Autonomous(
           key: const Key('AutonomousBlue'),
-          mainColor: AppColors.green,
-          secondaryColor: AppColors.white,
+          mainColor: AppColors.yellowGenius,
           allianceColor: AppColors.primary,
           secondaryAllianceColor: AppColors.secondary,
           onPressed: widget.onPressed,
         ),
         Autonomous(
           key: const Key('AutonomousRed'),
-          mainColor: AppColors.white,
-          secondaryColor: AppColors.black,
+          mainColor: AppColors.orange,
           allianceColor: AppColors.secondary,
           secondaryAllianceColor: AppColors.primary,
           onPressed: widget.onPressed,

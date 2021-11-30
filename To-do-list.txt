@@ -11,6 +11,8 @@
     4- Reformatar tudo
     5- Implementar a tela Final Score
     6- Arrumar o score para cada alliance
+    7- Fazer com que ao clicar no logo voltar pra pagina score tbm
+    8- Terminar de achar as outras 2 cores, Driver Controlled solved
 
 
 

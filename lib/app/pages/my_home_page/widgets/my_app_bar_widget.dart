@@ -25,7 +25,7 @@ class MyAppBarWidget extends PreferredSize {
                 leading: BouncingWidget(
                   onPressed: onPressed1,
                   child: Image.asset(
-                    "assets/BRANCO.png",
+                    "assets/o_brabo.png",
                   ),
                 ),
                 trailing: BouncingWidget(

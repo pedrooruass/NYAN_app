@@ -1,16 +1,16 @@
 import 'package:bouncing_widget/bouncing_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:nyan_app/app/core/theme/app_colors.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/widgets/row_navigator_button_widget.dart';
 
 class QuestionWidget extends StatefulWidget {
   final String? text;
   final bool useDivider;
   final bool isPlussOrLess;
-  final Color mainColor;
-  final Color secondaryColor;
   final void Function(int)? onPressedPlusLess;
   final void Function(int)? onPressedIndex;
   final int points;
+  final Color? mainColor;
   final double sizeQuestionText;
   final int index;
   final String name1;
@@ -24,11 +24,10 @@ class QuestionWidget extends StatefulWidget {
     this.isPlussOrLess = true,
     this.useDivider = true,
     this.sizeQuestionText = 25.0,
-    required this.mainColor,
-    required this.secondaryColor,
     this.onPressedPlusLess,
     this.onPressedIndex,
     this.points = 0,
+    this.mainColor,
     this.index = 0,
     this.name1 = "Name1",
     this.name2 = "Name2",
@@ -57,7 +56,7 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                     widget.text!,
                     style: TextStyle(
                       fontSize: widget.sizeQuestionText,
-                      color: widget.textColor ?? widget.mainColor,
+                      color: widget.textColor ?? AppColors.white,
                       fontWeight: FontWeight.w300,
                     ),
                   ),
@@ -83,14 +82,14 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                                   width: 50,
                                   height: 25,
                                   decoration: BoxDecoration(
-                                    color: widget.mainColor,
+                                    color: AppColors.black,
                                     borderRadius: const BorderRadius.all(
                                         Radius.circular(5)),
                                   ),
                                   child: Text(
                                     "-",
                                     style: TextStyle(
-                                      color: widget.secondaryColor,
+                                      color: AppColors.white,
                                       fontSize: 15,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -101,7 +100,7 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                               Text(
                                 "${widget.points}",
                                 style: TextStyle(
-                                    color: widget.secondaryColor,
+                                    color: AppColors.white,
                                     fontSize: 15,
                                     fontWeight: FontWeight.bold),
                               ),
@@ -119,14 +118,14 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                                   width: 50,
                                   height: 25,
                                   decoration: BoxDecoration(
-                                    color: widget.mainColor,
+                                    color: AppColors.black,
                                     borderRadius: const BorderRadius.all(
                                         Radius.circular(5)),
                                   ),
                                   child: Text(
                                     "+",
                                     style: TextStyle(
-                                        color: widget.secondaryColor,
+                                        color: AppColors.white,
                                         fontSize: 15,
                                         fontWeight: FontWeight.bold),
                                     textAlign: TextAlign.center,
@@ -142,8 +141,8 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                           name1: widget.name1,
                           name2: widget.name2,
                           name3: widget.name3 ?? widget.name3,
-                          mainColor: widget.mainColor,
-                          secondaryColor: widget.secondaryColor,
+                          mainColor: AppColors.black,
+                          secondaryColor: AppColors.white,
                           onTap: (touchValue) {
                             setState(() {
                               if (widget.onPressedIndex != null) {
@@ -175,14 +174,14 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                             width: 50,
                             height: 25,
                             decoration: BoxDecoration(
-                              color: widget.mainColor,
+                              color: AppColors.black,
                               borderRadius:
                                   const BorderRadius.all(Radius.circular(5)),
                             ),
                             child: Text(
                               "-",
                               style: TextStyle(
-                                color: widget.secondaryColor,
+                                color: AppColors.white,
                                 fontSize: 15,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -193,7 +192,7 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                         Text(
                           "${widget.points}",
                           style: TextStyle(
-                              color: widget.secondaryColor,
+                              color: AppColors.white,
                               fontSize: 15,
                               fontWeight: FontWeight.bold),
                         ),
@@ -210,14 +209,14 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                             width: 50,
                             height: 25,
                             decoration: BoxDecoration(
-                              color: widget.mainColor,
+                              color: AppColors.black,
                               borderRadius:
                                   const BorderRadius.all(Radius.circular(5)),
                             ),
                             child: Text(
                               "+",
                               style: TextStyle(
-                                  color: widget.secondaryColor,
+                                  color: AppColors.white,
                                   fontSize: 15,
                                   fontWeight: FontWeight.bold),
                               textAlign: TextAlign.center,
@@ -233,8 +232,8 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                     name1: widget.name1,
                     name2: widget.name2,
                     name3: widget.name3 ?? widget.name3,
-                    mainColor: widget.mainColor,
-                    secondaryColor: widget.secondaryColor,
+                    mainColor: AppColors.black,
+                    secondaryColor: AppColors.white,
                     onTap: (touchValue) {
                       setState(() {
                         if (widget.onPressedIndex != null) {
@@ -245,7 +244,7 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                   ),
         if (widget.useDivider)
           Divider(
-            color: widget.secondaryColor,
+            color: widget.mainColor?? AppColors.white,
             thickness: 2,
           ),
       ],

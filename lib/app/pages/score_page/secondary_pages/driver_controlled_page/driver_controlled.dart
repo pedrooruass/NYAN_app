@@ -11,7 +11,6 @@ import 'package:provider/provider.dart';
 
 class DriverControlled extends StatefulWidget {
   final Color mainColor;
-  final Color secondaryColor;
   final Color allianceColor;
   final Color secondaryAllianceColor;
   final void Function() onPressedNext;
@@ -19,7 +18,6 @@ class DriverControlled extends StatefulWidget {
   const DriverControlled(
       {Key? key,
       required this.mainColor,
-      required this.secondaryColor,
       required this.allianceColor,
       required this.secondaryAllianceColor,
       required this.onPressedNext,
@@ -61,7 +59,7 @@ class _DriverControlledState extends State<DriverControlled> {
                   style: TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 35,
-                      color: widget.mainColor),
+                      color: AppColors.white),
                   textAlign: TextAlign.center,
                 ),
                 Padding(
@@ -69,7 +67,7 @@ class _DriverControlledState extends State<DriverControlled> {
                   child: BouncingWidget(
                     child: Icon(
                       FontAwesomeIcons.redo,
-                      color: widget.secondaryColor,
+                      color: widget.mainColor,
                       size: 18,
                     ),
                     onPressed: () {
@@ -87,9 +85,8 @@ class _DriverControlledState extends State<DriverControlled> {
             // ),
             QuestionWidget(
               text: "Freight in Storage?",
-              mainColor: widget.mainColor,
-              secondaryColor: widget.secondaryColor,
               points: controller.driverControlled.fstorage,
+              mainColor: widget.mainColor,
               onPressedPlusLess: (value) {
                 setState(() {
                   controller.driverControlled.fstorage = value;
@@ -98,9 +95,8 @@ class _DriverControlledState extends State<DriverControlled> {
             ),
             QuestionWidget(
               text: "Freight in Hub L1",
-              mainColor: widget.mainColor,
-              secondaryColor: widget.secondaryColor,
               points: controller.driverControlled.fhl1,
+              mainColor: widget.mainColor,
               onPressedPlusLess: (value) {
                 setState(() {
                   controller.driverControlled.fhl1 = value;
@@ -109,9 +105,8 @@ class _DriverControlledState extends State<DriverControlled> {
             ),
             QuestionWidget(
               text: "Freight in Hub L2",
-              mainColor: widget.mainColor,
-              secondaryColor: widget.secondaryColor,
               points: controller.driverControlled.fhl2,
+              mainColor: widget.mainColor,
               onPressedPlusLess: (value) {
                 setState(() {
                   controller.driverControlled.fhl2 = value;
@@ -120,9 +115,8 @@ class _DriverControlledState extends State<DriverControlled> {
             ),
             QuestionWidget(
               text: "Freight in Hub L3",
-              mainColor: widget.mainColor,
-              secondaryColor: widget.secondaryColor,
               points: controller.driverControlled.fhl3,
+              mainColor: widget.mainColor,
               onPressedPlusLess: (value) {
                 setState(() {
                   controller.driverControlled.fhl3 = value;
@@ -131,9 +125,8 @@ class _DriverControlledState extends State<DriverControlled> {
             ),
             QuestionWidget(
               text: "Freight in Shared",
-              mainColor: widget.mainColor,
-              secondaryColor: widget.secondaryColor,
               points: controller.driverControlled.fshared,
+              mainColor: widget.mainColor,
               onPressedPlusLess: (value) {
                 setState(() {
                   controller.driverControlled.fshared = value;
@@ -155,9 +148,8 @@ class _DriverControlledState extends State<DriverControlled> {
             const Spacer(),
             BottomLine(
               mainColor: widget.mainColor,
-              secondaryColor: widget.secondaryColor,
-              nextColor: AppColors.purple,
-              backColor: AppColors.green,
+              nextColor: AppColors.yellowGenius,
+              backColor: AppColors.orange,
               onPressedNext: widget.onPressedNext,
               onPressedBack: widget.onPressedBack,
               totalScore: controller.calcTotalScore(),
