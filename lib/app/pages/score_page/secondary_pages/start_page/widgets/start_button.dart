@@ -21,7 +21,8 @@ class _StartButtonState extends State<StartButton> {
       onPressed: widget.onPressed,
       child: SizedBox(
         child: Image.asset(
-          "assets/boxer.gif",
+          "assets/10091_GIF_V2.gif",
+          // "assets/boxer.gif",
         ),
         height: 300,
       ),

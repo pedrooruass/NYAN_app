@@ -26,122 +26,6 @@ class _FinalScoreState extends State<FinalScore> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Container(
-          //   padding: const EdgeInsets.all(10),
-          //   width: double.infinity,
-          //   decoration: BoxDecoration(
-          //     borderRadius: BorderRadius.circular(10),
-          //     color: AppColors.primary,
-          //   ),
-          //   child: Column(
-          //     children: [
-          //       Text(
-          //         "Blue Alliance",
-          //         style: TextStyle(
-          //           fontSize: 33,
-          //           color: AppColors.white,
-          //           fontWeight: FontWeight.bold,
-          //         ),
-          //       ),
-          //       Row(
-          //         children: [
-          //           Column(
-          //             crossAxisAlignment: CrossAxisAlignment.start,
-          //             children: [
-          //               Row(
-          //                 children: [
-          //                   Text(
-          //                     "Autonomous:",
-          //                     style: TextStyle(
-          //                       fontSize: 23,
-          //                       color: AppColors.white,
-          //                       fontWeight: FontWeight.w500,
-          //                     ),
-          //                   ),
-          //                   const SizedBox(width: 10),
-          //                   Text(
-          //                     controller.autonomous.calcTotal().toString(),
-          //                     style: TextStyle(
-          //                       fontSize: 25,
-          //                       color: AppColors.yellowGenius,
-          //                       fontWeight: FontWeight.w300,
-          //                     ),
-          //                   ),
-          //                 ],
-          //               ),
-          //               Row(
-          //                 children: [
-          //                   Text(
-          //                     "Driver Controlled:",
-          //                     style: TextStyle(
-          //                       fontSize: 20,
-          //                       color: AppColors.white,
-          //                       fontWeight: FontWeight.w500,
-          //                     ),
-          //                   ),
-          //                   const SizedBox(width: 10),
-          //                   Text(
-          //                     controller.autonomous.calcTotal().toString(),
-          //                     style: TextStyle(
-          //                       fontSize: 25,
-          //                       color: AppColors.yellowGenius,
-          //                       fontWeight: FontWeight.w300,
-          //                     ),
-          //                   ),
-          //                 ],
-          //               ),
-          //               Row(
-          //                 children: [
-          //                   Text(
-          //                     "End Game:",
-          //                     style: TextStyle(
-          //                       fontSize: 23,
-          //                       color: AppColors.white,
-          //                       fontWeight: FontWeight.w500,
-          //                     ),
-          //                   ),
-          //                   const SizedBox(width: 10),
-          //                   Text(
-          //                     controller.autonomous.calcTotal().toString(),
-          //                     style: TextStyle(
-          //                       fontSize: 25,
-          //                       color: AppColors.yellowGenius,
-          //                       fontWeight: FontWeight.w300,
-          //                     ),
-          //                   ),
-          //                 ],
-          //               ),
-          //             ],
-          //           ),
-          //           const SizedBox(width: 70),
-          //           Center(
-          //             child: Column(
-          //               children: [
-          //                 Text(
-          //                   "Total:",
-          //                   style: TextStyle(
-          //                     fontSize: 30,
-          //                     color: AppColors.yellowGenius,
-          //                     fontWeight: FontWeight.w500,
-          //                   ),
-          //                 ),
-          //                 Text(
-          //                   controller.autonomous.calcTotal().toString(),
-          //                   style: TextStyle(
-          //                     fontSize: 30,
-          //                     color: AppColors.white,
-          //                     fontWeight: FontWeight.w300,
-          //                   ),
-          //                 ),
-          //               ],
-          //             ),
-          //           ),
-          //         ],
-          //       ),
-          //     ],
-          //   ),
-          // ),
-          // const SizedBox(height: 20),
           const Center(
             child: Text(
               "Final Score Dashboard",
@@ -208,7 +92,9 @@ class _FinalScoreState extends State<FinalScore> {
                             ),
                           ),
                           Text(
-                            controller.blueDriverControlled.calcTotal().toString(),
+                            controller.blueDriverControlled
+                                .calcTotal()
+                                .toString(),
                             style: TextStyle(
                               fontSize: 20,
                               color: AppColors.white,
@@ -312,7 +198,9 @@ class _FinalScoreState extends State<FinalScore> {
                             ),
                           ),
                           Text(
-                            controller.redDriverControlled.calcTotal().toString(),
+                            controller.redDriverControlled
+                                .calcTotal()
+                                .toString(),
                             style: TextStyle(
                               fontSize: 20,
                               color: AppColors.white,
@@ -353,9 +241,9 @@ class _FinalScoreState extends State<FinalScore> {
                       Text(
                         controller.calcRedTotalScore().toString(),
                         style: TextStyle(
-                      fontSize: 30,
-                      color: AppColors.white,
-                      fontWeight: FontWeight.w300,
+                          fontSize: 30,
+                          color: AppColors.white,
+                          fontWeight: FontWeight.w300,
                         ),
                       ),
                     ],
@@ -368,63 +256,77 @@ class _FinalScoreState extends State<FinalScore> {
             height: 10,
           ),
           if (controller.calcBlueTotalScore() > controller.calcRedTotalScore())
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            Column(
               children: [
-                Text(
-                  "Blue Alliance",
-                  style: TextStyle(
-                    fontSize: 33,
-                    color: AppColors.primary,
-                    fontWeight: FontWeight.w500,
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Blue Alliance",
+                      style: TextStyle(
+                        fontSize: 33,
+                        color: AppColors.primary,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    Text(
+                      " Won!!!",
+                      style: TextStyle(
+                        fontSize: 35,
+                        color: AppColors.yellowGenius,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
                 ),
-                Text(
-                  " Won!!!",
-                  style: TextStyle(
-                    fontSize: 35,
-                    color: AppColors.yellowGenius,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
+                Image.asset("assets/azul.png", height: 200,),
               ],
             ),
           if (controller.calcRedTotalScore() > controller.calcBlueTotalScore())
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            Column(
               children: [
-                Text(
-                  "Red Alliance",
-                  style: TextStyle(
-                    fontSize: 33,
-                    color: AppColors.secondary,
-                    fontWeight: FontWeight.w500,
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Red Alliance",
+                      style: TextStyle(
+                        fontSize: 33,
+                        color: AppColors.secondary,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    Text(
+                      " Won!!!",
+                      style: TextStyle(
+                        fontSize: 35,
+                        color: AppColors.orange,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
                 ),
-                Text(
-                  " Won!!!",
-                  style: TextStyle(
-                    fontSize: 35,
-                    color: AppColors.orange,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
+                    Image.asset("assets/verm.png", height: 200,),
               ],
             ),
 
           if (controller.calcBlueTotalScore() == controller.calcRedTotalScore())
-            Center(
-              child: Text(
-                "The match ended in a Draw!!!",
-                style: TextStyle(
-                  fontSize: 27,
-                  color: AppColors.grey,
-                  fontWeight: FontWeight.w500,
+            Column(
+              children: [
+                Center(
+                  child: Text(
+                    "The match ended in a Draw!!!",
+                    style: TextStyle(
+                      fontSize: 27,
+                      color: AppColors.grey,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
                 ),
-              ),
+                Image.asset("assets/duck.gif", height: 200,),
+              ],
             ),
           // Put trofeu image or gif
-          Image.asset("assets/316-3160146_hand-with-trophy-icon-clipart.png"),
         ],
       ),
     );
