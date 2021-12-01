@@ -61,7 +61,7 @@ class _DriverControlledState extends State<DriverControlled> {
                   'Driver Controlled',
                   style: TextStyle(
                       fontWeight: FontWeight.w500,
-                      fontSize: 35,
+                      fontSize: 33,
                       color: AppColors.white),
                   textAlign: TextAlign.center,
                 ),

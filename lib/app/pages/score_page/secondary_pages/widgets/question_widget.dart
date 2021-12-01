@@ -23,7 +23,7 @@ class QuestionWidget extends StatefulWidget {
     this.text,
     this.isPlussOrLess = true,
     this.useDivider = true,
-    this.sizeQuestionText = 25.0,
+    this.sizeQuestionText = 23.0,
     this.onPressedPlusLess,
     this.onPressedIndex,
     this.points = 0,
