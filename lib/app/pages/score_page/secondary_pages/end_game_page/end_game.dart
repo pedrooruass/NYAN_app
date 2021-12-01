@@ -283,7 +283,7 @@ class _EndGameState extends State<EndGame> {
               backColor: AppColors.orange,
               onPressedBack: widget.onPressedBack,
               onPressedNext: widget.onPressedNext,
-              nextText: "Finish",
+              isTrophy: true,
               totalScore: widget.isBlue
                   ? controller.calcBlueTotalScore()
                   : controller.calcRedTotalScore(),

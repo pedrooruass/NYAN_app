@@ -1,5 +1,6 @@
 import 'package:bouncing_widget/bouncing_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nyan_app/app/core/theme/app_colors.dart';
 
 class BottomLine extends StatelessWidget {
@@ -10,7 +11,7 @@ class BottomLine extends StatelessWidget {
   final void Function()? onPressedBack;
   final bool isAutonomous;
   final int totalScore;
-  final String? nextText;
+  final bool isTrophy;
   const BottomLine({
     Key? key,
     required this.mainColor,
@@ -20,7 +21,7 @@ class BottomLine extends StatelessWidget {
     this.backColor = Colors.blue,
     this.isAutonomous = false,
     this.totalScore = 0,
-    this.nextText,
+    this.isTrophy = false,
   }) : super(key: key);
 
   @override
@@ -34,7 +35,7 @@ class BottomLine extends StatelessWidget {
               Text(
                 "Total:",
                 style: TextStyle(
-                  fontSize: 35,
+                  fontSize: 33,
                   color: mainColor,
                   fontWeight: FontWeight.w500,
                 ),
@@ -45,7 +46,7 @@ class BottomLine extends StatelessWidget {
               Text(
                 totalScore.toString(),
                 style: TextStyle(
-                  fontSize: 35,
+                  fontSize: 33,
                   color: AppColors.white,
                   fontWeight: FontWeight.w300,
                 ),
@@ -58,7 +59,7 @@ class BottomLine extends StatelessWidget {
                       onPressed: onPressedNext ?? () {},
                       child: Container(
                         alignment: Alignment.center,
-                        width: 90,
+                        width: 80,
                         height: 50,
                         decoration: BoxDecoration(
                           color: nextColor,
@@ -66,8 +67,7 @@ class BottomLine extends StatelessWidget {
                             Radius.circular(10),
                           ),
                         ),
-                        child: Text(
-                          nextText?? "Next",
+                        child: Text("Next",
                           style: TextStyle(
                             fontSize: 27.5,
                             color: AppColors.white,
@@ -85,7 +85,7 @@ class BottomLine extends StatelessWidget {
                               onPressed: onPressedBack ?? () {},
                               child: Container(
                                 alignment: Alignment.center,
-                                width: 90,
+                                width: 80,
                                 height: 50,
                                 decoration: BoxDecoration(
                                   color: backColor,
@@ -112,7 +112,7 @@ class BottomLine extends StatelessWidget {
                               onPressed: onPressedNext ?? () {},
                               child: Container(
                                 alignment: Alignment.center,
-                                width: 90,
+                                width: 80,
                                 height: 50,
                                 decoration: BoxDecoration(
                                   color: nextColor,
@@ -120,13 +120,13 @@ class BottomLine extends StatelessWidget {
                                     Radius.circular(10),
                                   ),
                                 ),
-                                child: Text(
-                                  nextText?? "Next",
+                                child: isTrophy?   Icon(FontAwesomeIcons.trophy, color: AppColors.yellowGenius,): Text(
+                                  "Next",
                                   style: TextStyle(
                                     fontSize: 27.5,
                                     color: AppColors.white,
                                     fontWeight: FontWeight.w500,
-                                  ),
+                                  ) 
                                 ),
                               ),
                             ),
@@ -138,7 +138,7 @@ class BottomLine extends StatelessWidget {
                           onPressed: onPressedBack ?? () {},
                           child: Container(
                             alignment: Alignment.center,
-                            width: 90,
+                            width: 80,
                             height: 50,
                             decoration: BoxDecoration(
                               color: backColor,

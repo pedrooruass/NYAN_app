@@ -181,7 +181,7 @@ class _FinalScoreState extends State<FinalScore> {
                           Text(
                             "Autonomous:",
                             style: TextStyle(
-                              fontSize: 18,
+                              fontSize: 16.5,
                               color: AppColors.yellowGenius,
                               fontWeight: FontWeight.w500,
                             ),
@@ -202,7 +202,7 @@ class _FinalScoreState extends State<FinalScore> {
                           Text(
                             "Driver Controlled:",
                             style: TextStyle(
-                              fontSize: 16.9,
+                              fontSize: 15.5,
                               color: AppColors.yellowGenius,
                               fontWeight: FontWeight.w500,
                             ),
@@ -223,7 +223,7 @@ class _FinalScoreState extends State<FinalScore> {
                           Text(
                             "End Game:",
                             style: TextStyle(
-                              fontSize: 18,
+                              fontSize: 16.5,
                               color: AppColors.yellowGenius,
                               fontWeight: FontWeight.w500,
                             ),
@@ -285,7 +285,7 @@ class _FinalScoreState extends State<FinalScore> {
                           Text(
                             "Autonomous:",
                             style: TextStyle(
-                              fontSize: 18,
+                              fontSize: 16.5,
                               color: AppColors.orange,
                               fontWeight: FontWeight.w500,
                             ),
@@ -306,7 +306,7 @@ class _FinalScoreState extends State<FinalScore> {
                           Text(
                             "Driver Controlled:",
                             style: TextStyle(
-                              fontSize: 16.9,
+                              fontSize: 15.5,
                               color: AppColors.orange,
                               fontWeight: FontWeight.w500,
                             ),
@@ -327,7 +327,7 @@ class _FinalScoreState extends State<FinalScore> {
                           Text(
                             "End Game:",
                             style: TextStyle(
-                              fontSize: 18,
+                              fontSize: 16.5,
                               color: AppColors.orange,
                               fontWeight: FontWeight.w500,
                             ),
@@ -417,7 +417,7 @@ class _FinalScoreState extends State<FinalScore> {
               child: Text(
                 "The match ended in a Draw!!!",
                 style: TextStyle(
-                  fontSize: 29,
+                  fontSize: 27,
                   color: AppColors.grey,
                   fontWeight: FontWeight.w500,
                 ),
