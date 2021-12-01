@@ -1,4 +1,4 @@
-package com.example.nyan_app
+package org.nyan.app
 
 import io.flutter.embedding.android.FlutterActivity
 
