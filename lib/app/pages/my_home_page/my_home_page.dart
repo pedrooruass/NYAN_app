@@ -39,9 +39,12 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed1: () {
           setState(() {
             scoreIndex = 0;
-            controller.autonomous.resetPoints();
-            controller.driverControlled.resetPoints();
-            controller.endGame.resetPoints();
+            controller.blueAutonomous.resetPoints();
+            controller.blueDriverControlled.resetPoints();
+            controller.blueEndGame.resetPoints();
+            controller.redAutonomous.resetPoints();
+            controller.redDriverControlled.resetPoints();
+            controller.redEndGame.resetPoints();
           });
         },
         onPressed2: () async {

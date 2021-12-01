@@ -1,11 +1,11 @@
-class DriverControlledModel {
+class RedDriverControlledModel {
   int fstorage;
   int fhl1;
   int fhl2;
   int fhl3;
   int fshared;
 
-  DriverControlledModel(
+  RedDriverControlledModel(
       {this.fstorage = 0,
       this.fhl1 = 0,
       this.fhl2 = 0,

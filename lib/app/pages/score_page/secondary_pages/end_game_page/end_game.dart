@@ -4,7 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nyan_app/app/controllers/calc_score_controller.dart';
 import 'package:nyan_app/app/core/theme/app_colors.dart';
-import 'package:nyan_app/app/models/driver_controlled_model.dart';
+import 'package:nyan_app/app/models/blue_driver_controlled_model.dart';
 import 'package:nyan_app/app/models/end_game_model.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/widgets/bottom_line.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/widgets/question_widget.dart';
@@ -16,6 +16,7 @@ class EndGame extends StatefulWidget {
   final Color secondaryAllianceColor;
   final void Function() onPressedBack;
   final void Function() onPressedNext;
+  final bool isBlue;
   const EndGame({
     Key? key,
     required this.mainColor,
@@ -23,6 +24,7 @@ class EndGame extends StatefulWidget {
     required this.secondaryAllianceColor,
     required this.onPressedBack,
     required this.onPressedNext,
+    this.isBlue = true,
   }) : super(key: key);
 
   @override
@@ -74,7 +76,9 @@ class _EndGameState extends State<EndGame> {
                     ),
                     onPressed: () {
                       setState(() {
-                        controller.endGame.resetPoints();
+                        widget.isBlue
+                            ? controller.blueEndGame.resetPoints()
+                            : controller.redEndGame.resetPoints();
                       });
                     },
                   ),
@@ -83,15 +87,26 @@ class _EndGameState extends State<EndGame> {
             ),
             QuestionWidget(
               text: "Carousel Delivery",
-              points: controller.endGame.cD,
+              points: widget.isBlue
+                  ? controller.blueEndGame.cD
+                  : controller.redEndGame.cD,
               mainColor: widget.mainColor,
               onPressedPlusLess: (value) {
                 setState(() {
                   // Logica funcional mas nao sei se correta
-                  if (controller.endGame.cD <= 10) {
-                    controller.endGame.cD = value;
-                    if (controller.endGame.cD > 10) {
-                      controller.endGame.cD -= 1;
+                  if (widget.isBlue) {
+                    if (controller.blueEndGame.cD <= 10) {
+                      controller.blueEndGame.cD = value;
+                      if (controller.blueEndGame.cD > 10) {
+                        controller.blueEndGame.cD -= 1;
+                      }
+                    }
+                  } else {
+                    if (controller.redEndGame.cD <= 10) {
+                      controller.redEndGame.cD = value;
+                      if (controller.redEndGame.cD > 10) {
+                        controller.redEndGame.cD -= 1;
+                      }
                     }
                   }
                 });
@@ -101,13 +116,17 @@ class _EndGameState extends State<EndGame> {
               text: "Shipping Hub?",
               isPlussOrLess: false,
               width: 125,
-              index: controller.endGame.shippingH,
+              index: widget.isBlue
+                  ? controller.blueEndGame.shippingH
+                  : controller.redEndGame.shippingH,
               name1: "Tipped",
               name2: "Balanced",
               mainColor: widget.mainColor,
               onPressedIndex: (index) {
                 setState(() {
-                  controller.endGame.shippingH = index;
+                  widget.isBlue
+                      ? controller.blueEndGame.shippingH = index
+                      : controller.redEndGame.shippingH = index;
                 });
               },
             ),
@@ -115,13 +134,17 @@ class _EndGameState extends State<EndGame> {
               text: "Shared Hub?",
               width: 125,
               isPlussOrLess: false,
-              index: controller.endGame.sharedH,
+              index: widget.isBlue
+                  ? controller.blueEndGame.sharedH
+                  : controller.redEndGame.sharedH,
               name1: "Balanced",
               name2: "Tipped",
               mainColor: widget.mainColor,
               onPressedIndex: (index) {
                 setState(() {
-                  controller.endGame.sharedH = index;
+                  widget.isBlue
+                      ? controller.blueEndGame.sharedH = index
+                      : controller.redEndGame.sharedH = index;
                 });
               },
             ),
@@ -156,11 +179,15 @@ class _EndGameState extends State<EndGame> {
                         name1: "None",
                         name2: "Partly",
                         name3: "Full",
-                        index: controller.endGame.parked1,
+                        index: widget.isBlue
+                            ? controller.blueEndGame.parked1
+                            : controller.redEndGame.parked1,
                         useDivider: false,
                         onPressedIndex: (index) {
                           setState(() {
-                            controller.endGame.parked1 = index;
+                            widget.isBlue
+                                ? controller.blueEndGame.parked1 = index
+                                : controller.redEndGame.parked1 = index;
                           });
                         },
                       ),
@@ -186,11 +213,15 @@ class _EndGameState extends State<EndGame> {
                         name1: "None",
                         name2: "Partly",
                         name3: "Full",
-                        index: controller.endGame.parked2,
+                        index: widget.isBlue
+                            ? controller.blueEndGame.parked2
+                            : controller.redEndGame.parked2,
                         useDivider: false,
                         onPressedIndex: (index) {
                           setState(() {
-                            controller.endGame.parked2 = index;
+                            widget.isBlue
+                                ? controller.blueEndGame.parked2 = index
+                                : controller.redEndGame.parked2 = index;
                           });
                         },
                       ),
@@ -212,24 +243,37 @@ class _EndGameState extends State<EndGame> {
               name1: "Zero",
               name2: "One",
               name3: "Two",
-              index: controller.endGame.capping,
+              index: widget.isBlue
+                  ? controller.blueEndGame.capping
+                  : controller.redEndGame.capping,
               mainColor: widget.mainColor,
               onPressedIndex: (index) {
                 setState(() {
-                  controller.endGame.capping = index;
+                  widget.isBlue
+                      ? controller.blueEndGame.capping = index
+                      : controller.redEndGame.capping = index;
                 });
               },
             ),
             Align(
               alignment: Alignment.bottomCenter,
-              child: Text(
-                "Swipe left to change alliance",
-                style: TextStyle(
-                  color: widget.secondaryAllianceColor,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w500,
+              child: Container(
+                margin: const EdgeInsets.all(1.5),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10),
+                decoration: BoxDecoration(
+                  color: widget.mainColor,
+                  borderRadius: BorderRadius.circular(5),
                 ),
-                textAlign: TextAlign.start,
+                child: Text(
+                  "Swipe left to change alliance",
+                  style: TextStyle(
+                    color: widget.secondaryAllianceColor,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  textAlign: TextAlign.start,
+                ),
               ),
             ),
             const Spacer(),
@@ -240,7 +284,9 @@ class _EndGameState extends State<EndGame> {
               onPressedBack: widget.onPressedBack,
               onPressedNext: widget.onPressedNext,
               nextText: "Finish",
-              totalScore: controller.calcBlueTotalScore(),
+              totalScore: widget.isBlue
+                  ? controller.calcBlueTotalScore()
+                  : controller.calcRedTotalScore(),
             )
           ],
         ),

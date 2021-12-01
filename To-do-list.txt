@@ -5,15 +5,10 @@
 16- arrumar o view do landscape || se nao der bloquear ele,
 27- reformatar tudo q for possivel
 # ------------------------------ TODO LIST FINAL ----------------------------- #
-    1- Finalizar End Game, - DONE DONE
-    2- Arrumar Cores,
-    3- Fazer Com que o botao de home alem de home faca um restart - DONE DONE
-    4- Reformatar tudo
-    5- Implementar a tela Final Score
-    6- Arrumar o score para cada alliance
-    7- Fazer com que ao clicar no logo voltar pra pagina score tbm
-    8- Terminar de achar as outras 2 cores, Driver Controlled solved
-
+    
+    4- Reformatar tudo, apagar tudo q nao estou usando
+    9- Change pics
+    
 
 
 # ---------------------------------------------------------------------------- #
@@ -50,5 +45,15 @@
     25- Terminar o Autonomous Model - DONE
     26- Arrumar todos os metodos e o total - DONE
     28- comecar o driver Controlled do jeito certo - DONE
+    # -------------------------------- DONE FINAL -------------------------------- #
+        1- Finalizar End Game, - DONE DONE
+        2- Arrumar Cores, - DONE DONE
+        3- Fazer Com que o botao de home alem de home faca um restart - DONE DONE
+        5- Implementar a tela Final Score - DONE DONE
+        6- Arrumar o score para cada alliance - DONE DONE
+        7- Fazer com que ao clicar no logo voltar pra pagina score tbm - NOT ANYMORE
+        8- Terminar de achar as outras 2 cores, Driver Controlled solved - DONE DONE
+    # ---------------------------------------------------------------------------- #
+
 
 # ---------------------------------------------------------------------------- #

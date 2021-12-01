@@ -72,7 +72,7 @@ class _AutonomousState extends State<Autonomous> {
                   onPressed: () {
                     setState(() {
                       widget.isBlue
-                          ? controller.autonomous.resetPoints()
+                          ? controller.blueAutonomous.resetPoints()
                           : controller.redAutonomous.resetPoints();
                     });
                   },
@@ -85,7 +85,7 @@ class _AutonomousState extends State<Autonomous> {
             QuestionWidget(
               text: "Duck Delivered?",
               index: widget.isBlue
-                  ? controller.autonomous.isDuckDelivered
+                  ? controller.blueAutonomous.isDuckDelivered
                       ? 1
                       : 0
                   : controller.redAutonomous.isDuckDelivered
@@ -98,7 +98,7 @@ class _AutonomousState extends State<Autonomous> {
               onPressedIndex: (index) {
                 setState(() {
                   widget.isBlue
-                      ? controller.autonomous.isDuckDelivered = index != 0
+                      ? controller.blueAutonomous.isDuckDelivered = index != 0
                       : controller.redAutonomous.isDuckDelivered = index != 0;
                 });
               },
@@ -106,13 +106,13 @@ class _AutonomousState extends State<Autonomous> {
             QuestionWidget(
               text: "Freight in Storage?",
               points: widget.isBlue
-                  ? controller.autonomous.fstorage
+                  ? controller.blueAutonomous.fstorage
                   : controller.redAutonomous.fstorage,
               mainColor: widget.mainColor,
               onPressedPlusLess: (value) {
                 setState(() {
                   widget.isBlue
-                      ? controller.autonomous.fstorage = value
+                      ? controller.blueAutonomous.fstorage = value
                       : controller.redAutonomous.fstorage = value;
                 });
               },
@@ -120,13 +120,13 @@ class _AutonomousState extends State<Autonomous> {
             QuestionWidget(
               text: "Freight in Hub?",
               points: widget.isBlue
-                  ? controller.autonomous.fhub
+                  ? controller.blueAutonomous.fhub
                   : controller.redAutonomous.fhub,
               mainColor: widget.mainColor,
               onPressedPlusLess: (value) {
                 setState(() {
                   widget.isBlue
-                      ? controller.autonomous.fhub = value
+                      ? controller.blueAutonomous.fhub = value
                       : controller.redAutonomous.fhub = value;
                 });
               },
@@ -151,7 +151,7 @@ class _AutonomousState extends State<Autonomous> {
                         text: "R1",
                         isPlussOrLess: false,
                         index: widget.isBlue
-                            ? controller.autonomous.isRobot1Parked
+                            ? controller.blueAutonomous.isRobot1Parked
                                 ? 1
                                 : 0
                             : controller.redAutonomous.isRobot1Parked
@@ -163,7 +163,7 @@ class _AutonomousState extends State<Autonomous> {
                         onPressedIndex: (index) {
                           setState(() {
                             widget.isBlue
-                                ? controller.autonomous.isRobot1Parked =
+                                ? controller.blueAutonomous.isRobot1Parked =
                                     index != 0
                                 : controller.redAutonomous.isRobot1Parked =
                                     index != 0;
@@ -171,7 +171,7 @@ class _AutonomousState extends State<Autonomous> {
                         },
                       ),
                       widget.isBlue
-                          ? controller.autonomous.isRobot1Parked
+                          ? controller.blueAutonomous.isRobot1Parked
                               ? Column(
                                   children: [
                                     Padding(
@@ -182,14 +182,14 @@ class _AutonomousState extends State<Autonomous> {
                                         name1: "Storage",
                                         name2: "Warehouse",
                                         width: 160.5,
-                                        index: controller
-                                                .autonomous.isR1PInStorageUnit
+                                        index: controller.blueAutonomous
+                                                .isR1PInStorageUnit
                                             ? 0
                                             : 1,
                                         useDivider: false,
                                         onPressedIndex: (index) {
                                           setState(() {
-                                            controller.autonomous
+                                            controller.blueAutonomous
                                                     .isR1PInStorageUnit =
                                                 index != 1;
                                           });
@@ -201,14 +201,14 @@ class _AutonomousState extends State<Autonomous> {
                                       name1: "Partialy",
                                       name2: "Completely",
                                       width: 160.5,
-                                      index:
-                                          controller.autonomous.isR1PCompletely
-                                              ? 1
-                                              : 0,
+                                      index: controller
+                                              .blueAutonomous.isR1PCompletely
+                                          ? 1
+                                          : 0,
                                       useDivider: false,
                                       onPressedIndex: (index) {
                                         setState(() {
-                                          controller.autonomous
+                                          controller.blueAutonomous
                                               .isR1PCompletely = index != 0;
                                         });
                                       },
@@ -272,7 +272,7 @@ class _AutonomousState extends State<Autonomous> {
                         text: "R2",
                         isPlussOrLess: false,
                         index: widget.isBlue
-                            ? controller.autonomous.isRobot2Parked
+                            ? controller.blueAutonomous.isRobot2Parked
                                 ? 1
                                 : 0
                             : controller.redAutonomous.isRobot2Parked
@@ -284,7 +284,7 @@ class _AutonomousState extends State<Autonomous> {
                         onPressedIndex: (index) {
                           setState(() {
                             widget.isBlue
-                                ? controller.autonomous.isRobot2Parked =
+                                ? controller.blueAutonomous.isRobot2Parked =
                                     index != 0
                                 : controller.redAutonomous.isRobot2Parked =
                                     index != 0;
@@ -292,7 +292,7 @@ class _AutonomousState extends State<Autonomous> {
                         },
                       ),
                       widget.isBlue
-                          ? controller.autonomous.isRobot2Parked
+                          ? controller.blueAutonomous.isRobot2Parked
                               ? Column(
                                   children: [
                                     Padding(
@@ -303,14 +303,14 @@ class _AutonomousState extends State<Autonomous> {
                                         name1: "Storage",
                                         name2: "Warehouse",
                                         width: 160.5,
-                                        index: controller
-                                                .autonomous.isR2PInStorageUnit
+                                        index: controller.blueAutonomous
+                                                .isR2PInStorageUnit
                                             ? 0
                                             : 1,
                                         useDivider: false,
                                         onPressedIndex: (index) {
                                           setState(() {
-                                            controller.autonomous
+                                            controller.blueAutonomous
                                                     .isR2PInStorageUnit =
                                                 index != 1;
                                           });
@@ -322,14 +322,14 @@ class _AutonomousState extends State<Autonomous> {
                                       name1: "Partialy",
                                       name2: "Completely",
                                       width: 160.5,
-                                      index:
-                                          controller.autonomous.isR2PCompletely
-                                              ? 1
-                                              : 0,
+                                      index: controller
+                                              .blueAutonomous.isR2PCompletely
+                                          ? 1
+                                          : 0,
                                       useDivider: false,
                                       onPressedIndex: (index) {
                                         setState(() {
-                                          controller.autonomous
+                                          controller.blueAutonomous
                                               .isR2PCompletely = index != 0;
                                         });
                                       },
@@ -398,27 +398,36 @@ class _AutonomousState extends State<Autonomous> {
               name3: "Team",
               isPlussOrLess: false,
               index: widget.isBlue
-                  ? controller.autonomous.fBonus
+                  ? controller.blueAutonomous.fBonus
                   : controller.redAutonomous.fBonus,
               mainColor: widget.mainColor,
               onPressedIndex: (index) {
                 setState(() {
                   widget.isBlue
-                      ? controller.autonomous.fBonus = index
+                      ? controller.blueAutonomous.fBonus = index
                       : controller.redAutonomous.fBonus = index;
                 });
               },
             ),
             Align(
               alignment: Alignment.bottomCenter,
-              child: Text(
-                "Swipe left to change alliance",
-                style: TextStyle(
-                  color: widget.secondaryAllianceColor,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w500,
+              child: Container(
+                margin: const EdgeInsets.all(1.5),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10),
+                decoration: BoxDecoration(
+                  color: widget.mainColor,
+                  borderRadius: BorderRadius.circular(5),
                 ),
-                textAlign: TextAlign.start,
+                child: Text(
+                  "Swipe left to change alliance",
+                  style: TextStyle(
+                    color: widget.secondaryAllianceColor,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  textAlign: TextAlign.start,
+                ),
               ),
             ),
             const Spacer(),
@@ -427,7 +436,9 @@ class _AutonomousState extends State<Autonomous> {
               nextColor: AppColors.yellowGenius,
               isAutonomous: true,
               onPressedNext: widget.onPressed,
-              totalScore: widget.isBlue? controller.calcBlueTotalScore() : controller.calcRedTotalScore(),
+              totalScore: widget.isBlue
+                  ? controller.calcBlueTotalScore()
+                  : controller.calcRedTotalScore(),
             )
           ],
         ),

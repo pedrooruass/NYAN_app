@@ -4,7 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nyan_app/app/controllers/calc_score_controller.dart';
 import 'package:nyan_app/app/core/theme/app_colors.dart';
-import 'package:nyan_app/app/models/driver_controlled_model.dart';
+import 'package:nyan_app/app/models/blue_driver_controlled_model.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/widgets/bottom_line.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/widgets/question_widget.dart';
 import 'package:provider/provider.dart';
@@ -15,13 +15,15 @@ class DriverControlled extends StatefulWidget {
   final Color secondaryAllianceColor;
   final void Function() onPressedNext;
   final void Function() onPressedBack;
+  final bool isBlue;
   const DriverControlled(
       {Key? key,
       required this.mainColor,
       required this.allianceColor,
       required this.secondaryAllianceColor,
       required this.onPressedNext,
-      required this.onPressedBack})
+      required this.onPressedBack,
+      this.isBlue = true})
       : super(key: key);
 
   @override
@@ -36,6 +38,7 @@ class _DriverControlledState extends State<DriverControlled> {
     controller = Provider.of<CalcScoreController>(context, listen: false);
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -72,77 +75,108 @@ class _DriverControlledState extends State<DriverControlled> {
                     ),
                     onPressed: () {
                       setState(() {
-                        controller.driverControlled.resetPoints();
+                        widget.isBlue
+                            ? controller.blueDriverControlled.resetPoints()
+                            : controller.redDriverControlled.resetPoints();
                       });
                     },
                   ),
                 ),
               ],
             ),
-           const Spacer(),
+            const Spacer(),
             // const SizedBox(
             //   height: 10,
             // ),
             QuestionWidget(
               text: "Freight in Storage?",
-              points: controller.driverControlled.fstorage,
+              points: widget.isBlue
+                  ? controller.blueDriverControlled.fstorage
+                  : controller.redDriverControlled.fstorage,
               mainColor: widget.mainColor,
               onPressedPlusLess: (value) {
                 setState(() {
-                  controller.driverControlled.fstorage = value;
+                  widget.isBlue
+                      ? controller.blueDriverControlled.fstorage = value
+                      : controller.redDriverControlled.fstorage = value;
                 });
               },
             ),
             QuestionWidget(
               text: "Freight in Hub L1",
-              points: controller.driverControlled.fhl1,
+              points: widget.isBlue
+                  ? controller.blueDriverControlled.fhl1
+                  : controller.redDriverControlled.fhl1,
               mainColor: widget.mainColor,
               onPressedPlusLess: (value) {
                 setState(() {
-                  controller.driverControlled.fhl1 = value;
+                  widget.isBlue
+                      ? controller.blueDriverControlled.fhl1 = value
+                      : controller.redDriverControlled.fhl1 = value;
                 });
               },
             ),
             QuestionWidget(
               text: "Freight in Hub L2",
-              points: controller.driverControlled.fhl2,
+              points: widget.isBlue
+                  ? controller.blueDriverControlled.fhl2
+                  : controller.redDriverControlled.fhl2,
               mainColor: widget.mainColor,
               onPressedPlusLess: (value) {
                 setState(() {
-                  controller.driverControlled.fhl2 = value;
+                  widget.isBlue
+                      ? controller.blueDriverControlled.fhl2 = value
+                      : controller.redDriverControlled.fhl2 = value;
                 });
               },
             ),
             QuestionWidget(
               text: "Freight in Hub L3",
-              points: controller.driverControlled.fhl3,
+              points: widget.isBlue
+                  ? controller.blueDriverControlled.fhl3
+                  : controller.redDriverControlled.fhl3,
               mainColor: widget.mainColor,
               onPressedPlusLess: (value) {
                 setState(() {
-                  controller.driverControlled.fhl3 = value;
+                  widget.isBlue
+                      ? controller.blueDriverControlled.fhl3 = value
+                      : controller.redDriverControlled.fhl3 = value;
                 });
               },
             ),
             QuestionWidget(
               text: "Freight in Shared",
-              points: controller.driverControlled.fshared,
+              points: widget.isBlue
+                  ? controller.blueDriverControlled.fshared
+                  : controller.redDriverControlled.fshared,
               mainColor: widget.mainColor,
               onPressedPlusLess: (value) {
                 setState(() {
-                  controller.driverControlled.fshared = value;
+                  widget.isBlue
+                      ? controller.blueDriverControlled.fshared = value
+                      : controller.redDriverControlled.fshared = value;
                 });
               },
             ),
             Align(
               alignment: Alignment.bottomCenter,
-              child: Text(
-                "Swipe left to change alliance",
-                style: TextStyle(
-                  color: widget.secondaryAllianceColor,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w500,
+              child: Container(
+                margin: const EdgeInsets.all(1.5),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10),
+                decoration: BoxDecoration(
+                  color: widget.mainColor,
+                  borderRadius: BorderRadius.circular(5),
                 ),
-                textAlign: TextAlign.start,
+                child: Text(
+                  "Swipe left to change alliance",
+                  style: TextStyle(
+                    color: widget.secondaryAllianceColor,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  textAlign: TextAlign.start,
+                ),
               ),
             ),
             const Spacer(),
@@ -152,7 +186,9 @@ class _DriverControlledState extends State<DriverControlled> {
               backColor: AppColors.orange,
               onPressedNext: widget.onPressedNext,
               onPressedBack: widget.onPressedBack,
-              totalScore: controller.calcBlueTotalScore(),
+              totalScore: widget.isBlue
+                  ? controller.calcBlueTotalScore()
+                  : controller.calcRedTotalScore(),
             )
           ],
         ),

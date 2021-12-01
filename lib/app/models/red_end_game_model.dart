@@ -1,11 +1,11 @@
-class BlueEndGameModel {
+class RedEndGameModel {
   int cD;
   int shippingH;
   int sharedH;
   int parked1;
   int parked2;
   int capping;
-  BlueEndGameModel({
+  RedEndGameModel({
     this.cD = 0,
     this.shippingH = 0,
     this.sharedH = 0,

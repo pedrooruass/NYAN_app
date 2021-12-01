@@ -175,16 +175,79 @@ class _FinalScoreState extends State<FinalScore> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Autonomous:",
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: AppColors.yellowGenius,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          Text(
+                            controller.blueAutonomous.calcTotal().toString(),
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: AppColors.white,
+                              fontWeight: FontWeight.w300,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Driver Controlled:",
+                            style: TextStyle(
+                              fontSize: 16.9,
+                              color: AppColors.yellowGenius,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          Text(
+                            controller.blueDriverControlled.calcTotal().toString(),
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: AppColors.white,
+                              fontWeight: FontWeight.w300,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "End Game:",
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: AppColors.yellowGenius,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          Text(
+                            controller.blueEndGame.calcTotal().toString(),
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: AppColors.white,
+                              fontWeight: FontWeight.w300,
+                            ),
+                          ),
+                        ],
+                      ),
                       Text(
                         "Total:",
                         style: TextStyle(
                           fontSize: 30,
-                          color: AppColors.orange,
+                          color: AppColors.yellowGenius,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
                       Text(
-                        controller.autonomous.calcTotal().toString(),
+                        controller.calcBlueTotalScore().toString(),
                         style: TextStyle(
                           fontSize: 30,
                           color: AppColors.white,
@@ -216,6 +279,69 @@ class _FinalScoreState extends State<FinalScore> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Autonomous:",
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: AppColors.orange,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          Text(
+                            controller.redAutonomous.calcTotal().toString(),
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: AppColors.white,
+                              fontWeight: FontWeight.w300,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Driver Controlled:",
+                            style: TextStyle(
+                              fontSize: 16.9,
+                              color: AppColors.orange,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          Text(
+                            controller.redDriverControlled.calcTotal().toString(),
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: AppColors.white,
+                              fontWeight: FontWeight.w300,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "End Game:",
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: AppColors.orange,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          Text(
+                            controller.redEndGame.calcTotal().toString(),
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: AppColors.white,
+                              fontWeight: FontWeight.w300,
+                            ),
+                          ),
+                        ],
+                      ),
                       Text(
                         "Total:",
                         style: TextStyle(
@@ -225,11 +351,11 @@ class _FinalScoreState extends State<FinalScore> {
                         ),
                       ),
                       Text(
-                        controller.autonomous.calcTotal().toString(),
+                        controller.calcRedTotalScore().toString(),
                         style: TextStyle(
-                          fontSize: 30,
-                          color: AppColors.white,
-                          fontWeight: FontWeight.w300,
+                      fontSize: 30,
+                      color: AppColors.white,
+                      fontWeight: FontWeight.w300,
                         ),
                       ),
                     ],
@@ -241,16 +367,62 @@ class _FinalScoreState extends State<FinalScore> {
           const SizedBox(
             height: 10,
           ),
-          Center(
-            child: Text(
-              "Blue Alliance won",
-              style: TextStyle(
-                fontSize: 33,
-                color: AppColors.orange,
-                fontWeight: FontWeight.w500,
+          if (controller.calcBlueTotalScore() > controller.calcRedTotalScore())
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Blue Alliance",
+                  style: TextStyle(
+                    fontSize: 33,
+                    color: AppColors.primary,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                Text(
+                  " Won!!!",
+                  style: TextStyle(
+                    fontSize: 35,
+                    color: AppColors.yellowGenius,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ],
+            ),
+          if (controller.calcRedTotalScore() > controller.calcBlueTotalScore())
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Red Alliance",
+                  style: TextStyle(
+                    fontSize: 33,
+                    color: AppColors.secondary,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                Text(
+                  " Won!!!",
+                  style: TextStyle(
+                    fontSize: 35,
+                    color: AppColors.orange,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ],
+            ),
+
+          if (controller.calcBlueTotalScore() == controller.calcRedTotalScore())
+            Center(
+              child: Text(
+                "The match ended in a Draw!!!",
+                style: TextStyle(
+                  fontSize: 29,
+                  color: AppColors.grey,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ),
-          ),
           // Put trofeu image or gif
           Image.asset("assets/316-3160146_hand-with-trophy-icon-clipart.png"),
         ],

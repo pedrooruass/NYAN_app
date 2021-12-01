@@ -1,4 +1,4 @@
-class AutonomousModel {
+class BlueAutonomousModel {
   bool isDuckDelivered;
   int fstorage;
   int fhub;
@@ -10,7 +10,7 @@ class AutonomousModel {
   bool isR2PCompletely;
   int fBonus;
 
-  AutonomousModel({
+  BlueAutonomousModel({
     this.isDuckDelivered = false,
     this.fstorage = 0,
     this.fhub = 0,
