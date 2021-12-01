@@ -152,7 +152,7 @@ class _DriverControlledState extends State<DriverControlled> {
               backColor: AppColors.orange,
               onPressedNext: widget.onPressedNext,
               onPressedBack: widget.onPressedBack,
-              totalScore: controller.calcTotalScore(),
+              totalScore: controller.calcBlueTotalScore(),
             )
           ],
         ),

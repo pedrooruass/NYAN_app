@@ -12,12 +12,14 @@ class Autonomous extends StatefulWidget {
   final Color allianceColor;
   final Color secondaryAllianceColor;
   final void Function() onPressed;
+  final bool isBlue;
   const Autonomous(
       {Key? key,
       required this.mainColor,
       required this.allianceColor,
       required this.secondaryAllianceColor,
-      required this.onPressed})
+      required this.onPressed,
+      this.isBlue = true})
       : super(key: key);
 
   @override
@@ -69,7 +71,9 @@ class _AutonomousState extends State<Autonomous> {
                   ),
                   onPressed: () {
                     setState(() {
-                      controller.autonomous.resetPoints();
+                      widget.isBlue
+                          ? controller.autonomous.resetPoints()
+                          : controller.redAutonomous.resetPoints();
                     });
                   },
                 ),
@@ -80,34 +84,50 @@ class _AutonomousState extends State<Autonomous> {
             ),
             QuestionWidget(
               text: "Duck Delivered?",
-              index: controller.autonomous.isDuckDelivered ? 1 : 0,
+              index: widget.isBlue
+                  ? controller.autonomous.isDuckDelivered
+                      ? 1
+                      : 0
+                  : controller.redAutonomous.isDuckDelivered
+                      ? 1
+                      : 0,
               isPlussOrLess: false,
               mainColor: widget.mainColor,
               name1: "No",
               name2: "Yes",
               onPressedIndex: (index) {
                 setState(() {
-                  controller.autonomous.isDuckDelivered = index != 0;
+                  widget.isBlue
+                      ? controller.autonomous.isDuckDelivered = index != 0
+                      : controller.redAutonomous.isDuckDelivered = index != 0;
                 });
               },
             ),
             QuestionWidget(
               text: "Freight in Storage?",
-              points: controller.autonomous.fstorage,
+              points: widget.isBlue
+                  ? controller.autonomous.fstorage
+                  : controller.redAutonomous.fstorage,
               mainColor: widget.mainColor,
               onPressedPlusLess: (value) {
                 setState(() {
-                  controller.autonomous.fstorage = value;
+                  widget.isBlue
+                      ? controller.autonomous.fstorage = value
+                      : controller.redAutonomous.fstorage = value;
                 });
               },
             ),
             QuestionWidget(
               text: "Freight in Hub?",
-              points: controller.autonomous.fhub,
+              points: widget.isBlue
+                  ? controller.autonomous.fhub
+                  : controller.redAutonomous.fhub,
               mainColor: widget.mainColor,
               onPressedPlusLess: (value) {
                 setState(() {
-                  controller.autonomous.fhub = value;
+                  widget.isBlue
+                      ? controller.autonomous.fhub = value
+                      : controller.redAutonomous.fhub = value;
                 });
               },
             ),
@@ -130,52 +150,117 @@ class _AutonomousState extends State<Autonomous> {
                       QuestionWidget(
                         text: "R1",
                         isPlussOrLess: false,
-                        index: controller.autonomous.isRobot1Parked ? 1 : 0,
+                        index: widget.isBlue
+                            ? controller.autonomous.isRobot1Parked
+                                ? 1
+                                : 0
+                            : controller.redAutonomous.isRobot1Parked
+                                ? 1
+                                : 0,
                         name1: "No",
                         name2: "Yes",
                         useDivider: false,
                         onPressedIndex: (index) {
                           setState(() {
-                            controller.autonomous.isRobot1Parked = index != 0;
+                            widget.isBlue
+                                ? controller.autonomous.isRobot1Parked =
+                                    index != 0
+                                : controller.redAutonomous.isRobot1Parked =
+                                    index != 0;
                           });
                         },
                       ),
-                      controller.autonomous.isRobot1Parked
-                          ? Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      top: 7.5, bottom: 10),
-                                  child: QuestionWidget(
-                                    isPlussOrLess: false,
-                                    name1: "Storage",
-                                    name2: "Warehouse",
-                                    width: 160.5,
-                                    index: controller.autonomous.isR1PInStorageUnit ? 0 : 1,
-                                    useDivider: false,
-                                    onPressedIndex: (index) {
-                                      setState(() {
-                                        controller.autonomous.isR1PInStorageUnit = index != 1;
-                                      });
-                                    },
-                                  ),
-                                ),
-                                QuestionWidget(
-                                  isPlussOrLess: false,
-                                  name1: "Partialy",
-                                  name2: "Completely",
-                                  width: 160.5,
-                                  index: controller.autonomous.isR1PCompletely ? 1 : 0,
-                                  useDivider: false,
-                                  onPressedIndex: (index) {
-                                    setState(() {
-                                      controller.autonomous.isR1PCompletely = index != 0;
-                                    });
-                                  },
-                                ),
-                              ],
-                            )
-                          : const SizedBox(),
+                      widget.isBlue
+                          ? controller.autonomous.isRobot1Parked
+                              ? Column(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 7.5, bottom: 10),
+                                      child: QuestionWidget(
+                                        isPlussOrLess: false,
+                                        name1: "Storage",
+                                        name2: "Warehouse",
+                                        width: 160.5,
+                                        index: controller
+                                                .autonomous.isR1PInStorageUnit
+                                            ? 0
+                                            : 1,
+                                        useDivider: false,
+                                        onPressedIndex: (index) {
+                                          setState(() {
+                                            controller.autonomous
+                                                    .isR1PInStorageUnit =
+                                                index != 1;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                    QuestionWidget(
+                                      isPlussOrLess: false,
+                                      name1: "Partialy",
+                                      name2: "Completely",
+                                      width: 160.5,
+                                      index:
+                                          controller.autonomous.isR1PCompletely
+                                              ? 1
+                                              : 0,
+                                      useDivider: false,
+                                      onPressedIndex: (index) {
+                                        setState(() {
+                                          controller.autonomous
+                                              .isR1PCompletely = index != 0;
+                                        });
+                                      },
+                                    ),
+                                  ],
+                                )
+                              : const SizedBox()
+                          : controller.redAutonomous.isRobot1Parked
+                              ? Column(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 7.5, bottom: 10),
+                                      child: QuestionWidget(
+                                        isPlussOrLess: false,
+                                        name1: "Storage",
+                                        name2: "Warehouse",
+                                        width: 160.5,
+                                        index: controller.redAutonomous
+                                                .isR1PInStorageUnit
+                                            ? 0
+                                            : 1,
+                                        useDivider: false,
+                                        onPressedIndex: (index) {
+                                          setState(() {
+                                            controller.redAutonomous
+                                                    .isR1PInStorageUnit =
+                                                index != 1;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                    QuestionWidget(
+                                      isPlussOrLess: false,
+                                      name1: "Partialy",
+                                      name2: "Completely",
+                                      width: 160.5,
+                                      index: controller
+                                              .redAutonomous.isR1PCompletely
+                                          ? 1
+                                          : 0,
+                                      useDivider: false,
+                                      onPressedIndex: (index) {
+                                        setState(() {
+                                          controller.redAutonomous
+                                              .isR1PCompletely = index != 0;
+                                        });
+                                      },
+                                    ),
+                                  ],
+                                )
+                              : const SizedBox(),
                     ],
                   ),
                 ),
@@ -186,52 +271,117 @@ class _AutonomousState extends State<Autonomous> {
                       QuestionWidget(
                         text: "R2",
                         isPlussOrLess: false,
-                        index: controller.autonomous.isRobot2Parked ? 1 : 0,
+                        index: widget.isBlue
+                            ? controller.autonomous.isRobot2Parked
+                                ? 1
+                                : 0
+                            : controller.redAutonomous.isRobot2Parked
+                                ? 1
+                                : 0,
                         name1: "No",
                         name2: "Yes",
                         useDivider: false,
                         onPressedIndex: (index) {
                           setState(() {
-                            controller.autonomous.isRobot2Parked = index != 0;
+                            widget.isBlue
+                                ? controller.autonomous.isRobot2Parked =
+                                    index != 0
+                                : controller.redAutonomous.isRobot2Parked =
+                                    index != 0;
                           });
                         },
                       ),
-                      controller.autonomous.isRobot2Parked
-                          ? Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      top: 7.5, bottom: 10),
-                                  child: QuestionWidget(
-                                    isPlussOrLess: false,
-                                    name1: "Storage",
-                                    name2: "Warehouse",
-                                    width: 160.5,
-                                    index: controller.autonomous.isR2PInStorageUnit ? 0 : 1,
-                                    useDivider: false,
-                                    onPressedIndex: (index) {
-                                      setState(() {
-                                        controller.autonomous.isR2PInStorageUnit = index != 1;
-                                      });
-                                    },
-                                  ),
-                                ),
-                                QuestionWidget(
-                                  isPlussOrLess: false,
-                                  name1: "Partialy",
-                                  name2: "Completely",
-                                  width: 160.5,
-                                  index: controller.autonomous.isR2PCompletely ? 1 : 0,
-                                  useDivider: false,
-                                  onPressedIndex: (index) {
-                                    setState(() {
-                                      controller.autonomous.isR2PCompletely = index != 0;
-                                    });
-                                  },
-                                ),
-                              ],
-                            )
-                          : const SizedBox(),
+                      widget.isBlue
+                          ? controller.autonomous.isRobot2Parked
+                              ? Column(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 7.5, bottom: 10),
+                                      child: QuestionWidget(
+                                        isPlussOrLess: false,
+                                        name1: "Storage",
+                                        name2: "Warehouse",
+                                        width: 160.5,
+                                        index: controller
+                                                .autonomous.isR2PInStorageUnit
+                                            ? 0
+                                            : 1,
+                                        useDivider: false,
+                                        onPressedIndex: (index) {
+                                          setState(() {
+                                            controller.autonomous
+                                                    .isR2PInStorageUnit =
+                                                index != 1;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                    QuestionWidget(
+                                      isPlussOrLess: false,
+                                      name1: "Partialy",
+                                      name2: "Completely",
+                                      width: 160.5,
+                                      index:
+                                          controller.autonomous.isR2PCompletely
+                                              ? 1
+                                              : 0,
+                                      useDivider: false,
+                                      onPressedIndex: (index) {
+                                        setState(() {
+                                          controller.autonomous
+                                              .isR2PCompletely = index != 0;
+                                        });
+                                      },
+                                    ),
+                                  ],
+                                )
+                              : const SizedBox()
+                          : controller.redAutonomous.isRobot2Parked
+                              ? Column(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 7.5, bottom: 10),
+                                      child: QuestionWidget(
+                                        isPlussOrLess: false,
+                                        name1: "Storage",
+                                        name2: "Warehouse",
+                                        width: 160.5,
+                                        index: controller.redAutonomous
+                                                .isR2PInStorageUnit
+                                            ? 0
+                                            : 1,
+                                        useDivider: false,
+                                        onPressedIndex: (index) {
+                                          setState(() {
+                                            controller.redAutonomous
+                                                    .isR2PInStorageUnit =
+                                                index != 1;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                    QuestionWidget(
+                                      isPlussOrLess: false,
+                                      name1: "Partialy",
+                                      name2: "Completely",
+                                      width: 160.5,
+                                      index: controller
+                                              .redAutonomous.isR2PCompletely
+                                          ? 1
+                                          : 0,
+                                      useDivider: false,
+                                      onPressedIndex: (index) {
+                                        setState(() {
+                                          controller.redAutonomous
+                                              .isR2PCompletely = index != 0;
+                                        });
+                                      },
+                                    ),
+                                  ],
+                                )
+                              : const SizedBox(),
                     ],
                   ),
                 ),
@@ -247,11 +397,15 @@ class _AutonomousState extends State<Autonomous> {
               name2: "Duck",
               name3: "Team",
               isPlussOrLess: false,
-              index: controller.autonomous.fBonus,
+              index: widget.isBlue
+                  ? controller.autonomous.fBonus
+                  : controller.redAutonomous.fBonus,
               mainColor: widget.mainColor,
               onPressedIndex: (index) {
                 setState(() {
-                  controller.autonomous.fBonus = index;
+                  widget.isBlue
+                      ? controller.autonomous.fBonus = index
+                      : controller.redAutonomous.fBonus = index;
                 });
               },
             ),
@@ -273,7 +427,7 @@ class _AutonomousState extends State<Autonomous> {
               nextColor: AppColors.yellowGenius,
               isAutonomous: true,
               onPressedNext: widget.onPressed,
-              totalScore: controller.calcTotalScore(),
+              totalScore: widget.isBlue? controller.calcBlueTotalScore() : controller.calcRedTotalScore(),
             )
           ],
         ),

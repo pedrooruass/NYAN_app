@@ -17,6 +17,8 @@ class LiquidSwipeAutonomousView extends StatefulWidget {
 }
 
 class _LiquidSwipeAutonomousViewState extends State<LiquidSwipeAutonomousView> {
+
+
   @override
   Widget build(BuildContext context) {
     return LiquidSwipe(
@@ -30,6 +32,7 @@ class _LiquidSwipeAutonomousViewState extends State<LiquidSwipeAutonomousView> {
         ),
         Autonomous(
           key: const Key('AutonomousRed'),
+          isBlue: false,
           mainColor: AppColors.orange,
           allianceColor: AppColors.secondary,
           secondaryAllianceColor: AppColors.primary,

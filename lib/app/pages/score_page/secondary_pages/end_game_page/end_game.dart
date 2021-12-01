@@ -141,7 +141,7 @@ class _EndGameState extends State<EndGame> {
                   child: Column(
                     children: [
                       Text(
-                        "Parking R1",
+                        "R1",
                         style: TextStyle(
                           fontSize: 25,
                           color: AppColors.white,
@@ -171,7 +171,7 @@ class _EndGameState extends State<EndGame> {
                   child: Column(
                     children: [
                       Text(
-                        "Parking R2",
+                        "R2",
                         style: TextStyle(
                           fontSize: 25,
                           color: AppColors.white,
@@ -240,7 +240,7 @@ class _EndGameState extends State<EndGame> {
               onPressedBack: widget.onPressedBack,
               onPressedNext: widget.onPressedNext,
               nextText: "Finish",
-              totalScore: controller.calcTotalScore(),
+              totalScore: controller.calcBlueTotalScore(),
             )
           ],
         ),
