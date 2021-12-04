@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nyan_app/app/pages/score_page/secondary_pages/alliance_names_page/alliance_names.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/autonomous_page/widgets/liquid_swipe_autonomous_view.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/driver_controlled_page/widget/liquid_swipe_driver_controlled.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/end_game_page/widgets/liquid_swipe_end_game.dart';
@@ -36,7 +35,7 @@ class _ScorePageState extends State<ScorePage> {
           });
         },
       ),
-      AllianceNames(
+      LiquidSwipeAutonomousView(
         onPressed: () {
           setState(() {
             widget.onPageChanged(2);
@@ -44,36 +43,28 @@ class _ScorePageState extends State<ScorePage> {
           });
         },
       ),
-      LiquidSwipeAutonomousView(
-        onPressed: () {
-          setState(() {
-            widget.onPageChanged(3);
-            index = 3;
-          });
-        },
-      ),
       LiquidSwipeDriverControlledView(onPressedNext: () {
         setState(() {
-          widget.onPageChanged(4);
-          index = 4;
+          widget.onPageChanged(3);
+          index = 3;
         });
       }, onPressedBack: () {
         setState(() {
-          widget.onPageChanged(2);
-          index = 2;
+          widget.onPageChanged(1);
+          index = 1;
         });
       }),
       LiquidSwipeEndGameView(
         onPressedBack: () {
           setState(() {
-            widget.onPageChanged(3);
-            index = 3;
+            widget.onPageChanged(2);
+            index = 2;
           });
         },
         onPressedNext: () {
           setState(() {
-            widget.onPageChanged(5);
-            index = 5;
+            widget.onPageChanged(4);
+            index = 4;
           });
         },
       ),

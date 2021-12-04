@@ -59,15 +59,16 @@ class BottomLine extends StatelessWidget {
                       onPressed: onPressedNext ?? () {},
                       child: Container(
                         alignment: Alignment.center,
-                        width: 80,
-                        height: 50,
+                        width: MediaQuery.of(context).size.width * 0.215,
+                        height: MediaQuery.of(context).size.height * 0.069,
                         decoration: BoxDecoration(
                           color: nextColor,
                           borderRadius: const BorderRadius.all(
                             Radius.circular(10),
                           ),
                         ),
-                        child: Text("Next",
+                        child: Text(
+                          "Next",
                           style: TextStyle(
                             fontSize: 27.5,
                             color: AppColors.white,
@@ -85,8 +86,10 @@ class BottomLine extends StatelessWidget {
                               onPressed: onPressedBack ?? () {},
                               child: Container(
                                 alignment: Alignment.center,
-                                width: 80,
-                                height: 50,
+                                width:
+                                    MediaQuery.of(context).size.width * 0.215,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.069,
                                 decoration: BoxDecoration(
                                   color: backColor,
                                   borderRadius: const BorderRadius.all(
@@ -112,22 +115,27 @@ class BottomLine extends StatelessWidget {
                               onPressed: onPressedNext ?? () {},
                               child: Container(
                                 alignment: Alignment.center,
-                                width: 80,
-                                height: 50,
+                                width:
+                                    MediaQuery.of(context).size.width * 0.215,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.069,
                                 decoration: BoxDecoration(
                                   color: nextColor,
                                   borderRadius: const BorderRadius.all(
                                     Radius.circular(10),
                                   ),
                                 ),
-                                child: isTrophy?   Icon(FontAwesomeIcons.trophy, color: AppColors.yellowGenius,): Text(
-                                  "Next",
-                                  style: TextStyle(
-                                    fontSize: 27.5,
-                                    color: AppColors.white,
-                                    fontWeight: FontWeight.w500,
-                                  ) 
-                                ),
+                                child: isTrophy
+                                    ? Icon(
+                                        FontAwesomeIcons.trophy,
+                                        color: AppColors.yellowGenius,
+                                      )
+                                    : Text("Next",
+                                        style: TextStyle(
+                                          fontSize: 27.5,
+                                          color: AppColors.white,
+                                          fontWeight: FontWeight.w500,
+                                        )),
                               ),
                             ),
                           ],
@@ -138,8 +146,8 @@ class BottomLine extends StatelessWidget {
                           onPressed: onPressedBack ?? () {},
                           child: Container(
                             alignment: Alignment.center,
-                            width: 80,
-                            height: 50,
+                            width: MediaQuery.of(context).size.width * 0.215,
+                            height: MediaQuery.of(context).size.height * 0.069,
                             decoration: BoxDecoration(
                               color: backColor,
                               borderRadius: const BorderRadius.all(

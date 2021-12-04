@@ -181,7 +181,7 @@ class _AutonomousState extends State<Autonomous> {
                                         isPlussOrLess: false,
                                         name1: "Storage",
                                         name2: "Warehouse",
-                                        width: 160.5,
+                                        width: 0.4,
                                         index: controller.blueAutonomous
                                                 .isR1PInStorageUnit
                                             ? 0
@@ -200,7 +200,7 @@ class _AutonomousState extends State<Autonomous> {
                                       isPlussOrLess: false,
                                       name1: "Partialy",
                                       name2: "Completely",
-                                      width: 160.5,
+                                      width: 0.4,
                                       index: controller
                                               .blueAutonomous.isR1PCompletely
                                           ? 1
@@ -226,7 +226,7 @@ class _AutonomousState extends State<Autonomous> {
                                         isPlussOrLess: false,
                                         name1: "Storage",
                                         name2: "Warehouse",
-                                        width: 160.5,
+                                        width: 0.4,
                                         index: controller.redAutonomous
                                                 .isR1PInStorageUnit
                                             ? 0
@@ -245,7 +245,7 @@ class _AutonomousState extends State<Autonomous> {
                                       isPlussOrLess: false,
                                       name1: "Partialy",
                                       name2: "Completely",
-                                      width: 160.5,
+                                      width: 0.4,
                                       index: controller
                                               .redAutonomous.isR1PCompletely
                                           ? 1
@@ -302,7 +302,7 @@ class _AutonomousState extends State<Autonomous> {
                                         isPlussOrLess: false,
                                         name1: "Storage",
                                         name2: "Warehouse",
-                                        width: 160.5,
+                                        width: 0.4,
                                         index: controller.blueAutonomous
                                                 .isR2PInStorageUnit
                                             ? 0
@@ -321,7 +321,7 @@ class _AutonomousState extends State<Autonomous> {
                                       isPlussOrLess: false,
                                       name1: "Partialy",
                                       name2: "Completely",
-                                      width: 160.5,
+                                      width: 0.4,
                                       index: controller
                                               .blueAutonomous.isR2PCompletely
                                           ? 1
@@ -347,7 +347,7 @@ class _AutonomousState extends State<Autonomous> {
                                         isPlussOrLess: false,
                                         name1: "Storage",
                                         name2: "Warehouse",
-                                        width: 160.5,
+                                        width: 0.4,
                                         index: controller.redAutonomous
                                                 .isR2PInStorageUnit
                                             ? 0
@@ -366,7 +366,7 @@ class _AutonomousState extends State<Autonomous> {
                                       isPlussOrLess: false,
                                       name1: "Partialy",
                                       name2: "Completely",
-                                      width: 160.5,
+                                      width: 0.4,
                                       index: controller
                                               .redAutonomous.isR2PCompletely
                                           ? 1

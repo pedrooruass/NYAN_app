@@ -115,7 +115,7 @@ class _EndGameState extends State<EndGame> {
             QuestionWidget(
               text: "Shipping Hub?",
               isPlussOrLess: false,
-              width: 125,
+              width: 0.32,
               index: widget.isBlue
                   ? controller.blueEndGame.shippingH
                   : controller.redEndGame.shippingH,
@@ -132,7 +132,7 @@ class _EndGameState extends State<EndGame> {
             ),
             QuestionWidget(
               text: "Shared Hub?",
-              width: 125,
+              width: 0.32,
               isPlussOrLess: false,
               index: widget.isBlue
                   ? controller.blueEndGame.sharedH

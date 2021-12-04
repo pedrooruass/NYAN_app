@@ -32,7 +32,7 @@ class QuestionWidget extends StatefulWidget {
     this.name1 = "Name1",
     this.name2 = "Name2",
     this.name3,
-    this.width = 122,
+    this.width = 0.31,
     this.textColor,
   }) : super(key: key);
 
@@ -79,8 +79,10 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                                 },
                                 child: Container(
                                   alignment: Alignment.center,
-                                  width: 50,
-                                  height: 25,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.13,
+                                  height: MediaQuery.of(context).size.height *
+                                      0.033,
                                   decoration: BoxDecoration(
                                     color: AppColors.black,
                                     borderRadius: const BorderRadius.all(
@@ -115,8 +117,10 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                                 },
                                 child: Container(
                                   alignment: Alignment.center,
-                                  width: 50,
-                                  height: 25,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.13,
+                                  height: MediaQuery.of(context).size.height *
+                                      0.033,
                                   decoration: BoxDecoration(
                                     color: AppColors.black,
                                     borderRadius: const BorderRadius.all(
@@ -171,8 +175,8 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                           },
                           child: Container(
                             alignment: Alignment.center,
-                            width: 50,
-                            height: 25,
+                            width: MediaQuery.of(context).size.width * 0.13,
+                            height: MediaQuery.of(context).size.height * 0.033,
                             decoration: BoxDecoration(
                               color: AppColors.black,
                               borderRadius:
@@ -206,8 +210,8 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                           },
                           child: Container(
                             alignment: Alignment.center,
-                            width: 50,
-                            height: 25,
+                            width: MediaQuery.of(context).size.width * 0.13,
+                            height: MediaQuery.of(context).size.height * 0.033,
                             decoration: BoxDecoration(
                               color: AppColors.black,
                               borderRadius:
@@ -244,7 +248,7 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                   ),
         if (widget.useDivider)
           Divider(
-            color: widget.mainColor?? AppColors.white,
+            color: widget.mainColor ?? AppColors.white,
             thickness: 2,
           ),
       ],

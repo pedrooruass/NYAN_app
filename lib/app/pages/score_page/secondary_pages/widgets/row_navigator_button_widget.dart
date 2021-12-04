@@ -23,7 +23,7 @@ class RowNavigatorWidget extends StatelessWidget {
     this.name3,
     this.name4,
     this.name5,
-    this.width = 120.0,
+    this.width = 0.31,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -34,8 +34,8 @@ class RowNavigatorWidget extends StatelessWidget {
         children: [
           Container(
             padding: const EdgeInsets.all(2),
-            width: width,
-            height: 25,
+            width: MediaQuery.of(context).size.width * width,
+            height: MediaQuery.of(context).size.height * 0.033,
             decoration: BoxDecoration(
               color: mainColor,
               borderRadius: BorderRadius.circular(5),
@@ -45,10 +45,9 @@ class RowNavigatorWidget extends StatelessWidget {
               children: [
                 buildInkWell(text: name1, index: 0),
                 buildInkWell(text: name2, index: 1),
-                if(name3 != null) buildInkWell(text: name3!, index: 2),
-                if(name4 != null) buildInkWell(text: name4!, index: 3),
-                if(name5 != null) buildInkWell(text: name5!, index: 4),
-                
+                if (name3 != null) buildInkWell(text: name3!, index: 2),
+                if (name4 != null) buildInkWell(text: name4!, index: 3),
+                if (name5 != null) buildInkWell(text: name5!, index: 4),
               ],
             ),
           ),
@@ -65,9 +64,7 @@ class RowNavigatorWidget extends StatelessWidget {
           alignment: Alignment.center,
           height: 30,
           decoration: BoxDecoration(
-            color: indexSelected == index
-                ? secondaryColor
-                : Colors.transparent,
+            color: indexSelected == index ? secondaryColor : Colors.transparent,
             borderRadius: BorderRadius.circular(5),
           ),
           child: Text(
