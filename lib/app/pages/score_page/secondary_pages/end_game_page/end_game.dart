@@ -176,6 +176,7 @@ class _EndGameState extends State<EndGame> {
                       ),
                       QuestionWidget(
                         isPlussOrLess: false,
+                        width: 0.33,
                         name1: "None",
                         name2: "Partly",
                         name3: "Full",
@@ -210,6 +211,7 @@ class _EndGameState extends State<EndGame> {
                       ),
                       QuestionWidget(
                         isPlussOrLess: false,
+                        width: 0.33,
                         name1: "None",
                         name2: "Partly",
                         name3: "Full",
