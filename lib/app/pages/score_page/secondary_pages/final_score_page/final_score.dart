@@ -1,9 +1,8 @@
-import 'dart:math';
-
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:nyan_app/app/controllers/calc_score_controller.dart';
 import 'package:nyan_app/app/core/theme/app_colors.dart';
+import 'package:nyan_app/app/pages/score_page/secondary_pages/final_score_page/widgets/confetti_widget.dart';
 import 'package:provider/provider.dart';
 
 class FinalScore extends StatefulWidget {
@@ -296,9 +295,16 @@ class _FinalScoreState extends State<FinalScore> {
                         ),
                       ],
                     ),
-                    Image.asset(
-                      "assets/azul.png",
-                      height: 200,
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          confettiController.play();
+                        });
+                      },
+                      child: Image.asset(
+                        "assets/azul.png",
+                        height: 200,
+                      ),
                     ),
                   ],
                 ),
@@ -364,63 +370,16 @@ class _FinalScoreState extends State<FinalScore> {
               // Put trofeu image or gif
             ],
           ),
-          Align(
-            alignment: Alignment.topCenter,
-            child: ConfettiWidget(
+          if (controller.calcBlueTotalScore() > controller.calcRedTotalScore())
+            WinConfettiWidget(
               confettiController: confettiController,
-              blastDirection: pi / 2,
-              emissionFrequency: 0.7,
-              minimumSize: const Size(10,
-                  10),
-              maximumSize: const Size(50,
-                  50),
-              numberOfParticles: 1,
-              gravity: 0.1,
-              colors: [
-                AppColors.secondary,
-                AppColors.orange,
-                AppColors.yellowGenius
-              ],
+              teamColor: AppColors.primary,
             ),
-          ),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: ConfettiWidget(
+          if (controller.calcRedTotalScore() > controller.calcBlueTotalScore())
+            WinConfettiWidget(
               confettiController: confettiController,
-              blastDirection: 0,
-              emissionFrequency: 0.7,
-              minimumSize: const Size(10,
-                  10), 
-              maximumSize: const Size(50,
-                  50),
-              numberOfParticles: 1,
-              gravity: 0.1,
-              colors: [
-                AppColors.secondary,
-                AppColors.orange,
-                AppColors.yellowGenius
-              ],
+              teamColor: AppColors.secondary,
             ),
-          ),
-          Align(
-            alignment: Alignment.centerRight,
-            child: ConfettiWidget(
-              confettiController: confettiController,
-              blastDirection: pi,
-              emissionFrequency: 0.7,
-              minimumSize: const Size(10,
-                  10),
-              maximumSize: const Size(50,
-                  50),
-              numberOfParticles: 1,
-              gravity: 0.1,
-              colors: [
-                AppColors.secondary,
-                AppColors.orange,
-                AppColors.yellowGenius
-              ],
-            ),
-          ),
         ],
       ),
     );
