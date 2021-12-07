@@ -20,6 +20,7 @@ class CalcScoreController {
     totalScore += blueEndGame.calcTotal();
     return totalScore;
   }
+
   int calcRedTotalScore() {
     int totalScore = 0;
     totalScore += redAutonomous.calcTotal();

@@ -35,7 +35,7 @@ class RowNavigatorWidget extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(2),
             width: MediaQuery.of(context).size.width * width,
-            height: MediaQuery.of(context).size.height * 0.033,
+            height: MediaQuery.of(context).size.height * 0.038,
             decoration: BoxDecoration(
               color: mainColor,
               borderRadius: BorderRadius.circular(5),
@@ -62,7 +62,6 @@ class RowNavigatorWidget extends StatelessWidget {
         onTap: () => onTap(index),
         child: Container(
           alignment: Alignment.center,
-          height: 30,
           decoration: BoxDecoration(
             color: indexSelected == index ? secondaryColor : Colors.transparent,
             borderRadius: BorderRadius.circular(5),

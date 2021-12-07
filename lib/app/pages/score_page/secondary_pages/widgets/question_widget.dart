@@ -82,7 +82,7 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                                   width:
                                       MediaQuery.of(context).size.width * 0.13,
                                   height: MediaQuery.of(context).size.height *
-                                      0.033,
+                                      0.040,
                                   decoration: BoxDecoration(
                                     color: AppColors.black,
                                     borderRadius: const BorderRadius.all(
@@ -120,7 +120,7 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                                   width:
                                       MediaQuery.of(context).size.width * 0.13,
                                   height: MediaQuery.of(context).size.height *
-                                      0.033,
+                                      0.040,
                                   decoration: BoxDecoration(
                                     color: AppColors.black,
                                     borderRadius: const BorderRadius.all(
@@ -176,7 +176,7 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                           child: Container(
                             alignment: Alignment.center,
                             width: MediaQuery.of(context).size.width * 0.13,
-                            height: MediaQuery.of(context).size.height * 0.033,
+                            height: MediaQuery.of(context).size.height * 0.040,
                             decoration: BoxDecoration(
                               color: AppColors.black,
                               borderRadius:
@@ -211,7 +211,7 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                           child: Container(
                             alignment: Alignment.center,
                             width: MediaQuery.of(context).size.width * 0.13,
-                            height: MediaQuery.of(context).size.height * 0.033,
+                            height: MediaQuery.of(context).size.height * 0.040,
                             decoration: BoxDecoration(
                               color: AppColors.black,
                               borderRadius:
