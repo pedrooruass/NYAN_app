@@ -72,7 +72,9 @@ class RowNavigatorWidget extends StatelessWidget {
               color: indexSelected == index ? mainColor : secondaryColor,
               fontWeight:
                   indexSelected == index ? FontWeight.bold : FontWeight.normal,
+                  fontSize: 12.5
             ),
+
             textAlign: TextAlign.center,
           ),
         ),

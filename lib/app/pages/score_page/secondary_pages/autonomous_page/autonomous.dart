@@ -181,7 +181,7 @@ class _AutonomousState extends State<Autonomous> {
                                         isPlussOrLess: false,
                                         name1: "Storage",
                                         name2: "Warehouse",
-                                        width: 0.4,
+                                        width: 0.42,
                                         index: controller.blueAutonomous
                                                 .isR1PInStorageUnit
                                             ? 0
@@ -200,7 +200,7 @@ class _AutonomousState extends State<Autonomous> {
                                       isPlussOrLess: false,
                                       name1: "Partialy",
                                       name2: "Completely",
-                                      width: 0.4,
+                                      width: 0.42,
                                       index: controller
                                               .blueAutonomous.isR1PCompletely
                                           ? 1
@@ -226,7 +226,7 @@ class _AutonomousState extends State<Autonomous> {
                                         isPlussOrLess: false,
                                         name1: "Storage",
                                         name2: "Warehouse",
-                                        width: 0.4,
+                                        width: 0.42,
                                         index: controller.redAutonomous
                                                 .isR1PInStorageUnit
                                             ? 0
@@ -245,7 +245,7 @@ class _AutonomousState extends State<Autonomous> {
                                       isPlussOrLess: false,
                                       name1: "Partialy",
                                       name2: "Completely",
-                                      width: 0.4,
+                                      width: 0.42,
                                       index: controller
                                               .redAutonomous.isR1PCompletely
                                           ? 1
