@@ -35,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
       extendBody: false,
       appBar: MyAppBarWidget(
         context: context,
-        height: MediaQuery.of(context).size.height * 0.10,
+        height: MediaQuery.of(context).size.height * 0.12,
         onPressed1: () {
           setState(() {
             scoreIndex = 0;

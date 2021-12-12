@@ -17,18 +17,20 @@ class MyAppBarWidget extends PreferredSize {
           preferredSize: Size.fromHeight(
             height,
           ),
-          child: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 9.5),
-              child: ListTile(
-                tileColor: Colors.transparent,
-                leading: BouncingWidget(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Center(
+              child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                BouncingWidget(
                   onPressed: onPressed1,
                   child: Image.asset(
                     "assets/o_brabo.png",
+                    width: MediaQuery.of(context).size.width * 0.45,
                   ),
                 ),
-                trailing: BouncingWidget(
+                BouncingWidget(
                   onPressed: onPressed2,
                   child: Icon(
                     FontAwesomeIcons.instagram,
@@ -36,7 +38,8 @@ class MyAppBarWidget extends PreferredSize {
                     color: AppColors.white,
                   ),
                 ),
-              ),
+              ],
+            ),
             ),
           ),
         );
