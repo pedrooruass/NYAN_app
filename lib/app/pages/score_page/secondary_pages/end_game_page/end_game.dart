@@ -8,6 +8,8 @@ import 'package:nyan_app/app/models/blue_driver_controlled_model.dart';
 import 'package:nyan_app/app/models/end_game_model.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/widgets/bottom_line.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/widgets/question_widget.dart';
+import 'package:nyan_app/app/pages/widgets/change_alliance_hint.dart';
+import 'package:nyan_app/app/pages/widgets/name_row_widget.dart';
 import 'package:provider/provider.dart';
 
 class EndGame extends StatefulWidget {
@@ -55,35 +57,16 @@ class _EndGameState extends State<EndGame> {
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'End Game',
-                  style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 35,
-                      color: AppColors.white),
-                  textAlign: TextAlign.center,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 15, right: 18),
-                  child: BouncingWidget(
-                    child: Icon(
-                      FontAwesomeIcons.redo,
-                      color: widget.mainColor,
-                      size: 18,
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        widget.isBlue
-                            ? controller.blueEndGame.resetPoints()
-                            : controller.redEndGame.resetPoints();
-                      });
-                    },
-                  ),
-                ),
-              ],
+            NameRowWidget(
+              onPressed: () {
+                setState(() {
+                  widget.isBlue
+                      ? controller.blueEndGame.resetPoints()
+                      : controller.redEndGame.resetPoints();
+                });
+              },
+              mainColor: widget.mainColor,
+              text: 'End Game',
             ),
             QuestionWidget(
               text: "Carousel Delivery",
@@ -257,26 +240,9 @@ class _EndGameState extends State<EndGame> {
                 });
               },
             ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                margin: const EdgeInsets.all(1.5),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10),
-                decoration: BoxDecoration(
-                  color: widget.mainColor,
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: Text(
-                  "Swipe left to change alliance",
-                  style: TextStyle(
-                    color: widget.secondaryAllianceColor,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500,
-                  ),
-                  textAlign: TextAlign.start,
-                ),
-              ),
+            ChangeAllianceHintWidget(
+              mainColor: widget.mainColor,
+              secondaryAllianceColor: widget.secondaryAllianceColor,
             ),
             const Spacer(),
             BottomLine(
