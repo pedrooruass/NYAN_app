@@ -7,7 +7,7 @@
 # ------------------------------ TODO LIST FINAL ----------------------------- #
     
     4- Reformatar tudo, apagar tudo q nao estou usando
-    10- recursividade na appBar, no fundo branco e azul/vermelho
+    11- limitar todos os shipping para 100
     
 
 
@@ -15,7 +15,7 @@
 # ----------------------------------- DONE ----------------------------------- #
     1- Organization of files, - DONE
     2- Organize main and first screen, - DONE
-    3- Search the font for0000 the app, - DONE 'Kanit'
+    3- Search the font for the app, - DONE 'Kanit'
     4- Fix app bar, - DONE
     5- see how to do the drawer with the robot image, - NOT ANYMORE
     6- Sinc screens and bottomNavigationBar, - ARRUMAR ISSO LOGO FDP - DONE
@@ -54,6 +54,7 @@
         7- Fazer com que ao clicar no logo voltar pra pagina score tbm - NOT ANYMORE
         8- Terminar de achar as outras 2 cores, Driver Controlled solved - DONE DONE
         9- Change pics - DONE DONE
+        10- recursividade na appBar, no fundo branco e azul/vermelho - DONE DONE
     # ---------------------------------------------------------------------------- #
 
 
