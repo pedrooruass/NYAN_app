@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:nyan_app/app/controllers/calc_score_controller.dart';
 import 'package:nyan_app/app/core/theme/app_colors.dart';
 import 'package:nyan_app/app/pages/my_home_page/widgets/my_app_bar_widget.dart';
 import 'package:nyan_app/app/pages/my_home_page/widgets/my_bottom_navigation_bar_widget.dart';
 import 'package:nyan_app/app/pages/rules_page/rules_page.dart';
 import 'package:nyan_app/app/pages/score_page/score_page.dart';
-import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -18,14 +18,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int selectedIndex = 1;
   int scoreIndex = 0;
-  late CalcScoreController controller;
+  late CalcScoreController controller = Get.find();
   final PageController pageController = PageController(initialPage: 1);
-
-  @override
-  void initState() {
-    controller = Provider.of<CalcScoreController>(context, listen: false);
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,13 +33,14 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed1: () {
           setState(() {
             scoreIndex = 0;
-            controller.blueAutonomous.resetPoints();
-            controller.blueDriverControlled.resetPoints();
-            controller.blueEndGame.resetPoints();
-            controller.redAutonomous.resetPoints();
-            controller.redDriverControlled.resetPoints();
-            controller.redEndGame.resetPoints();
           });
+          controller.blueAutonomous.value.resetPoints();
+          controller.blueDriverControlled.value.resetPoints();
+          controller.blueEndGame.value.resetPoints();
+          controller.redAutonomous.value.resetPoints();
+          controller.redDriverControlled.value.resetPoints();
+          controller.redEndGame.value.resetPoints();
+          controller.refreshClass();
         },
         onPressed2: () async {
           const url = "https://instagram.com/nyanrobotics";
@@ -115,25 +110,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-
-/* -------------------------------- // Extra -------------------------------- */
-// AppBar(
-//         backgroundColor: Colors.transparent,
-//         elevation: 0,
-//         leading: Image.asset(
-//           "assets/Source Logo.png",
-//           height: 400,
-//           width: 400,
-//         ),
-//         title: const Text(
-//           'NYAN TEAM',
-//           style: TextStyle(color: Colors.white),
-//         ),
-//         actions: [
-//           Image.asset(
-//             "assets/robot.png",
-//           ),
-//         ],
-//       ),
-/* -------------------------------------------------------------------------- */

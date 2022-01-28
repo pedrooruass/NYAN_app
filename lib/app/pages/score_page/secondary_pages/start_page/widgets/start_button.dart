@@ -26,28 +26,6 @@ class _StartButtonState extends State<StartButton> {
         ),
         height: 300,
       ),
-      // Container(
-      //   alignment: Alignment.center,
-      //   decoration: BoxDecoration(
-      //     color: AppColors.primary,
-      //     borderRadius: BorderRadius.circular(10),
-      //     boxShadow: [
-      //       BoxShadow(
-      //           color: AppColors.secondary, spreadRadius: 5, blurRadius: 10)
-      //     ],
-      //   ),
-      //   height: 64,
-      //   width: 200,
-      //   child:  Text(
-      //     'Start',
-      //     style: TextStyle(
-      //       fontSize: 22,
-      //       fontWeight: FontWeight.w300,
-      //       color: AppColors.white,
-      //     ),
-      //     textAlign: TextAlign.center,
-      //   ),
-      // ),
     );
   }
 }

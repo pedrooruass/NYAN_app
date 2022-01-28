@@ -2,13 +2,14 @@
 
 
 
-16- arrumar o view do landscape || se nao der bloquear ele,
+
 27- reformatar tudo q for possivel
 # ------------------------------ TODO LIST FINAL ----------------------------- #
     
-    4- Reformatar tudo, apagar tudo q nao estou usando
-    11- limitar todos os shipping para 100
-    
+    4- Reformatar tudo, apagar tudo q nao estou usando,
+    11- limitar todos os shipping para 100; Perguntar para Ms. Major,
+    12- Dps de refatorar e componentizar tudo passar em kda arquivo apagando imports && comments desnecessary,
+    13- ver todo no Autonomous parking question && Refatorar os outros (Obx, value e refresher),
 
 
 # ---------------------------------------------------------------------------- #
@@ -45,6 +46,7 @@
     25- Terminar o Autonomous Model - DONE
     26- Arrumar todos os metodos e o total - DONE
     28- comecar o driver Controlled do jeito certo - DONE
+    16- arrumar o view do landscape || se nao der bloquear ele, - DONE
     # -------------------------------- DONE FINAL -------------------------------- #
         1- Finalizar End Game, - DONE DONE
         2- Arrumar Cores, - DONE DONE

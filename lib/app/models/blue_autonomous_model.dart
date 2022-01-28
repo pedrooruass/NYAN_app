@@ -8,7 +8,8 @@ class BlueAutonomousModel {
   bool isR2PInStorageUnit;
   bool isR1PCompletely;
   bool isR2PCompletely;
-  int fBonus;
+  int fBonus1;
+  int fBonus2;
 
   BlueAutonomousModel({
     this.isDuckDelivered = false,
@@ -20,7 +21,8 @@ class BlueAutonomousModel {
     this.isR2PInStorageUnit = true,
     this.isR1PCompletely = false,
     this.isR2PCompletely = false,
-    this.fBonus = 0,
+    this.fBonus1 = 0,
+    this.fBonus2 = 0,
   });
 
   int calcDuckDelivered() {
@@ -55,28 +57,19 @@ class BlueAutonomousModel {
     }
     return 3;
   }
-  // int calcPsu() {
-  //   if (psu) {
-  //     return 3;
-  //   } else if(psuc){
-  //     return 6;
-  //   }
-  //   return 0;
-  // }
 
-  // int calcPw() {
-  //   if (pw) {
-  //     return 10;
-  //   } else if (pwc) {
-  //     return 5;
-  //   }
-  //   return 0;
-  // }
-
-  int calcFbonus() {
-    if (fBonus == 2) {
+  int calcFbonus1() {
+    if (fBonus1 == 2) {
       return 20;
-    } else if (fBonus == 1) {
+    } else if (fBonus1 == 1) {
+      return 10;
+    }
+    return 0;
+  }
+  int calcFbonus2() {
+    if (fBonus2 == 2) {
+      return 20;
+    } else if (fBonus2 == 1) {
       return 10;
     }
     return 0;
@@ -84,7 +77,7 @@ class BlueAutonomousModel {
 
   int calcTotal() {
     int scoreTotal =
-        calcDuckDelivered() + calcFstorage() + calcFhub() + calcFbonus();
+        calcDuckDelivered() + calcFstorage() + calcFhub() + calcFbonus1() + calcFbonus2();
     if (isRobot1Parked) {
       scoreTotal += calcFparking1();
     }
@@ -102,7 +95,8 @@ class BlueAutonomousModel {
     isR2PInStorageUnit = true;
     isR1PCompletely = false;
     isR2PCompletely = false;
-    fBonus = 0;
+    fBonus1 = 0;
+    fBonus2 = 0;
     isRobot1Parked = false;
     isRobot2Parked = false;
 

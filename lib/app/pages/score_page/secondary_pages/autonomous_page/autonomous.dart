@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:nyan_app/app/controllers/calc_score_controller.dart';
 import 'package:nyan_app/app/core/theme/app_colors.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/autonomous_page/widgets/autonomous_game_questions_widget.dart';
 import 'package:nyan_app/app/pages/widgets/change_alliance_hint.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/widgets/bottom_line.dart';
-import 'package:nyan_app/app/pages/score_page/secondary_pages/widgets/question_widget.dart';
 import 'package:nyan_app/app/pages/widgets/name_row_widget.dart';
-import 'package:provider/provider.dart';
 
 class Autonomous extends StatefulWidget {
   final Color mainColor;
@@ -29,13 +28,7 @@ class Autonomous extends StatefulWidget {
 
 class _AutonomousState extends State<Autonomous> {
   int index = 0;
-  late CalcScoreController controller;
-
-  @override
-  void initState() {
-    controller = Provider.of<CalcScoreController>(context, listen: false);
-    super.initState();
-  }
+  CalcScoreController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -54,11 +47,10 @@ class _AutonomousState extends State<Autonomous> {
           children: [
             NameRowWidget(
               onPressed: () {
-                setState(() {
-                  widget.isBlue
-                      ? controller.blueAutonomous.resetPoints()
-                      : controller.redAutonomous.resetPoints();
-                });
+                widget.isBlue
+                    ? controller.blueAutonomous.value.resetPoints()
+                    : controller.redAutonomous.value.resetPoints();
+                controller.refreshClass();
               },
               mainColor: widget.mainColor,
               text: 'Autonomous',
@@ -75,22 +67,22 @@ class _AutonomousState extends State<Autonomous> {
               secondaryAllianceColor: widget.secondaryAllianceColor,
             ),
             const Spacer(),
-            BottomLine(
-              mainColor: widget.mainColor,
-              nextColor: AppColors.yellowGenius,
-              isAutonomous: true,
-              onPressedNext: widget.onPressed,
-              totalScore: widget.isBlue
-                  ? controller.calcBlueTotalScore()
-                  : controller.calcRedTotalScore(),
+            Obx(
+              () {
+                return BottomLine(
+                  mainColor: widget.mainColor,
+                  nextColor: AppColors.yellowGenius,
+                  isAutonomous: true,
+                  onPressedNext: widget.onPressed,
+                  totalScore: widget.isBlue
+                      ? controller.calcBlueTotalScore()
+                      : controller.calcRedTotalScore(),
+                );
+              },
             )
           ],
         ),
       ),
     );
   }
-
-  // Expanded parkingRobot1() {
-  //   return
-  // }
 }

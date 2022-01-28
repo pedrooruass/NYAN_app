@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:nyan_app/app/core/theme/app_colors.dart';
 
-class RowNavigatorWidget extends StatelessWidget {
+class RowNavigatorButtonWidget extends StatelessWidget {
   final void Function(int) onTap;
   final int indexSelected;
   final String name1;
@@ -8,18 +9,14 @@ class RowNavigatorWidget extends StatelessWidget {
   final String? name3;
   final String? name4;
   final String? name5;
-  final Color mainColor;
-  final Color secondaryColor;
   final double width;
 
-  const RowNavigatorWidget({
+  const RowNavigatorButtonWidget({
     Key? key,
     required this.onTap,
     required this.indexSelected,
     required this.name1,
     required this.name2,
-    required this.mainColor,
-    required this.secondaryColor,
     this.name3,
     this.name4,
     this.name5,
@@ -37,7 +34,7 @@ class RowNavigatorWidget extends StatelessWidget {
             width: MediaQuery.of(context).size.width * width,
             height: MediaQuery.of(context).size.height * 0.038,
             decoration: BoxDecoration(
-              color: mainColor,
+              color: AppColors.black,
               borderRadius: BorderRadius.circular(5),
             ),
             child: Row(
@@ -63,13 +60,13 @@ class RowNavigatorWidget extends StatelessWidget {
         child: Container(
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            color: indexSelected == index ? secondaryColor : Colors.transparent,
+            color: indexSelected == index ? AppColors.white : Colors.transparent,
             borderRadius: BorderRadius.circular(5),
           ),
           child: Text(
             text,
             style: TextStyle(
-              color: indexSelected == index ? mainColor : secondaryColor,
+              color: indexSelected == index ? AppColors.black : AppColors.white,
               fontWeight:
                   indexSelected == index ? FontWeight.bold : FontWeight.normal,
                   fontSize: 12.5
