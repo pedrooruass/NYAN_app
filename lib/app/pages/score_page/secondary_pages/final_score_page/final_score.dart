@@ -1,9 +1,11 @@
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:nyan_app/app/controllers/calc_score_controller.dart';
 import 'package:nyan_app/app/core/theme/app_colors.dart';
+import 'package:nyan_app/app/pages/score_page/secondary_pages/final_score_page/widgets/alliance_winner_widget.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/final_score_page/widgets/confetti_widget.dart';
-import 'package:provider/provider.dart';
+import 'package:nyan_app/app/pages/score_page/secondary_pages/final_score_page/widgets/score_details_widget.dart';
 
 class FinalScore extends StatefulWidget {
   const FinalScore({Key? key}) : super(key: key);
@@ -13,16 +15,9 @@ class FinalScore extends StatefulWidget {
 }
 
 class _FinalScoreState extends State<FinalScore> {
-  late CalcScoreController controller;
-  late ConfettiController confettiController;
-
-  @override
-  void initState() {
-    controller = Provider.of<CalcScoreController>(context, listen: false);
-    confettiController =
-        ConfettiController(duration: const Duration(seconds: 2));
-    super.initState();
-  }
+  CalcScoreController controller = Get.find();
+  ConfettiController confettiController =
+      ConfettiController(duration: const Duration(seconds: 2));
 
   @override
   void dispose() {
@@ -50,221 +45,9 @@ class _FinalScoreState extends State<FinalScore> {
                 ),
               ),
               Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      padding: const EdgeInsets.all(10),
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          bottomLeft: Radius.circular(10),
-                        ),
-                        color: AppColors.primary,
-                      ),
-                      child: Column(
-                        children: [
-                          Text(
-                            "Blue Alliance",
-                            style: TextStyle(
-                              fontSize: 25,
-                              color: AppColors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "Autonomous:",
-                                style: TextStyle(
-                                  fontSize: 16.5,
-                                  color: AppColors.yellowGenius,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              Text(
-                                controller.blueAutonomous
-                                    .calcTotal()
-                                    .toString(),
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: AppColors.white,
-                                  fontWeight: FontWeight.w300,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "Driver Controlled:",
-                                style: TextStyle(
-                                  fontSize: 15.5,
-                                  color: AppColors.yellowGenius,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              Text(
-                                controller.blueDriverControlled
-                                    .calcTotal()
-                                    .toString(),
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: AppColors.white,
-                                  fontWeight: FontWeight.w300,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "End Game:",
-                                style: TextStyle(
-                                  fontSize: 16.5,
-                                  color: AppColors.yellowGenius,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              Text(
-                                controller.blueEndGame.calcTotal().toString(),
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: AppColors.white,
-                                  fontWeight: FontWeight.w300,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Text(
-                            "Total:",
-                            style: TextStyle(
-                              fontSize: 30,
-                              color: AppColors.yellowGenius,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          Text(
-                            controller.calcBlueTotalScore().toString(),
-                            style: TextStyle(
-                              fontSize: 30,
-                              color: AppColors.white,
-                              fontWeight: FontWeight.w300,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Container(
-                      padding: const EdgeInsets.all(10),
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.only(
-                          topRight: Radius.circular(10),
-                          bottomRight: Radius.circular(10),
-                        ),
-                        color: AppColors.secondary,
-                      ),
-                      child: Column(
-                        children: [
-                          Text(
-                            "Red Alliance",
-                            style: TextStyle(
-                              fontSize: 25,
-                              color: AppColors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "Autonomous:",
-                                style: TextStyle(
-                                  fontSize: 16.5,
-                                  color: AppColors.orange,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              Text(
-                                controller.redAutonomous.calcTotal().toString(),
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: AppColors.white,
-                                  fontWeight: FontWeight.w300,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "Driver Controlled:",
-                                style: TextStyle(
-                                  fontSize: 15.5,
-                                  color: AppColors.orange,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              Text(
-                                controller.redDriverControlled
-                                    .calcTotal()
-                                    .toString(),
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: AppColors.white,
-                                  fontWeight: FontWeight.w300,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "End Game:",
-                                style: TextStyle(
-                                  fontSize: 16.5,
-                                  color: AppColors.orange,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              Text(
-                                controller.redEndGame.calcTotal().toString(),
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: AppColors.white,
-                                  fontWeight: FontWeight.w300,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Text(
-                            "Total:",
-                            style: TextStyle(
-                              fontSize: 30,
-                              color: AppColors.orange,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          Text(
-                            controller.calcRedTotalScore().toString(),
-                            style: TextStyle(
-                              fontSize: 30,
-                              color: AppColors.white,
-                              fontWeight: FontWeight.w300,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                children: const [
+                  ScoreDetailsWidget(isBlue: true),
+                  ScoreDetailsWidget(isBlue: false),
                 ],
               ),
               const SizedBox(
@@ -272,79 +55,15 @@ class _FinalScoreState extends State<FinalScore> {
               ),
               if (controller.calcBlueTotalScore() >
                   controller.calcRedTotalScore())
-                Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Blue Alliance",
-                          style: TextStyle(
-                            fontSize: 33,
-                            color: AppColors.primary,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        Text(
-                          " Won!!!",
-                          style: TextStyle(
-                            fontSize: 35,
-                            color: AppColors.yellowGenius,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ],
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          confettiController.play();
-                        });
-                      },
-                      child: Image.asset(
-                        "assets/azul.png",
-                        height: 200,
-                      ),
-                    ),
-                  ],
+                AllianceWinnerWidget(
+                  confettiController: confettiController,
+                  isBlue: true,
                 ),
               if (controller.calcRedTotalScore() >
                   controller.calcBlueTotalScore())
-                Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Red Alliance",
-                          style: TextStyle(
-                            fontSize: 33,
-                            color: AppColors.secondary,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        Text(
-                          " Won!!!",
-                          style: TextStyle(
-                            fontSize: 35,
-                            color: AppColors.orange,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ],
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          confettiController.play();
-                        });
-                      },
-                      child: Image.asset(
-                        "assets/verm.png",
-                        height: 200,
-                      ),
-                    ),
-                  ],
+                AllianceWinnerWidget(
+                  confettiController: confettiController,
+                  isBlue: false,
                 ),
 
               if (controller.calcBlueTotalScore() ==
