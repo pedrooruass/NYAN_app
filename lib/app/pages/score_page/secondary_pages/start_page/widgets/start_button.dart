@@ -24,7 +24,7 @@ class _StartButtonState extends State<StartButton> {
           "assets/10091_GIF_V2.gif",
           // "assets/boxer.gif",
         ),
-        height: 300,
+        height: MediaQuery.of(context).size.height * 0.4, // height: 300
       ),
     );
   }

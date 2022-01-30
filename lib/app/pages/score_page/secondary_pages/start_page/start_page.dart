@@ -29,7 +29,7 @@ class StartPage extends StatelessWidget {
             StartButton(
               onPressed: onPressed,
             ),
-            const SizedBox(height: 15),
+             SizedBox(height: MediaQuery.of(context).size.height * 0.01),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

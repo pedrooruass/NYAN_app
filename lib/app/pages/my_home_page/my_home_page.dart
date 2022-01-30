@@ -29,7 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
       extendBody: false,
       appBar: MyAppBarWidget(
         context: context,
-        height: MediaQuery.of(context).size.height * 0.12,
+        height: MediaQuery.of(context).size.height * 0.1,
         onPressed1: () {
           setState(() {
             scoreIndex = 0;
@@ -70,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               ),
-              height: MediaQuery.of(context).size.height * 0.73,
+              height: MediaQuery.of(context).size.height * 0.7,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
                 child: PageView(

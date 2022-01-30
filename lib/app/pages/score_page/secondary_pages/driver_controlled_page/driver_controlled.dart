@@ -7,8 +7,6 @@ import 'package:nyan_app/app/pages/score_page/secondary_pages/driver_controlled_
 import 'package:nyan_app/app/pages/score_page/secondary_pages/widgets/bottom_line.dart';
 import 'package:nyan_app/app/pages/widgets/change_alliance_hint.dart';
 import 'package:nyan_app/app/pages/widgets/name_row_widget.dart';
-import 'package:provider/provider.dart';
-
 class DriverControlled extends StatefulWidget {
   final Color mainColor;
   final Color allianceColor;
@@ -46,7 +44,8 @@ class _DriverControlledState extends State<DriverControlled> {
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: Column(
+        child: ListView(
+          padding: EdgeInsets.zero,
           children: [
             NameRowWidget(
               onPressed: () {
