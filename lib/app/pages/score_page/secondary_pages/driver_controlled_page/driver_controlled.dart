@@ -44,8 +44,7 @@ class _DriverControlledState extends State<DriverControlled> {
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: ListView(
-          padding: EdgeInsets.zero,
+        child: Column(
           children: [
             NameRowWidget(
               onPressed: () {

@@ -44,8 +44,7 @@ class _EndGameState extends State<EndGame> {
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: ListView(
-          padding: EdgeInsets.zero,
+        child: Column(
           children: [
             NameRowWidget(
               onPressed: () {

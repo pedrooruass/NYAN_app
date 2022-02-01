@@ -1,4 +1,6 @@
+import 'package:bouncing_widget/bouncing_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:nyan_app/app/controllers/calc_score_controller.dart';
 import 'package:nyan_app/app/core/theme/app_colors.dart';
@@ -27,29 +29,52 @@ class _MyHomePageState extends State<MyHomePage> {
       backgroundColor: AppColors.primary,
       extendBodyBehindAppBar: true,
       extendBody: false,
-      appBar: MyAppBarWidget(
-        context: context,
-        height: MediaQuery.of(context).size.height * 0.1,
-        onPressed1: () {
-          setState(() {
-            scoreIndex = 0;
-          });
-          controller.blueAutonomous.value.resetPoints();
-          controller.blueDriverControlled.value.resetPoints();
-          controller.blueEndGame.value.resetPoints();
-          controller.redAutonomous.value.resetPoints();
-          controller.redDriverControlled.value.resetPoints();
-          controller.redEndGame.value.resetPoints();
-          controller.refreshClass();
-        },
-        onPressed2: () async {
-          const url = "https://instagram.com/nyanrobotics";
-          if (await canLaunch(url)) {
-            await launch(url);
-          } else {
-            throw 'Could not launch $url';
-          }
-        },
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        title: Padding(
+          padding: const EdgeInsets.only(top: 10),
+          child: BouncingWidget(
+            onPressed: () {
+              setState(() {
+                scoreIndex = 0;
+              });
+              controller.blueAutonomous.value.resetPoints();
+              controller.blueDriverControlled.value.resetPoints();
+              controller.blueEndGame.value.resetPoints();
+              controller.redAutonomous.value.resetPoints();
+              controller.redDriverControlled.value.resetPoints();
+              controller.redEndGame.value.resetPoints();
+              controller.refreshClass();
+            },
+            child: Image.asset(
+              "assets/o_brabo.png",
+              width: MediaQuery.of(context).size.width * 0.43,
+            ),
+          ),
+        ), // Put onPressed
+        actions: [
+          Padding(
+            padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * 0.01,
+                right: MediaQuery.of(context).size.width * 0.03),
+            child: BouncingWidget(
+              onPressed: () async {
+                const url = "https://instagram.com/nyanrobotics";
+                if (await canLaunch(url)) {
+                  await launch(url);
+                } else {
+                  throw 'Could not launch $url';
+                }
+              },
+              child: Icon(
+                FontAwesomeIcons.instagram,
+                size: 25,
+                color: AppColors.white,
+              ),
+            ),
+          ),
+        ],
       ),
       body: Stack(
         children: [
@@ -70,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               ),
-              height: MediaQuery.of(context).size.height * 0.7,
+              height: MediaQuery.of(context).size.height * 0.73,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
                 child: PageView(
