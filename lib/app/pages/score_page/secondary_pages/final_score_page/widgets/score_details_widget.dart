@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nyan_app/app/controllers/calc_score_controller.dart';
@@ -34,7 +35,7 @@ class _ScoreDetailsWidgetState extends State<ScoreDetailsWidget> {
         ),
         child: Column(
           children: [
-            Text(
+            AutoSizeText(
               widget.isBlue ? "Blue Alliance" : "Red Alliance",
               style: TextStyle(
                 fontSize: 25,
@@ -45,7 +46,7 @@ class _ScoreDetailsWidgetState extends State<ScoreDetailsWidget> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                AutoSizeText(
                   "Autonomous:",
                   style: TextStyle(
                     fontSize: 16.5,
@@ -57,7 +58,7 @@ class _ScoreDetailsWidgetState extends State<ScoreDetailsWidget> {
                 ),
                 Obx(
                   () {
-                    return Text(
+                    return AutoSizeText(
                       widget.isBlue
                           ? controller.blueAutonomous.value
                               .calcTotal()
@@ -78,7 +79,7 @@ class _ScoreDetailsWidgetState extends State<ScoreDetailsWidget> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                AutoSizeText(
                   "Driver Controlled:",
                   style: TextStyle(
                     fontSize: 15.5,
@@ -90,7 +91,7 @@ class _ScoreDetailsWidgetState extends State<ScoreDetailsWidget> {
                 ),
                 Obx(
                   () {
-                    return Text(
+                    return AutoSizeText(
                       widget.isBlue
                           ? controller.blueDriverControlled.value
                               .calcTotal()
@@ -111,7 +112,7 @@ class _ScoreDetailsWidgetState extends State<ScoreDetailsWidget> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                AutoSizeText(
                   "End Game:",
                   style: TextStyle(
                     fontSize: 16.5,
@@ -123,7 +124,7 @@ class _ScoreDetailsWidgetState extends State<ScoreDetailsWidget> {
                 ),
                 Obx(
                   () {
-                    return Text(
+                    return AutoSizeText(
                       widget.isBlue
                           ? controller.blueEndGame.value.calcTotal().toString()
                           : controller.redEndGame.value.calcTotal().toString(),
@@ -137,7 +138,7 @@ class _ScoreDetailsWidgetState extends State<ScoreDetailsWidget> {
                 ),
               ],
             ),
-            Text(
+            AutoSizeText(
               "Total:",
               style: TextStyle(
                 fontSize: 30,
@@ -148,7 +149,7 @@ class _ScoreDetailsWidgetState extends State<ScoreDetailsWidget> {
             ),
             Obx(
               () {
-                return Text(
+                return AutoSizeText(
                   widget.isBlue
                       ? controller.calcBlueTotalScore().toString()
                       : controller.calcRedTotalScore().toString(),

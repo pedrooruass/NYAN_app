@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nyan_app/app/controllers/calc_score_controller.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/widgets/question_widget.dart';
-import 'package:provider/provider.dart';
 
 class DriverControlledGameQuestionsWidget extends StatefulWidget {
   final bool isBlue;

@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nyan_app/app/controllers/calc_score_controller.dart';
@@ -98,7 +99,7 @@ class _EndGameGameQuestionsWidgetState
           },
         ),
         Center(
-          child: Text(
+          child: AutoSizeText(
             "Robots Parking?",
             style: TextStyle(
               fontSize: 25,
@@ -149,7 +150,7 @@ class _EndGameGameQuestionsWidgetState
     return Expanded(
       child: Column(
         children: [
-          Text(
+          AutoSizeText(
             isRobot1 ? "R1" : "R2",
             style: TextStyle(
               fontSize: 25,

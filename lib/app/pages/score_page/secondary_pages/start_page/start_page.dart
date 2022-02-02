@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:nyan_app/app/core/theme/app_colors.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/start_page/widgets/start_button.dart';
@@ -19,7 +20,7 @@ class StartPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
+            const AutoSizeText(
               "10091",
               style: TextStyle(
                 fontSize: 55,
@@ -33,14 +34,14 @@ class StartPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
+                const AutoSizeText(
                   "Press the robot to ",
                   style: TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                Text(
+                AutoSizeText(
                   "START!",
                   style: TextStyle(
                     fontSize: 25,

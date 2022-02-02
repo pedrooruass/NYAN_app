@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -35,7 +36,7 @@ class _FinalScoreState extends State<FinalScore> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Center(
-                child: Text(
+                child: AutoSizeText(
                   "Final Score Dashboard",
                   style: TextStyle(
                     fontSize: 33,
@@ -71,7 +72,7 @@ class _FinalScoreState extends State<FinalScore> {
                 Column(
                   children: [
                     Center(
-                      child: Text(
+                      child: AutoSizeText(
                         "The match ended in a Draw!!!",
                         style: TextStyle(
                           fontSize: 27,

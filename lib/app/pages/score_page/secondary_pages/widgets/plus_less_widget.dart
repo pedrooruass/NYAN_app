@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:bouncing_widget/bouncing_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:nyan_app/app/core/theme/app_colors.dart';
@@ -36,7 +37,7 @@ class PlusLessWidget extends StatelessWidget {
                 color: AppColors.black,
                 borderRadius: const BorderRadius.all(Radius.circular(5)),
               ),
-              child: Text(
+              child: AutoSizeText(
                 "-",
                 style: TextStyle(
                   color: AppColors.white,
@@ -47,7 +48,7 @@ class PlusLessWidget extends StatelessWidget {
               ),
             ),
           ),
-          Text(
+          AutoSizeText(
             "$points",
             style: TextStyle(
                 color: AppColors.white,
@@ -70,7 +71,7 @@ class PlusLessWidget extends StatelessWidget {
                 color: AppColors.black,
                 borderRadius: const BorderRadius.all(Radius.circular(5)),
               ),
-              child: Text(
+              child: AutoSizeText(
                 "+",
                 style: TextStyle(
                     color: AppColors.white,

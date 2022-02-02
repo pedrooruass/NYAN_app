@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:bouncing_widget/bouncing_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -32,7 +33,7 @@ class BottomLine extends StatelessWidget {
         children: [
           Row(
             children: [
-              Text(
+              AutoSizeText(
                 "Total:",
                 style: TextStyle(
                   fontSize: 33,
@@ -43,7 +44,7 @@ class BottomLine extends StatelessWidget {
               const SizedBox(
                 width: 10,
               ),
-              Text(
+              AutoSizeText(
                 totalScore.toString(),
                 style: TextStyle(
                   fontSize: 33,
@@ -67,7 +68,7 @@ class BottomLine extends StatelessWidget {
                             Radius.circular(10),
                           ),
                         ),
-                        child: Text(
+                        child: AutoSizeText(
                           "Next",
                           style: TextStyle(
                             fontSize: 27.5,
@@ -96,7 +97,7 @@ class BottomLine extends StatelessWidget {
                                     Radius.circular(10),
                                   ),
                                 ),
-                                child: Text(
+                                child: AutoSizeText(
                                   "Back",
                                   style: TextStyle(
                                     fontSize: 27.5,
@@ -130,7 +131,7 @@ class BottomLine extends StatelessWidget {
                                         FontAwesomeIcons.trophy,
                                         color: AppColors.yellowGenius,
                                       )
-                                    : Text("Next",
+                                    : AutoSizeText("Next",
                                         style: TextStyle(
                                           fontSize: 27.5,
                                           color: AppColors.white,
@@ -154,7 +155,7 @@ class BottomLine extends StatelessWidget {
                                 Radius.circular(10),
                               ),
                             ),
-                            child: Text(
+                            child: AutoSizeText(
                               "Back",
                               style: TextStyle(
                                 fontSize: 27.5,

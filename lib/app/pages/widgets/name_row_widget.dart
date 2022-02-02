@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:bouncing_widget/bouncing_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -17,28 +18,28 @@ class NameRowWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  text,
-                  style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 35,
-                      color: AppColors.white),
-                  textAlign: TextAlign.center,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 15, right: 18),
-                  child: BouncingWidget(
-                    child: Icon(
-                      FontAwesomeIcons.redo,
-                      color: mainColor,
-                      size: 18,
-                    ),
-                    onPressed: onPressed,
-                  ),
-                ),
-              ],
-            );
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        AutoSizeText(
+          text,
+          style: TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: 35,
+              color: AppColors.white),
+          textAlign: TextAlign.center,
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 15, right: 18),
+          child: BouncingWidget(
+            child: Icon(
+              FontAwesomeIcons.redo,
+              color: mainColor,
+              size: 18,
+            ),
+            onPressed: onPressed,
+          ),
+        ),
+      ],
+    );
   }
 }

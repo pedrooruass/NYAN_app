@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:nyan_app/app/core/theme/app_colors.dart';
 
@@ -63,7 +64,7 @@ class RowNavigatorButtonWidget extends StatelessWidget {
             color: indexSelected == index ? AppColors.white : Colors.transparent,
             borderRadius: BorderRadius.circular(5),
           ),
-          child: Text(
+          child: AutoSizeText(
             text,
             style: TextStyle(
               color: indexSelected == index ? AppColors.black : AppColors.white,

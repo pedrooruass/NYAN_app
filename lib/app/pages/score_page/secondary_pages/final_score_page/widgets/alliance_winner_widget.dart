@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:nyan_app/app/core/theme/app_colors.dart';
@@ -22,7 +23,7 @@ class _AllianceWinnerWidgetState extends State<AllianceWinnerWidget> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
+            AutoSizeText(
               widget.isBlue ? "Blue Alliance" : "Red Alliance",
               style: TextStyle(
                 fontSize: 33,
@@ -30,7 +31,7 @@ class _AllianceWinnerWidgetState extends State<AllianceWinnerWidget> {
                 fontWeight: FontWeight.w500,
               ),
             ),
-            Text(
+            AutoSizeText(
               " Won!!!",
               style: TextStyle(
                 fontSize: 35,

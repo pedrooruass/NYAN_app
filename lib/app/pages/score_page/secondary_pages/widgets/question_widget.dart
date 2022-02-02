@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:nyan_app/app/core/theme/app_colors.dart';
 import 'package:nyan_app/app/pages/score_page/secondary_pages/widgets/plus_less_widget.dart';
@@ -47,7 +48,7 @@ class _QuestionWidgetState extends State<QuestionWidget> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             // Question
-            Text(
+            AutoSizeText(
               widget.text,
               style: TextStyle(
                 fontSize: widget.sizeQuestionText,
