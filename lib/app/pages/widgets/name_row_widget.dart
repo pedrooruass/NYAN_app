@@ -30,12 +30,15 @@ class NameRowWidget extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 15, right: 18),
+          padding: EdgeInsets.only(
+            left: MediaQuery.of(context).size.width * 0.03,
+            right: MediaQuery.of(context).size.width * 0.05,
+          ),
           child: BouncingWidget(
             child: Icon(
               FontAwesomeIcons.redo,
               color: mainColor,
-              size: 18,
+              size: MediaQuery.of(context).size.width * 0.05,
             ),
             onPressed: onPressed,
           ),
