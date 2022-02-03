@@ -35,14 +35,15 @@ class _FinalScoreState extends State<FinalScore> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Center(
+               Center(
                 child: AutoSizeText(
                   "Final Score Dashboard",
                   style: TextStyle(
-                    fontSize: 33,
+                    fontSize: MediaQuery.of(context).size.width * 0.09,
                     // color: AppColors.orange,
                     fontWeight: FontWeight.w500,
                   ),
+                  maxLines: 1,
                 ),
               ),
               Row(
@@ -51,8 +52,8 @@ class _FinalScoreState extends State<FinalScore> {
                   ScoreDetailsWidget(isBlue: false),
                 ],
               ),
-              const SizedBox(
-                height: 10,
+               SizedBox(
+                height: MediaQuery.of(context).size.height * 0.01,
               ),
               if (controller.calcBlueTotalScore() >
                   controller.calcRedTotalScore())
@@ -75,15 +76,16 @@ class _FinalScoreState extends State<FinalScore> {
                       child: AutoSizeText(
                         "The match ended in a Draw!!!",
                         style: TextStyle(
-                          fontSize: 27,
+                          fontSize: MediaQuery.of(context).size.width * 0.5,
                           color: AppColors.grey,
                           fontWeight: FontWeight.w500,
                         ),
+                        maxLines: 1,
                       ),
                     ),
                     Image.asset(
                       "assets/duck.gif",
-                      height: 200,
+                      height: MediaQuery.of(context).size.height * 0.45,
                     ),
                   ],
                 ),

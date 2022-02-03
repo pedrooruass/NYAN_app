@@ -26,19 +26,21 @@ class _AllianceWinnerWidgetState extends State<AllianceWinnerWidget> {
             AutoSizeText(
               widget.isBlue ? "Blue Alliance" : "Red Alliance",
               style: TextStyle(
-                fontSize: 33,
+                fontSize: MediaQuery.of(context).size.width * 0.09,
                 color: widget.isBlue ? AppColors.primary : AppColors.secondary,
                 fontWeight: FontWeight.w500,
               ),
+              maxLines: 1,
             ),
             AutoSizeText(
               " Won!!!",
               style: TextStyle(
-                fontSize: 35,
+                fontSize: MediaQuery.of(context).size.width * 0.1,
                 color:
                     widget.isBlue ? AppColors.yellowGenius : AppColors.orange,
                 fontWeight: FontWeight.w500,
               ),
+              maxLines: 1,
             ),
           ],
         ),

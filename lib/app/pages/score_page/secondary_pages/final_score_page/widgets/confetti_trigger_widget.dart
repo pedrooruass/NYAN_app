@@ -21,7 +21,7 @@ class _ConfettiTriggerWidgetState extends State<ConfettiTriggerWidget> {
           },
           child: Image.asset(
             widget.isBlue ? "assets/azul.png" : "assets/verm.png",
-            height: 200,
+            height: MediaQuery.of(context).size.height * 0.33,
           ),
     );
   }

@@ -56,15 +56,22 @@ class _EndGameState extends State<EndGame> {
               mainColor: widget.mainColor,
               text: 'End Game',
             ),
-            EndGameGameQuestionsWidget(
-              isBlue: widget.isBlue,
-              mainColor: widget.mainColor,
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    EndGameGameQuestionsWidget(
+                      isBlue: widget.isBlue,
+                      mainColor: widget.mainColor,
+                    ),
+                    ChangeAllianceHintWidget(
+                      mainColor: widget.mainColor,
+                      secondaryAllianceColor: widget.secondaryAllianceColor,
+                    ),
+                  ],
+                ),
+              ),
             ),
-            ChangeAllianceHintWidget(
-              mainColor: widget.mainColor,
-              secondaryAllianceColor: widget.secondaryAllianceColor,
-            ),
-            const Spacer(),
             Obx(
               () {
                 return BottomLine(

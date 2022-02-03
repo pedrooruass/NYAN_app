@@ -81,7 +81,7 @@ class _QuestionWidgetState extends State<QuestionWidget> {
         if (widget.useDivider)
           Divider(
             color: widget.dividerColor ?? AppColors.white,
-            thickness: 2,
+            thickness: MediaQuery.of(context).size.width * 0.006,
           ),
       ],
     );

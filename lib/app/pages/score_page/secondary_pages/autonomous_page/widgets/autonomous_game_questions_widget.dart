@@ -183,7 +183,7 @@ class _AutonomousGameQuestionsWidgetState
         ),
         Divider(
           color: widget.mainColor,
-          thickness: 2,
+          thickness: MediaQuery.of(context).size.width * 0.006,
         ), // Copy Divider
       ],
     );

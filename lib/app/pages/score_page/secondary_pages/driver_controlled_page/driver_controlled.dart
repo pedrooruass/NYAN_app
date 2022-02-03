@@ -7,6 +7,7 @@ import 'package:nyan_app/app/pages/score_page/secondary_pages/driver_controlled_
 import 'package:nyan_app/app/pages/score_page/secondary_pages/widgets/bottom_line.dart';
 import 'package:nyan_app/app/pages/widgets/change_alliance_hint.dart';
 import 'package:nyan_app/app/pages/widgets/name_row_widget.dart';
+
 class DriverControlled extends StatefulWidget {
   final Color mainColor;
   final Color allianceColor;
@@ -56,16 +57,25 @@ class _DriverControlledState extends State<DriverControlled> {
               mainColor: widget.mainColor,
               text: 'Driver Controlled',
             ),
-            const Spacer(),
-            DriverControlledGameQuestionsWidget(
-              isBlue: widget.isBlue,
-              mainColor: widget.mainColor,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.015,
             ),
-            ChangeAllianceHintWidget(
-              mainColor: widget.mainColor,
-              secondaryAllianceColor: widget.secondaryAllianceColor,
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    DriverControlledGameQuestionsWidget(
+                      isBlue: widget.isBlue,
+                      mainColor: widget.mainColor,
+                    ),
+                    ChangeAllianceHintWidget(
+                      mainColor: widget.mainColor,
+                      secondaryAllianceColor: widget.secondaryAllianceColor,
+                    ),
+                  ],
+                ),
+              ),
             ),
-            const Spacer(),
             Obx(
               () {
                 return BottomLine(

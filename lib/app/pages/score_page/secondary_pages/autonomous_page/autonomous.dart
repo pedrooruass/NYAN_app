@@ -59,15 +59,24 @@ class _AutonomousState extends State<Autonomous> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.003,
             ),
-            AutonomousGameQuestionsWidget(
-              mainColor: widget.mainColor,
-              isBlue: widget.isBlue,
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    AutonomousGameQuestionsWidget(
+                      mainColor: widget.mainColor,
+                      isBlue: widget.isBlue,
+                    ),
+                    ChangeAllianceHintWidget(
+                      mainColor: widget.mainColor,
+                      secondaryAllianceColor: widget.secondaryAllianceColor,
+                    ),
+                  ],
+                ),
+              ),
             ),
-            ChangeAllianceHintWidget(
-              mainColor: widget.mainColor,
-              secondaryAllianceColor: widget.secondaryAllianceColor,
-            ),
-            const Spacer(),
+            // const Spacer(),
+            // const Spacer(),
             Obx(
               () {
                 return BottomLine(

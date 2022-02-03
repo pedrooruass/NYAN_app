@@ -38,10 +38,11 @@ class _ScoreDetailsWidgetState extends State<ScoreDetailsWidget> {
             AutoSizeText(
               widget.isBlue ? "Blue Alliance" : "Red Alliance",
               style: TextStyle(
-                fontSize: 25,
+                fontSize: MediaQuery.of(context).size.width * 0.3,
                 color: AppColors.white,
                 fontWeight: FontWeight.bold,
               ),
+              maxLines: 1,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -49,12 +50,13 @@ class _ScoreDetailsWidgetState extends State<ScoreDetailsWidget> {
                 AutoSizeText(
                   "Autonomous:",
                   style: TextStyle(
-                    fontSize: 16.5,
+                    fontSize: MediaQuery.of(context).size.width * 0.05,
                     color: widget.isBlue
                         ? AppColors.yellowGenius
                         : AppColors.orange,
                     fontWeight: FontWeight.w500,
                   ),
+                  maxLines: 1,
                 ),
                 Obx(
                   () {
@@ -67,10 +69,11 @@ class _ScoreDetailsWidgetState extends State<ScoreDetailsWidget> {
                               .calcTotal()
                               .toString(),
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: MediaQuery.of(context).size.width * 0.06,
                         color: AppColors.white,
                         fontWeight: FontWeight.w300,
                       ),
+                      maxLines: 1,
                     );
                   },
                 ),
@@ -82,12 +85,13 @@ class _ScoreDetailsWidgetState extends State<ScoreDetailsWidget> {
                 AutoSizeText(
                   "Driver Controlled:",
                   style: TextStyle(
-                    fontSize: 15.5,
+                    fontSize: MediaQuery.of(context).size.width * 0.041,
                     color: widget.isBlue
                         ? AppColors.yellowGenius
                         : AppColors.orange,
                     fontWeight: FontWeight.w500,
                   ),
+                  maxLines: 1,
                 ),
                 Obx(
                   () {
@@ -100,10 +104,11 @@ class _ScoreDetailsWidgetState extends State<ScoreDetailsWidget> {
                               .calcTotal()
                               .toString(),
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: MediaQuery.of(context).size.width * 0.06,
                         color: AppColors.white,
                         fontWeight: FontWeight.w300,
                       ),
+                      maxLines: 1,
                     );
                   },
                 ),
@@ -115,12 +120,13 @@ class _ScoreDetailsWidgetState extends State<ScoreDetailsWidget> {
                 AutoSizeText(
                   "End Game:",
                   style: TextStyle(
-                    fontSize: 16.5,
+                    fontSize: MediaQuery.of(context).size.width * 0.05,
                     color: widget.isBlue
                         ? AppColors.yellowGenius
                         : AppColors.orange,
                     fontWeight: FontWeight.w500,
                   ),
+                  maxLines: 1,
                 ),
                 Obx(
                   () {
@@ -129,10 +135,11 @@ class _ScoreDetailsWidgetState extends State<ScoreDetailsWidget> {
                           ? controller.blueEndGame.value.calcTotal().toString()
                           : controller.redEndGame.value.calcTotal().toString(),
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: MediaQuery.of(context).size.width * 0.06,
                         color: AppColors.white,
                         fontWeight: FontWeight.w300,
                       ),
+                      maxLines: 1,
                     );
                   },
                 ),
@@ -141,11 +148,12 @@ class _ScoreDetailsWidgetState extends State<ScoreDetailsWidget> {
             AutoSizeText(
               "Total:",
               style: TextStyle(
-                fontSize: 30,
+                fontSize: MediaQuery.of(context).size.width * 0.09,
                 color:
                     widget.isBlue ? AppColors.yellowGenius : AppColors.orange,
                 fontWeight: FontWeight.w500,
               ),
+              maxLines: 1,
             ),
             Obx(
               () {
@@ -154,10 +162,11 @@ class _ScoreDetailsWidgetState extends State<ScoreDetailsWidget> {
                       ? controller.calcBlueTotalScore().toString()
                       : controller.calcRedTotalScore().toString(),
                   style: TextStyle(
-                    fontSize: 30,
+                    fontSize: MediaQuery.of(context).size.width * 0.09,
                     color: AppColors.white,
                     fontWeight: FontWeight.w300,
                   ),
+                  maxLines: 1,
                 );
               },
             ),
