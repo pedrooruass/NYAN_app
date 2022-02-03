@@ -25,9 +25,10 @@ class ChangeAllianceHintWidget extends StatelessWidget {
           "Swipe left to change alliance",
           style: TextStyle(
             color: secondaryAllianceColor,
-            fontSize: 20,
+            fontSize: MediaQuery.of(context).size.width * 0.055,
             fontWeight: FontWeight.w500,
           ),
+          maxLines: 1,
           textAlign: TextAlign.start,
         ),
       ),

@@ -27,10 +27,35 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primary,
-      extendBodyBehindAppBar: true,
+      extendBodyBehindAppBar: false,
       extendBody: false,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
+      appBar:
+      // appBar: MyAppBarWidget(
+      //   context: context,
+      //   onPressed1: () {
+      //     setState(() {
+      //       scoreIndex = 0;
+      //     });
+      //     controller.blueAutonomous.value.resetPoints();
+      //     controller.blueDriverControlled.value.resetPoints();
+      //     controller.blueEndGame.value.resetPoints();
+      //     controller.redAutonomous.value.resetPoints();
+      //     controller.redDriverControlled.value.resetPoints();
+      //     controller.redEndGame.value.resetPoints();
+      //     controller.refreshClass();
+      //   },
+      //   onPressed2: () async {
+      //     const url = "https://instagram.com/nyanrobotics";
+      //     if (await canLaunch(url)) {
+      //       await launch(url);
+      //     } else {
+      //       throw 'Could not launch $url';
+      //     }
+      //   },
+      //   height: 50,
+      // ),
+       AppBar(
+        backgroundColor: AppColors.primary,
         elevation: 0,
         title: Padding(
           padding: const EdgeInsets.only(top: 10),
@@ -79,59 +104,66 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Stack(
         children: [
           Align(
-            alignment: Alignment.bottomRight,
-            child: Container(
-              decoration: BoxDecoration(
-                color: AppColors.white,
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(25),
-                  topRight: Radius.circular(25),
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: AppColors.grey,
-                    blurRadius: 3,
-                    spreadRadius: 1,
+            alignment: Alignment.bottomCenter,
+            child: MyBottomNavigationBarWidget(
+              selectedIndex: selectedIndex,
+              onChanged: (index) {
+                setState(() {
+                  selectedIndex = index;
+                  pageController.jumpToPage(selectedIndex);
+                });
+              },
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 80),
+            child: Align(
+              alignment: Alignment.bottomRight,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: AppColors.white,
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(25),
+                    topRight: Radius.circular(25),
                   ),
-                ],
-              ),
-              height: MediaQuery.of(context).size.height * 0.73,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
-                child: PageView(
-                  controller: pageController,
-                  physics: const NeverScrollableScrollPhysics(),
-                  onPageChanged: (index) {
-                    setState(() {
-                      selectedIndex = index;
-                    });
-                  },
-                  children: [
-                    const RulesPage(),
-                    ScorePage(
-                      onPageChanged: (index) {
-                        setState(() {
-                          scoreIndex = index;
-                        });
-                      },
-                      index: scoreIndex,
-                    ),
-                  ],
+                  // boxShadow: [
+                  //   BoxShadow(
+                  //     color: AppColors.grey,
+                  //     blurRadius: 3,
+                  //     spreadRadius: 1,
+                  //   ),
+                  // ],
+                ),
+                height: MediaQuery.of(context).size.height * 0.77,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+                  child: PageView(
+                    controller: pageController,
+                    physics: const NeverScrollableScrollPhysics(),
+                    onPageChanged: (index) {
+                      setState(() {
+                        selectedIndex = index;
+                      });
+                    },
+                    children: [
+                      const RulesPage(),
+                      ScorePage(
+                        onPageChanged: (index) {
+                          setState(() {
+                            scoreIndex = index;
+                          });
+                        },
+                        index: scoreIndex,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
           ),
         ],
       ),
-      bottomNavigationBar: MyBottomNavigationBarWidget(
-        selectedIndex: selectedIndex,
-        onChanged: (index) {
-          setState(() {
-            selectedIndex = index;
-            pageController.jumpToPage(selectedIndex);
-          });
-        },
-      ),
+      // bottomNavigationBar:
     );
   }
 }

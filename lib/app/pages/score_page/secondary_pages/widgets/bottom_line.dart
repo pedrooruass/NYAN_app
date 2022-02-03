@@ -36,10 +36,12 @@ class BottomLine extends StatelessWidget {
               AutoSizeText(
                 "Total:",
                 style: TextStyle(
-                  fontSize: 33,
+                  fontSize: MediaQuery.of(context).size.width * 0.09,
                   color: mainColor,
                   fontWeight: FontWeight.w500,
                 ),
+                maxLines: 1,
+
               ),
               const SizedBox(
                 width: 10,

@@ -20,12 +20,13 @@ class StartPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const AutoSizeText(
+             AutoSizeText(
               "10091",
               style: TextStyle(
-                fontSize: 55,
+                    fontSize: MediaQuery.of(context).size.width * 0.17,
                 fontWeight: FontWeight.w500,
               ),
+              maxLines: 1,
             ),
             StartButton(
               onPressed: onPressed,
@@ -34,20 +35,22 @@ class StartPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const AutoSizeText(
+                 AutoSizeText(
                   "Press the robot to ",
                   style: TextStyle(
-                    fontSize: 25,
+                    fontSize: MediaQuery.of(context).size.width * 0.07,
                     fontWeight: FontWeight.w500,
                   ),
+                  maxLines: 1,
                 ),
                 AutoSizeText(
                   "START!",
                   style: TextStyle(
-                    fontSize: 25,
+                    fontSize: MediaQuery.of(context).size.width * 0.08,
                     color: AppColors.secondary,
                     fontWeight: FontWeight.w500,
                   ),
+                  maxLines: 1,
                 ),
               ],
             ),

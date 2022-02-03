@@ -24,8 +24,9 @@ class NameRowWidget extends StatelessWidget {
           text,
           style: TextStyle(
               fontWeight: FontWeight.w500,
-              fontSize: 35,
+              fontSize: MediaQuery.of(context).size.width * 0.09,
               color: AppColors.white),
+          maxLines: 1,
           textAlign: TextAlign.center,
         ),
         Padding(

@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nyan_app/app/controllers/calc_score_controller.dart';
@@ -90,13 +91,14 @@ class _AutonomousGameQuestionsWidgetState
           },
         ),
         Center(
-          child: Text(
+          child: AutoSizeText(
             "Parking Robots",
             style: TextStyle(
-              fontSize: 25,
+              fontSize: MediaQuery.of(context).size.width * 0.07,
               color: widget.mainColor,
               fontWeight: FontWeight.w300,
             ),
+            maxLines: 1,
           ),
         ),
         Row(
@@ -118,22 +120,24 @@ class _AutonomousGameQuestionsWidgetState
               children: [
                 Column(
                   children: [
-                    Text(
+                    AutoSizeText(
                       "Freight Bonus?",
                       style: TextStyle(
-                        fontSize: 23,
+                        fontSize: MediaQuery.of(context).size.width * 0.063,
                         color: AppColors.white,
                         fontWeight: FontWeight.w300,
                       ),
+                      maxLines: 1,
                       textAlign: TextAlign.start,
                     ),
-                    Text(
+                    AutoSizeText(
                       "1 && 2",
                       style: TextStyle(
-                        fontSize: 21,
+                        fontSize: MediaQuery.of(context).size.width * 0.063,
                         color: AppColors.white,
                         fontWeight: FontWeight.w300,
                       ),
+                      maxLines: 1,
                       textAlign: TextAlign.start,
                     ),
                   ],

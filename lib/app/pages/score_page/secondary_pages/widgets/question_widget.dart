@@ -23,7 +23,7 @@ class QuestionWidget extends StatefulWidget {
     required this.text,
     this.isPlussOrLess = true,
     this.useDivider = true,
-    this.sizeQuestionText = 23.0,
+    this.sizeQuestionText = 0.063,
     this.onPressedPlusLess,
     this.onPressedIndex,
     this.points = 0,
@@ -51,10 +51,11 @@ class _QuestionWidgetState extends State<QuestionWidget> {
             AutoSizeText(
               widget.text,
               style: TextStyle(
-                fontSize: widget.sizeQuestionText,
+                fontSize: MediaQuery.of(context).size.width * widget.sizeQuestionText, // testar, era 23
                 color: AppColors.white,
                 fontWeight: FontWeight.w300,
               ),
+              maxLines: 1,
             ),
             widget.isPlussOrLess
                 ? PlusLessWidget(

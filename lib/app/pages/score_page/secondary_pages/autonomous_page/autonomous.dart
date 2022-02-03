@@ -42,7 +42,8 @@ class _AutonomousState extends State<Autonomous> {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
+        padding: EdgeInsets.symmetric(
+            horizontal: MediaQuery.of(context).size.height * 0.01),
         child: Column(
           children: [
             NameRowWidget(
@@ -55,8 +56,8 @@ class _AutonomousState extends State<Autonomous> {
               mainColor: widget.mainColor,
               text: 'Autonomous',
             ),
-            const SizedBox(
-              height: 10,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.003,
             ),
             AutonomousGameQuestionsWidget(
               mainColor: widget.mainColor,

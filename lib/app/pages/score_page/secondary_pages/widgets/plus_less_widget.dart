@@ -41,7 +41,7 @@ class PlusLessWidget extends StatelessWidget {
                 "-",
                 style: TextStyle(
                   color: AppColors.white,
-                  fontSize: 15,
+                  fontSize: MediaQuery.of(context).size.width * 0.035,
                   fontWeight: FontWeight.bold,
                 ),
                 textAlign: TextAlign.center,
@@ -52,7 +52,7 @@ class PlusLessWidget extends StatelessWidget {
             "$points",
             style: TextStyle(
                 color: AppColors.white,
-                fontSize: 15,
+                fontSize: MediaQuery.of(context).size.width * 0.035,
                 fontWeight: FontWeight.bold),
           ),
           BouncingWidget(
@@ -75,7 +75,7 @@ class PlusLessWidget extends StatelessWidget {
                 "+",
                 style: TextStyle(
                     color: AppColors.white,
-                    fontSize: 15,
+                    fontSize: MediaQuery.of(context).size.width * 0.035,
                     fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
