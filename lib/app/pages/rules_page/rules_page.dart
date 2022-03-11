@@ -78,6 +78,33 @@ class RulesPage extends StatelessWidget {
                 fontWeight: FontWeight.w300),
             textAlign: TextAlign.center,
           ),
+          Divider(
+            thickness: 2,
+            color: AppColors.grey,
+          ),
+          AutoSizeText(
+            'Sponsors',
+            style: TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: MediaQuery.of(context).size.width * 0.09,
+              color: Colors.blue,
+            ),
+          ),
+          Image.asset(
+            "assets/laser precision.png",
+            width: MediaQuery.of(context).size.width * 0.7,
+          ),
+          Padding(
+            padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.033),
+            child: Image.asset(
+              "assets/HydraForce.png",
+              width: MediaQuery.of(context).size.width * 0.7,
+            ),
+          ),
+          Image.asset(
+            "assets/Carmel Crest Ribbon.png",
+            width: MediaQuery.of(context).size.width * 0.4,
+          ),
           Container(
             color: Colors.transparent,
             height: MediaQuery.of(context).size.height * 0.05,

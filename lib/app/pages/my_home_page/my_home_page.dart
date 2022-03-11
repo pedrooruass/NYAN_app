@@ -4,7 +4,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:nyan_app/app/controllers/calc_score_controller.dart';
 import 'package:nyan_app/app/core/theme/app_colors.dart';
-import 'package:nyan_app/app/pages/my_home_page/widgets/my_app_bar_widget.dart';
 import 'package:nyan_app/app/pages/my_home_page/widgets/my_bottom_navigation_bar_widget.dart';
 import 'package:nyan_app/app/pages/rules_page/rules_page.dart';
 import 'package:nyan_app/app/pages/score_page/score_page.dart';
@@ -78,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
         ), // Put onPressed
-        actions: [
+        actions: [ 
           Padding(
             padding: EdgeInsets.only(
                 top: MediaQuery.of(context).size.height * 0.01,
